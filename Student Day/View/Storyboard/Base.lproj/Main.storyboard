@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C7f-bA-wT7">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="Huu-ER-HtZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cxd-yF-BZZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="8M4-gn-xgP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -22,14 +22,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwR-U8-WvR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1256" y="548"/>
+            <point key="canvasLocation" x="-1181" y="664"/>
         </scene>
         <!--TO DO-->
         <scene sceneID="Q6K-jb-8bZ">
             <objects>
                 <viewController id="sOu-lx-OhX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sF6-SA-oe0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0qx-0y-66g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -43,18 +43,18 @@
         <!--Расписание-->
         <scene sceneID="8F1-GA-nfC">
             <objects>
-                <viewController id="j9U-lA-wAA" sceneMemberID="viewController">
+                <viewController id="j9U-lA-wAA" customClass="ScheduleViewController" customModule="Student_Day" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UXR-q5-gia">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ZVL-ia-ubw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Расписание" image="calendar" catalog="system" id="FLS-XC-j6k"/>
+                    <navigationItem key="navigationItem" title="Расписание" id="HSS-M4-7O8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ass-bx-I67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-323" y="-446"/>
+            <point key="canvasLocation" x="586.15384615384619" y="-447.15639810426541"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h1e-qN-j1e">
@@ -66,7 +66,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="j9U-lA-wAA" kind="relationship" relationship="viewControllers" id="Fom-af-R6a"/>
+                        <segue destination="tAe-hT-KFE" kind="relationship" relationship="viewControllers" id="Fom-af-R6a"/>
                         <segue destination="sOu-lx-OhX" kind="relationship" relationship="viewControllers" id="OUS-hk-QSP"/>
                         <segue destination="Huu-ER-HtZ" kind="relationship" relationship="viewControllers" id="Ql3-yy-xDZ"/>
                     </connections>
@@ -74,6 +74,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWo-DX-uNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1212" y="-143"/>
+        </scene>
+        <!--Расписание-->
+        <scene sceneID="YRo-6M-Z0E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tAe-hT-KFE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Расписание" image="calendar" catalog="system" id="FLS-XC-j6k"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aUB-0a-ZGk">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="j9U-lA-wAA" kind="relationship" relationship="rootViewController" id="VaJ-Wa-jAL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQl-pO-k8h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323.1884057971015" y="-446.65178571428567"/>
         </scene>
     </scenes>
     <resources>
