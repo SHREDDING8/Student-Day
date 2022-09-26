@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C7f-bA-wT7">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alco Stat-->
+        <scene sceneID="pD4-cJ-Qgh">
+            <objects>
+                <viewController id="Huu-ER-HtZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cxd-yF-BZZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="8M4-gn-xgP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alco Stat" image="drop.fill" catalog="system" id="Bxm-7Z-feQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rwR-U8-WvR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1256" y="548"/>
+        </scene>
+        <!--TO DO-->
+        <scene sceneID="Q6K-jb-8bZ">
+            <objects>
+                <viewController id="sOu-lx-OhX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sF6-SA-oe0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0qx-0y-66g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="TO DO" image="list.bullet.rectangle" catalog="system" id="Rgs-Bb-62g"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BV5-rF-o1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323" y="232"/>
+        </scene>
+        <!--Расписание-->
+        <scene sceneID="8F1-GA-nfC">
+            <objects>
+                <viewController id="j9U-lA-wAA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UXR-q5-gia">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZVL-ia-ubw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Расписание" image="calendar" catalog="system" id="FLS-XC-j6k"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ass-bx-I67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323" y="-446"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="h1e-qN-j1e">
+            <objects>
+                <tabBarController id="C7f-bA-wT7" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="etb-5N-P8r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="j9U-lA-wAA" kind="relationship" relationship="viewControllers" id="Fom-af-R6a"/>
+                        <segue destination="sOu-lx-OhX" kind="relationship" relationship="viewControllers" id="OUS-hk-QSP"/>
+                        <segue destination="Huu-ER-HtZ" kind="relationship" relationship="viewControllers" id="Ql3-yy-xDZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWo-DX-uNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1212" y="-143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="drop.fill" catalog="system" width="101" height="128"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

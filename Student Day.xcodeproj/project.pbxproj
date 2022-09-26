@@ -56,15 +56,47 @@
 		EED70C2C28E1AA3C009B976C /* Student Day */ = {
 			isa = PBXGroup;
 			children = (
+				EED70C4428E1AA73009B976C /* Controller */,
+				EED70C4328E1AA6B009B976C /* Model */,
+				EED70C4128E1AA4A009B976C /* View */,
 				EED70C2D28E1AA3C009B976C /* AppDelegate.swift */,
 				EED70C2F28E1AA3C009B976C /* SceneDelegate.swift */,
-				EED70C3128E1AA3C009B976C /* ViewController.swift */,
-				EED70C3328E1AA3C009B976C /* Main.storyboard */,
 				EED70C3628E1AA3F009B976C /* Assets.xcassets */,
-				EED70C3828E1AA3F009B976C /* LaunchScreen.storyboard */,
 				EED70C3B28E1AA3F009B976C /* Info.plist */,
 			);
 			path = "Student Day";
+			sourceTree = "<group>";
+		};
+		EED70C4128E1AA4A009B976C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EED70C4228E1AA53009B976C /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EED70C4228E1AA53009B976C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				EED70C3328E1AA3C009B976C /* Main.storyboard */,
+				EED70C3828E1AA3F009B976C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		EED70C4328E1AA6B009B976C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EED70C4428E1AA73009B976C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EED70C3128E1AA3C009B976C /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
