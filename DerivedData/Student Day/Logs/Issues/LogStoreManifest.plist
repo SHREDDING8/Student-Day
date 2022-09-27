@@ -6,6 +6,34 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
+		<key>10D25D7A-83FB-47A0-9EEF-8739C86A2255</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
+			<key>fileName</key>
+			<string>10D25D7A-83FB-47A0-9EEF-8739C86A2255.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Student_Day-eplqnwmnrxsphjcgifljecbsvzdn</string>
+			<key>timeStartedRecording</key>
+			<real>685960581.92765296</real>
+			<key>timeStoppedRecording</key>
+			<real>685960582.65241098</real>
+			<key>title</key>
+			<string>Build target Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>10D25D7A-83FB-47A0-9EEF-8739C86A2255</string>
+		</dict>
 		<key>3AD34B83-E72A-424C-8DE2-2692BD715423</key>
 		<dict>
 			<key>className</key>
@@ -61,34 +89,6 @@
 			<string>Build target FSCalendar</string>
 			<key>uniqueIdentifier</key>
 			<string>B35893C1-B39E-416C-9812-79BB6A16E213</string>
-		</dict>
-		<key>DDD60069-DDD8-4268-84EB-6658EA703678</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
-			<key>fileName</key>
-			<string>DDD60069-DDD8-4268-84EB-6658EA703678.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>Student_Day-eplqnwmnrxsphjcgifljecbsvzdn</string>
-			<key>timeStartedRecording</key>
-			<real>685957681.04095495</real>
-			<key>timeStoppedRecording</key>
-			<real>685957681.433689</real>
-			<key>title</key>
-			<string>Build target Student Day</string>
-			<key>uniqueIdentifier</key>
-			<string>DDD60069-DDD8-4268-84EB-6658EA703678</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

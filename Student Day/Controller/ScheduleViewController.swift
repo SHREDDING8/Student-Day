@@ -9,8 +9,6 @@
 /*
  TO DO: -
  - Изменить цвета и вид календаря на приятный не забыть темную тему
-
-  - подумать на хедером
  */
 
 import UIKit
@@ -30,9 +28,32 @@ class ScheduleViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru")
-        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
         // set template after setting locale
         calendar.appearance.headerDateFormat = dateFormatter.string(from: calendar.currentPage)
+        
+        
+        
+        //settings color
+        calendar.appearance.headerTitleColor = UIColor(named: "gray")
+        calendar.appearance.weekdayTextColor = UIColor(named: "gray")
+        calendar.appearance.titleWeekendColor = .systemGray
+        calendar.appearance.titlePlaceholderColor = .systemGray3
+        
+        calendar.appearance.titleDefaultColor = UIColor(named: "black")
+        
+        calendar.appearance.selectionColor = .systemOrange
+        
+        calendar.appearance.borderSelectionColor = .systemBlue
+        
+        calendar.appearance.todayColor = .systemBlue
+        
+        // settings Font
+        calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 18)
+        calendar.appearance.weekdayFont = UIFont.systemFont(ofSize: 14, weight: .bold)
+        calendar.appearance.titleFont = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        
+        
         return calendar
     }()
     var calendarHeightConstraint:NSLayoutConstraint!
@@ -134,6 +155,11 @@ class ScheduleViewController: UIViewController {
         }
     }
     
+    
+    
+//MARK:- TABLE VIEW
+    
+    
 }
 
 //MARK: - CALENDAR FSCalendarDelegate,FSCalendarDataSource
@@ -150,7 +176,7 @@ extension ScheduleViewController:FSCalendarDelegate,FSCalendarDataSource{
         // change the month
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru")
-        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
         calendar.appearance.headerDateFormat = dateFormatter.string(from: calendar.currentPage)
     }
 }
