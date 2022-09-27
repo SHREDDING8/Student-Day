@@ -8,9 +8,7 @@
 
 /*
  TO DO: -
-  - Сделать плавный переход при неизменении страницы с помощью просмотра даты в начале развертывания
- 
-  - Изменить цвета и вид календаря на приятный не забыть темную тему
+ - Изменить цвета и вид календаря на приятный не забыть темную тему
 
   - подумать на хедером
  */
@@ -29,7 +27,12 @@ class ScheduleViewController: UIViewController {
         calendar.scope = .week
         calendar.appearance.headerMinimumDissolvedAlpha = 0
         calendar.locale = NSLocale(localeIdentifier: "ru") as Locale
-        calendar.appearance.headerDateFormat = "MM"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM")
+        // set template after setting locale
+        calendar.appearance.headerDateFormat = dateFormatter.string(from: calendar.currentPage)
         return calendar
     }()
     var calendarHeightConstraint:NSLayoutConstraint!
@@ -115,14 +118,10 @@ class ScheduleViewController: UIViewController {
             
             
             if let today =  calendarView.today{
-                if calendarView.currentPage == today{
-                    calendarView.setScope(.week, animated: true)
-                }
-                else{
-                    print(calendarView.currentPage)
                     calendarView.setScope(.week, animated: false)
+                let month = Calendar.current.date(byAdding: .month, value: 1, to: today)!
+                calendarView.setCurrentPage(month, animated: false)
                     calendarView.setCurrentPage(today, animated: true)
-                }
                
             }
             UIView.transition(with: showCloseCalendarButton , duration: 0.5, options: .transitionFlipFromTop, animations: {
@@ -146,5 +145,12 @@ extension ScheduleViewController:FSCalendarDelegate,FSCalendarDataSource{
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         calendarHeightConstraint.constant = bounds.height
         view.layoutIfNeeded()
+    }
+    func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        // change the month
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru")
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM")
+        calendar.appearance.headerDateFormat = dateFormatter.string(from: calendar.currentPage)
     }
 }

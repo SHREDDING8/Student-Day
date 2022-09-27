@@ -34,62 +34,6 @@
 			<key>uniqueIdentifier</key>
 			<string>14367B02-3C51-4DAC-82ED-CA86A25981A9</string>
 		</dict>
-		<key>80DAC9D2-CB33-4A06-AD25-289D65830633</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
-			<key>fileName</key>
-			<string>80DAC9D2-CB33-4A06-AD25-289D65830633.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>Resolve Packages</string>
-			<key>timeStartedRecording</key>
-			<real>685882608.31205404</real>
-			<key>timeStoppedRecording</key>
-			<real>685882608.62020099</real>
-			<key>title</key>
-			<string>Resolve Packages</string>
-			<key>uniqueIdentifier</key>
-			<string>80DAC9D2-CB33-4A06-AD25-289D65830633</string>
-		</dict>
-		<key>F4C2A637-253B-4F43-A9DE-A99238B0284D</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.PackageLog</string>
-			<key>fileName</key>
-			<string>F4C2A637-253B-4F43-A9DE-A99238B0284D.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>Resolve Packages</string>
-			<key>timeStartedRecording</key>
-			<real>685882496.19317102</real>
-			<key>timeStoppedRecording</key>
-			<real>685882496.22894502</real>
-			<key>title</key>
-			<string>Resolve Packages</string>
-			<key>uniqueIdentifier</key>
-			<string>F4C2A637-253B-4F43-A9DE-A99238B0284D</string>
-		</dict>
 	</dict>
 </dict>
 </plist>
