@@ -8,7 +8,6 @@
 
 /*
  TO DO: -
- - Изменить цвета и вид календаря на приятный не забыть темную тему
  */
 
 import UIKit
@@ -56,6 +55,13 @@ class ScheduleViewController: UIViewController {
         
         return calendar
     }()
+    
+    
+    private var tableViewSchedule:UITableView = {
+        let tableViewSchedule = UITableView()
+        tableViewSchedule.translatesAutoresizingMaskIntoConstraints = false
+        return tableViewSchedule
+    }()
     var calendarHeightConstraint:NSLayoutConstraint!
     
     private var showCloseCalendarButton:UIButton = {
@@ -67,14 +73,16 @@ class ScheduleViewController: UIViewController {
         return button
     }()
     
-    
-    
+    var asd:UINib?
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
         setNavigationBar()
         setCalendar()
         setButtonShowCloseCalendar()
+        setConfigurationTableView()
+        
+        
 
     }
     
@@ -155,11 +163,6 @@ class ScheduleViewController: UIViewController {
         }
     }
     
-    
-    
-//MARK:- TABLE VIEW
-    
-    
 }
 
 //MARK: - CALENDAR FSCalendarDelegate,FSCalendarDataSource
@@ -179,4 +182,46 @@ extension ScheduleViewController:FSCalendarDelegate,FSCalendarDataSource{
         dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
         calendar.appearance.headerDateFormat = dateFormatter.string(from: calendar.currentPage)
     }
+}
+
+//MARK:- TABLE VIEW
+
+extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
+    
+    fileprivate func setConfigurationTableView(){
+        
+        tableViewSchedule.backgroundColor = UIColor(named: "background Color")
+        
+        self.tableViewSchedule.delegate = self
+        self.tableViewSchedule.dataSource = self
+        self.view.addSubview(tableViewSchedule)
+        NSLayoutConstraint.activate([
+            
+            tableViewSchedule.topAnchor.constraint(equalTo: showCloseCalendarButton.bottomAnchor, constant: 10),
+            tableViewSchedule.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            tableViewSchedule.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            tableViewSchedule.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        asd = UINib(nibName: "CellForSchedule", bundle: nil)
+        tableView.register(asd, forCellReuseIdentifier: "CellForSchedule")
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath)
+        cell.backgroundColor = UIColor(named: "background Color")
+        
+    
+//        conf.text = String(indexPath.row)
+//        cell.backgroundColor = .blue
+        return cell
+    }
+    
+    
 }

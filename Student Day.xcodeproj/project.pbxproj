@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7CF0C777B7D041BEFABDD14C /* Pods_Student_Day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F30DD24B222130252440634 /* Pods_Student_Day.framework */; };
+		EE4A381028E2F3150041C714 /* CellForSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4A380E28E2F3150041C714 /* CellForSchedule.swift */; };
+		EE4A381128E2F3150041C714 /* CellForSchedule.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4A380F28E2F3150041C714 /* CellForSchedule.xib */; };
 		EEC5884228E1C656005FB604 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC5884128E1C656005FB604 /* ScheduleViewController.swift */; };
 		EED70C2E28E1AA3C009B976C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED70C2D28E1AA3C009B976C /* AppDelegate.swift */; };
 		EED70C3028E1AA3C009B976C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED70C2F28E1AA3C009B976C /* SceneDelegate.swift */; };
@@ -20,6 +22,8 @@
 		1F30DD24B222130252440634 /* Pods_Student_Day.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Student_Day.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C4E7FC8445B96229CE36E2 /* Pods-Student Day.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student Day.debug.xcconfig"; path = "Target Support Files/Pods-Student Day/Pods-Student Day.debug.xcconfig"; sourceTree = "<group>"; };
 		BA32DF8EF6545A037D3B9D58 /* Pods-Student Day.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student Day.release.xcconfig"; path = "Target Support Files/Pods-Student Day/Pods-Student Day.release.xcconfig"; sourceTree = "<group>"; };
+		EE4A380E28E2F3150041C714 /* CellForSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForSchedule.swift; sourceTree = "<group>"; };
+		EE4A380F28E2F3150041C714 /* CellForSchedule.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellForSchedule.xib; sourceTree = "<group>"; };
 		EEC5884128E1C656005FB604 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		EED70C2A28E1AA3C009B976C /* Student Day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Day.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED70C2D28E1AA3C009B976C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +63,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EE4A380D28E2F2EA0041C714 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				EE4A380E28E2F3150041C714 /* CellForSchedule.swift */,
+				EE4A380F28E2F3150041C714 /* CellForSchedule.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		EED70C2128E1AA3C009B976C = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +107,7 @@
 		EED70C4128E1AA4A009B976C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EE4A380D28E2F2EA0041C714 /* cells */,
 				EED70C4228E1AA53009B976C /* Storyboard */,
 			);
 			path = View;
@@ -187,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE4A381128E2F3150041C714 /* CellForSchedule.xib in Resources */,
 				EED70C3A28E1AA3F009B976C /* LaunchScreen.storyboard in Resources */,
 				EED70C3728E1AA3F009B976C /* Assets.xcassets in Resources */,
 				EED70C3528E1AA3C009B976C /* Main.storyboard in Resources */,
@@ -242,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE4A381028E2F3150041C714 /* CellForSchedule.swift in Sources */,
 				EEC5884228E1C656005FB604 /* ScheduleViewController.swift in Sources */,
 				EED70C2E28E1AA3C009B976C /* AppDelegate.swift in Sources */,
 				EED70C3028E1AA3C009B976C /* SceneDelegate.swift in Sources */,
