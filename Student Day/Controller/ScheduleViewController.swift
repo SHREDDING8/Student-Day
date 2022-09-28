@@ -73,7 +73,6 @@ class ScheduleViewController: UIViewController {
         return button
     }()
     
-    var asd:UINib?
     override func viewDidLoad() {
         super.viewDidLoad()
         setView()
@@ -218,7 +217,7 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
         
         
         
-        asd = UINib(nibName: "CellForSchedule", bundle: nil)
+        let asd = UINib(nibName: "CellForSchedule", bundle: nil)
         tableView.register(asd, forCellReuseIdentifier: "CellForSchedule")
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule

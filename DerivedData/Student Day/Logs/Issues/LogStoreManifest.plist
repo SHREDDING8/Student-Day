@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>3AD34B83-E72A-424C-8DE2-2692BD715423</key>
+		<key>5A9D38F6-BF59-4357-98F7-77D400BAA79B</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.framework</string>
 			<key>fileName</key>
-			<string>3AD34B83-E72A-424C-8DE2-2692BD715423.xcactivitylog</string>
+			<string>5A9D38F6-BF59-4357-98F7-77D400BAA79B.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -26,15 +26,15 @@
 			<key>signature</key>
 			<string>Pods-Student_Day-behcedacbivfeggkhcxcijedgbwn</string>
 			<key>timeStartedRecording</key>
-			<real>685956162.00340903</real>
+			<real>686052775.81724298</real>
 			<key>timeStoppedRecording</key>
-			<real>685956164.86959398</real>
+			<real>686052776.47943294</real>
 			<key>title</key>
 			<string>Build target Pods-Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>3AD34B83-E72A-424C-8DE2-2692BD715423</string>
+			<string>5A9D38F6-BF59-4357-98F7-77D400BAA79B</string>
 		</dict>
-		<key>66B38AA8-5030-4564-93BD-5FB7DBF46188</key>
+		<key>7973E3E3-75F4-4639-AB21-99EBBA21FA1A</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -43,26 +43,26 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
 			<key>fileName</key>
-			<string>66B38AA8-5030-4564-93BD-5FB7DBF46188.xcactivitylog</string>
+			<string>7973E3E3-75F4-4639-AB21-99EBBA21FA1A.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
 			<dict>
 				<key>highLevelStatus</key>
-				<string>S</string>
+				<string>W</string>
 			</dict>
 			<key>signature</key>
 			<string>Student_Day-eplqnwmnrxsphjcgifljecbsvzdn</string>
 			<key>timeStartedRecording</key>
-			<real>685964367.57681501</real>
+			<real>686101420.09741402</real>
 			<key>timeStoppedRecording</key>
-			<real>685964368.61137402</real>
+			<real>686101420.70652497</real>
 			<key>title</key>
 			<string>Build target Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>66B38AA8-5030-4564-93BD-5FB7DBF46188</string>
+			<string>7973E3E3-75F4-4639-AB21-99EBBA21FA1A</string>
 		</dict>
-		<key>B35893C1-B39E-416C-9812-79BB6A16E213</key>
+		<key>7EEE2757-DCB1-438C-8B4A-6EA33B9082F9</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogMajorGroupSection</string>
@@ -71,7 +71,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.framework</string>
 			<key>fileName</key>
-			<string>B35893C1-B39E-416C-9812-79BB6A16E213.xcactivitylog</string>
+			<string>7EEE2757-DCB1-438C-8B4A-6EA33B9082F9.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -82,13 +82,13 @@
 			<key>signature</key>
 			<string>FSCalendar-behcedacbivfeggkhcxcijedgbwn</string>
 			<key>timeStartedRecording</key>
-			<real>685956162.00392401</real>
+			<real>686052775.81789899</real>
 			<key>timeStoppedRecording</key>
-			<real>685956164.26982796</real>
+			<real>686052776.46430099</real>
 			<key>title</key>
 			<string>Build target FSCalendar</string>
 			<key>uniqueIdentifier</key>
-			<string>B35893C1-B39E-416C-9812-79BB6A16E213</string>
+			<string>7EEE2757-DCB1-438C-8B4A-6EA33B9082F9</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
