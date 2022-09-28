@@ -8,8 +8,14 @@
 import UIKit
 
 class CellForSchedule: UITableViewCell {
-
-    @IBOutlet weak var test: UILabel!
+    
+    @IBOutlet weak var nameOfCourse: UILabel!
+    
+    @IBOutlet weak var nameOfProf: UILabel!
+    
+    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var place: UILabel!
+    @IBOutlet weak var time: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

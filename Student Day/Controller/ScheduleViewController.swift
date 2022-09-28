@@ -96,9 +96,14 @@ class ScheduleViewController: UIViewController {
     
 //MARK: - navigation Bar
     private func setNavigationBar(){
-        let editNavItem = UIBarButtonItem(barButtonSystemItem: .edit, target: nil, action: nil)
-        self.navigationItem.rightBarButtonItem = editNavItem
+        let settingsNavItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), landscapeImagePhone: nil, style: .done, target: self, action: #selector(transitionToSettings))
+        self.navigationItem.rightBarButtonItem = settingsNavItem
         
+    }
+    
+    @objc func transitionToSettings(){
+        let settingsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsFirstPageController")
+        navigationController?.pushViewController(settingsController, animated: true)
     }
 
 //MARK: - CALENDAR
@@ -205,22 +210,46 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
+        
+        
         asd = UINib(nibName: "CellForSchedule", bundle: nil)
         tableView.register(asd, forCellReuseIdentifier: "CellForSchedule")
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath)
-        cell.backgroundColor = UIColor(named: "background Color")
+        var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
         
-    
-//        conf.text = String(indexPath.row)
-//        cell.backgroundColor = .blue
+        cell = configureCell(cell: cell, indexPathRow: indexPath.row)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    // MARK: - Cells for Schedule
+    
+    private func configureCell(cell:CellForSchedule,indexPathRow:Int)->CellForSchedule{
+        let gfd = test()
+        let cellModel = gfd[indexPathRow]
+        let dateformatter = DateFormatter()
+        dateformatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        
+        cell.nameOfProf.text = cellModel.nameOfProf
+        cell.nameOfCourse.text = cellModel.nameOfCourse
+        cell.time.text = dateformatter.string(from: cellModel.time)
+        cell.place.text = cellModel.place
+        cell.type.text = cellModel.typeOfClass.rawValue
+        
+        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
+        
+        return cell
+        
     }
     
     
