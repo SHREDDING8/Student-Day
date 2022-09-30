@@ -241,7 +241,7 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
         
         cell.nameOfProf.text = cellModel.nameOfProf
         cell.nameOfCourse.text = cellModel.nameOfCourse
-        cell.time.text = dateformatter.string(from: cellModel.time)
+        cell.time.text = "\(dateformatter.string(from: cellModel.timeStart))-\(dateformatter.string(from: cellModel.timeEnd))"
         cell.place.text = cellModel.place
         cell.type.text = cellModel.typeOfClass.rawValue
         

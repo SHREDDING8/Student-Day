@@ -19,7 +19,8 @@ enum backroundColorCell:String{
 protocol CellForScheduleModelProtocol{
     var nameOfCourse:String{ get set}
     var nameOfProf:String{get set}
-    var time:Date{get set}
+    var timeStart:Date{get set}
+    var timeEnd:Date{get set}
     var place:String{get set}
     var typeOfClass:TypeClass{get set}
     
@@ -37,7 +38,8 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
 
     var nameOfProf: String
 
-    var time: Date
+    var timeStart: Date
+    var timeEnd:Date
 
     var place: String
 
@@ -50,10 +52,11 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
     internal var userNotofocation: Bool
 
     // init
-    init(course:String, prof:String, time:Date,place:String,typeOfClass:TypeClass,backgroundColor:backroundColorCell,userNotofocation:Bool) {
+    init(course:String, prof:String, timeStart:Date,timeEnd:Date, place:String,typeOfClass:TypeClass,backgroundColor:backroundColorCell,userNotofocation:Bool) {
         self.nameOfCourse = course
         self.nameOfProf = prof
-        self.time = time
+        self.timeStart = timeStart
+        self.timeEnd = timeEnd
         self.place = place
         self.typeOfClass = typeOfClass
         self.backgroundColor = backgroundColor
@@ -67,9 +70,9 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
 }
 
 func test() -> [CellForScheduleModel]{
-    let first = CellForScheduleModel(course: "Differential Equations", prof: "da", time: Date(), place: "320", typeOfClass: .lecture, backgroundColor: .red, userNotofocation: true)
+    let first = CellForScheduleModel(course: "Differential Equations", prof: "da", timeStart: Date(),timeEnd: Date(), place: "320", typeOfClass: .lecture, backgroundColor: .red, userNotofocation: true)
     
-    let second = CellForScheduleModel(course: "Introduction to optimization", prof: "da", time: Date(), place: "123", typeOfClass: .lecture, backgroundColor: .red, userNotofocation: true)
+    let second = CellForScheduleModel(course: "Introduction to optimization", prof: "da", timeStart: Date(),timeEnd: Date(), place: "123", typeOfClass: .lecture, backgroundColor: .red, userNotofocation: true)
     
     let result = [first,second]
     return result

@@ -17,7 +17,8 @@ protocol StorageProtocol{
 enum CellKey:String{
     case nameOfProf
     case nameOfCourse
-    case time
+    case timeStart
+    case timeEnd
     case place
     case type
     case backgroundColor
@@ -40,7 +41,8 @@ class Storage:StorageProtocol{
         for cellFromStorage in arrayFromStorage {
             guard let nameOfProf = cellFromStorage[CellKey.nameOfProf.rawValue],
                 let nameOfCourse = cellFromStorage[CellKey.nameOfCourse.rawValue],
-                  let time = dateFormatter.date(from: cellFromStorage[CellKey.time.rawValue]!),
+                  let timeStart = dateFormatter.date(from: cellFromStorage[CellKey.timeStart.rawValue] ?? "0"),
+                let timeEnd = dateFormatter.date(from: cellFromStorage[CellKey.timeEnd.rawValue] ?? "0"),
                 let place = cellFromStorage[CellKey.place.rawValue],
                 let type = cellFromStorage[CellKey.type.rawValue],
                 let backgroundColor = cellFromStorage[CellKey.backgroundColor.rawValue],
@@ -48,7 +50,7 @@ class Storage:StorageProtocol{
                     continue
             }
             
-            let cellToArray = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, time: time, place: place, typeOfClass: TypeClass(rawValue: type)!, backgroundColor: backroundColorCell(rawValue: backgroundColor)!, userNotofocation: Bool(userNotification)!)
+            let cellToArray = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart,timeEnd: timeEnd, place: place, typeOfClass: TypeClass(rawValue: type)!, backgroundColor: backroundColorCell(rawValue: backgroundColor)!, userNotofocation: Bool(userNotification)!)
             cells.append(cellToArray)
         }
         
@@ -64,7 +66,8 @@ class Storage:StorageProtocol{
             var dictForCell:[String:String] = [:]
             dictForCell[CellKey.nameOfProf.rawValue] = cell.nameOfProf
             dictForCell[CellKey.nameOfCourse.rawValue] = cell.nameOfCourse
-            dictForCell[CellKey.time.rawValue] = dateFormatter.string(from: cell.time)
+            dictForCell[CellKey.timeStart.rawValue] = dateFormatter.string(from: cell.timeStart)
+            dictForCell[CellKey.timeEnd.rawValue] = dateFormatter.string(from: cell.timeEnd)
             dictForCell[CellKey.type.rawValue] = cell.typeOfClass.rawValue
             dictForCell[CellKey.backgroundColor.rawValue] = cell.backgroundColor.rawValue
             dictForCell[CellKey.place.rawValue] = cell.place

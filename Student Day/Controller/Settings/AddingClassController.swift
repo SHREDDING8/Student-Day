@@ -1,13 +1,30 @@
 //
-//  SettingsClassesController.swift
+//  AddingClassController.swift
 //  Student Day
 //
-//  Created by SHREDDING on 28.09.2022.
+//  Created by SHREDDING on 30.09.2022.
 //
 
 import UIKit
 
-class SettingsClassesController: UITableViewController {
+class AddingClassController: UITableViewController {
+    
+    private var nameOfCourse: String = ""
+
+    private var nameOfProf: String = ""
+
+    private var timeStart: Date = Date()
+    
+    private var timeEnd:Date = Date()
+
+    private var place: String = ""
+
+    private var typeOfClass: TypeClass = .lecture
+
+    private var backgroundColor: backroundColorCell = .red
+
+
+    private var userNotofocation: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,49 +41,28 @@ class SettingsClassesController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        switch section{
+        case 0,1:
+            return 3
+        default:
+            return 1
+        }
+        
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        let asd = UINib(nibName: "CellForSchedule", bundle: nil)
-        tableView.register(asd, forCellReuseIdentifier: "CellForSchedule")
-        let storage = Storage()
-        let allcells = storage.getAllClassesFromStorage()
-        
-        
-        var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
-        if let allcells = allcells {
-            cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: allcells)
-        }
-        
-
-        return cell
-    }
-    private func configureCell(cell:CellForSchedule,indexPathRow:Int,allCells:[CellForScheduleModel])->CellForSchedule{
-        if allCells.count != 0{
-        let cellModel = allCells[indexPathRow]
-        let dateformatter = DateFormatter()
-        dateformatter.setLocalizedDateFormatFromTemplate("HH:mm")
-        
-        cell.nameOfProf.text = cellModel.nameOfProf
-        cell.nameOfCourse.text = cellModel.nameOfCourse
-            cell.time.text = "\(dateformatter.string(from: cellModel.timeStart))-\(dateformatter.string(from: cellModel.timeEnd))"
-        cell.place.text = cellModel.place
-        cell.type.text = cellModel.typeOfClass.rawValue
-        
-        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
-        }
-        return cell
-        
-    }
+//
+//        // Configure the cell...
+//
+//        return cell
+//    }
     
 
     /*
@@ -114,21 +110,11 @@ class SettingsClassesController: UITableViewController {
     }
     */
     
-    // MARK: - configuration TableView
+    //MARK: - configuration tableView
     
     private func setConfigurationTableView(){
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil),UIBarButtonItem(barButtonSystemItem: .edit, target: nil, action: nil)]
-        
-        let action = UIAction { _ in
-            let storage = Storage()
-            storage.saveAllCleseesToStorage(test())
-            self.tableView.reloadData()
-            
-            let addingController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController")
-            self.navigationController?.pushViewController(addingController, animated: true)
-        }
-        
-        self.navigationItem.rightBarButtonItems?[0].primaryAction = action
+        self.view.backgroundColor = UIColor(named: "background Color")
     }
+    
 
 }

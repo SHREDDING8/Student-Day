@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>1B751B46-2D86-40BB-872F-1042FA08EB7F</key>
+		<key>0B099AE3-B659-4C74-8EAF-04809D9CCC08</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>1B751B46-2D86-40BB-872F-1042FA08EB7F.xcactivitylog</string>
+			<string>0B099AE3-B659-4C74-8EAF-04809D9CCC08.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,15 +32,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686101063.82731402</real>
+			<real>686200195.60688901</real>
 			<key>timeStoppedRecording</key>
-			<real>686101121.887766</real>
+			<real>686200228.56404102</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>1B751B46-2D86-40BB-872F-1042FA08EB7F</string>
+			<string>0B099AE3-B659-4C74-8EAF-04809D9CCC08</string>
 		</dict>
-		<key>1C328CCB-D908-41CA-85F2-5BBB2A242D2B</key>
+		<key>1118D617-68B5-498F-B5BC-20163BA283FA</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -49,7 +49,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>1C328CCB-D908-41CA-85F2-5BBB2A242D2B.xcactivitylog</string>
+			<string>1118D617-68B5-498F-B5BC-20163BA283FA.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -66,15 +66,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686101123.07897496</real>
+			<real>686199321.54585099</real>
 			<key>timeStoppedRecording</key>
-			<real>686101240.81874001</real>
+			<real>686199560.43566298</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>1C328CCB-D908-41CA-85F2-5BBB2A242D2B</string>
+			<string>1118D617-68B5-498F-B5BC-20163BA283FA</string>
 		</dict>
-		<key>2795E05D-13D9-4F4A-AC05-793D18A80160</key>
+		<key>1253FA63-368D-4301-A4A8-D195A244389F</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -83,7 +83,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>2795E05D-13D9-4F4A-AC05-793D18A80160.xcactivitylog</string>
+			<string>1253FA63-368D-4301-A4A8-D195A244389F.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -100,15 +100,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686101240.67597604</real>
+			<real>686197826.940611</real>
 			<key>timeStoppedRecording</key>
-			<real>686101420.23279703</real>
+			<real>686197892.09134197</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>2795E05D-13D9-4F4A-AC05-793D18A80160</string>
+			<string>1253FA63-368D-4301-A4A8-D195A244389F</string>
 		</dict>
-		<key>3BA4BA5D-B236-4FC8-A3D1-7ABA01E73C3B</key>
+		<key>133EA11B-DBC8-4E8F-BB33-88FE0C0A29B0</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -117,7 +117,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>3BA4BA5D-B236-4FC8-A3D1-7ABA01E73C3B.xcactivitylog</string>
+			<string>133EA11B-DBC8-4E8F-BB33-88FE0C0A29B0.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -134,15 +134,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686096449.252352</real>
+			<real>686197063.29995203</real>
 			<key>timeStoppedRecording</key>
-			<real>686098459.21489</real>
+			<real>686197108.69296503</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>3BA4BA5D-B236-4FC8-A3D1-7ABA01E73C3B</string>
+			<string>133EA11B-DBC8-4E8F-BB33-88FE0C0A29B0</string>
 		</dict>
-		<key>63B4B6B7-F9B3-4282-9B79-EF5ACC8143BB</key>
+		<key>1967447E-3A7C-475D-85D2-881E9DD0E0B7</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -151,7 +151,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>63B4B6B7-F9B3-4282-9B79-EF5ACC8143BB.xcactivitylog</string>
+			<string>1967447E-3A7C-475D-85D2-881E9DD0E0B7.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -168,15 +168,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686098459.67672598</real>
+			<real>686199936.61739695</real>
 			<key>timeStoppedRecording</key>
-			<real>686098933.24441803</real>
+			<real>686199973.32532501</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>63B4B6B7-F9B3-4282-9B79-EF5ACC8143BB</string>
+			<string>1967447E-3A7C-475D-85D2-881E9DD0E0B7</string>
 		</dict>
-		<key>714ECE6F-5B1D-468A-AA66-75F259C2506A</key>
+		<key>22877495-7A55-4A2D-AFB6-98DD2F732C1E</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -185,7 +185,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>714ECE6F-5B1D-468A-AA66-75F259C2506A.xcactivitylog</string>
+			<string>22877495-7A55-4A2D-AFB6-98DD2F732C1E.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -202,15 +202,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686096318.05834997</real>
+			<real>686198226.96378005</real>
 			<key>timeStoppedRecording</key>
-			<real>686096338.50139296</real>
+			<real>686198238.66565895</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>714ECE6F-5B1D-468A-AA66-75F259C2506A</string>
+			<string>22877495-7A55-4A2D-AFB6-98DD2F732C1E</string>
 		</dict>
-		<key>9869745C-FB89-47EB-84F8-8EDB61CD40B3</key>
+		<key>23E133AE-5217-47B0-ACF6-29A9018F3D33</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -219,7 +219,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>9869745C-FB89-47EB-84F8-8EDB61CD40B3.xcactivitylog</string>
+			<string>23E133AE-5217-47B0-ACF6-29A9018F3D33.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -236,15 +236,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686100894.85972404</real>
+			<real>686198788.68812001</real>
 			<key>timeStoppedRecording</key>
-			<real>686101063.86254597</real>
+			<real>686198803.64270198</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>9869745C-FB89-47EB-84F8-8EDB61CD40B3</string>
+			<string>23E133AE-5217-47B0-ACF6-29A9018F3D33</string>
 		</dict>
-		<key>B19B1B49-72B2-4438-A6B0-E3FDEE4B5A26</key>
+		<key>253F8CEE-F5E4-4338-8954-644041998DA9</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -253,7 +253,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>B19B1B49-72B2-4438-A6B0-E3FDEE4B5A26.xcactivitylog</string>
+			<string>253F8CEE-F5E4-4338-8954-644041998DA9.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -270,15 +270,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686074445.57623804</real>
+			<real>686198451.725366</real>
 			<key>timeStoppedRecording</key>
-			<real>686075508.73550797</real>
+			<real>686198480.54795897</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>B19B1B49-72B2-4438-A6B0-E3FDEE4B5A26</string>
+			<string>253F8CEE-F5E4-4338-8954-644041998DA9</string>
 		</dict>
-		<key>C718C195-AD51-4A0C-8A2F-A8BB61D51E4E</key>
+		<key>2BF63435-31C4-43D4-9CBC-1DBB5BD1A7A3</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -287,7 +287,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>C718C195-AD51-4A0C-8A2F-A8BB61D51E4E.xcactivitylog</string>
+			<string>2BF63435-31C4-43D4-9CBC-1DBB5BD1A7A3.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -304,15 +304,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686101420.71105301</real>
+			<real>686199999.519696</real>
 			<key>timeStoppedRecording</key>
-			<real>686101464.53536296</real>
+			<real>686200034.35121298</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>C718C195-AD51-4A0C-8A2F-A8BB61D51E4E</string>
+			<string>2BF63435-31C4-43D4-9CBC-1DBB5BD1A7A3</string>
 		</dict>
-		<key>D8E906B2-1E41-442A-AD8A-A8259E085107</key>
+		<key>2DC00B99-780D-4A78-A00E-7DD025FA4B5D</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -321,7 +321,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>D8E906B2-1E41-442A-AD8A-A8259E085107.xcactivitylog</string>
+			<string>2DC00B99-780D-4A78-A00E-7DD025FA4B5D.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -338,15 +338,15 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686096425.97140098</real>
+			<real>686197384.83068597</real>
 			<key>timeStoppedRecording</key>
-			<real>686096448.48363602</real>
+			<real>686197551.02226305</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>D8E906B2-1E41-442A-AD8A-A8259E085107</string>
+			<string>2DC00B99-780D-4A78-A00E-7DD025FA4B5D</string>
 		</dict>
-		<key>F14DC04B-4D94-4136-9DED-4D7C6399BDD8</key>
+		<key>3C34BD1B-99BD-4D65-ADFD-8E13300CCECB</key>
 		<dict>
 			<key>className</key>
 			<string>DBGConsoleLog</string>
@@ -355,7 +355,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
 			<key>fileName</key>
-			<string>F14DC04B-4D94-4136-9DED-4D7C6399BDD8.xcactivitylog</string>
+			<string>3C34BD1B-99BD-4D65-ADFD-8E13300CCECB.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -372,13 +372,1135 @@
 			<key>signature</key>
 			<string>Run Student Day</string>
 			<key>timeStartedRecording</key>
-			<real>686096267.83094501</real>
+			<real>686195981.13551104</real>
 			<key>timeStoppedRecording</key>
-			<real>686096309.35348904</real>
+			<real>686197022.42440295</real>
 			<key>title</key>
 			<string>Run Student Day</string>
 			<key>uniqueIdentifier</key>
-			<string>F14DC04B-4D94-4136-9DED-4D7C6399BDD8</string>
+			<string>3C34BD1B-99BD-4D65-ADFD-8E13300CCECB</string>
+		</dict>
+		<key>3EF3FC39-B798-4865-A61B-7FCAE619241D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3EF3FC39-B798-4865-A61B-7FCAE619241D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198239.04099596</real>
+			<key>timeStoppedRecording</key>
+			<real>686198268.60440004</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>3EF3FC39-B798-4865-A61B-7FCAE619241D</string>
+		</dict>
+		<key>41DA37E3-2FEE-44A3-BDDE-59AD58106BB8</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>41DA37E3-2FEE-44A3-BDDE-59AD58106BB8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197995.29528296</real>
+			<key>timeStoppedRecording</key>
+			<real>686198030.77064395</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>41DA37E3-2FEE-44A3-BDDE-59AD58106BB8</string>
+		</dict>
+		<key>4C32F222-60B8-4291-BEC0-F287A19ADC6B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>4C32F222-60B8-4291-BEC0-F287A19ADC6B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198209.46276903</real>
+			<key>timeStoppedRecording</key>
+			<real>686198226.63798106</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>4C32F222-60B8-4291-BEC0-F287A19ADC6B</string>
+		</dict>
+		<key>5B1FE774-9112-41DD-9D76-BCAD7843C85E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>5B1FE774-9112-41DD-9D76-BCAD7843C85E.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198884.356776</real>
+			<key>timeStoppedRecording</key>
+			<real>686199005.11715496</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>5B1FE774-9112-41DD-9D76-BCAD7843C85E</string>
+		</dict>
+		<key>6CE139C9-B5DE-482C-BF8B-A553EEA3CEE7</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6CE139C9-B5DE-482C-BF8B-A553EEA3CEE7.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198481.08809102</real>
+			<key>timeStoppedRecording</key>
+			<real>686198543.815938</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>6CE139C9-B5DE-482C-BF8B-A553EEA3CEE7</string>
+		</dict>
+		<key>6EAB71DE-C669-442C-9E94-A64CD0ADAC8A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6EAB71DE-C669-442C-9E94-A64CD0ADAC8A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197243.41104996</real>
+			<key>timeStoppedRecording</key>
+			<real>686197350.65949297</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>6EAB71DE-C669-442C-9E94-A64CD0ADAC8A</string>
+		</dict>
+		<key>6F55AAA7-BCA8-4577-A3E5-4C6554B81F73</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6F55AAA7-BCA8-4577-A3E5-4C6554B81F73.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198031.301633</real>
+			<key>timeStoppedRecording</key>
+			<real>686198043.35614002</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>6F55AAA7-BCA8-4577-A3E5-4C6554B81F73</string>
+		</dict>
+		<key>732AD2F1-597C-486D-8DEB-DFF6C6CD58FE</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>732AD2F1-597C-486D-8DEB-DFF6C6CD58FE.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198304.22245395</real>
+			<key>timeStoppedRecording</key>
+			<real>686198346.25843704</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>732AD2F1-597C-486D-8DEB-DFF6C6CD58FE</string>
+		</dict>
+		<key>77DB440A-5671-4D26-A957-D5AB9EF04E4D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>77DB440A-5671-4D26-A957-D5AB9EF04E4D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686200094.23141301</real>
+			<key>timeStoppedRecording</key>
+			<real>686200134.56522202</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>77DB440A-5671-4D26-A957-D5AB9EF04E4D</string>
+		</dict>
+		<key>7DB3C96A-CD04-4FAD-909A-2468B4F7592B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7DB3C96A-CD04-4FAD-909A-2468B4F7592B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686194947.13907099</real>
+			<key>timeStoppedRecording</key>
+			<real>686195652.86315703</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>7DB3C96A-CD04-4FAD-909A-2468B4F7592B</string>
+		</dict>
+		<key>807EA6C1-8184-47DB-B159-49B16BD3A6EC</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>807EA6C1-8184-47DB-B159-49B16BD3A6EC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197026.12087202</real>
+			<key>timeStoppedRecording</key>
+			<real>686197061.68317902</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>807EA6C1-8184-47DB-B159-49B16BD3A6EC</string>
+		</dict>
+		<key>8E33E90C-6AB2-4FEE-AB66-BA9B5AC2EE6D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>8E33E90C-6AB2-4FEE-AB66-BA9B5AC2EE6D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197109.21575999</real>
+			<key>timeStoppedRecording</key>
+			<real>686197239.80382597</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>8E33E90C-6AB2-4FEE-AB66-BA9B5AC2EE6D</string>
+		</dict>
+		<key>9054E718-3AB4-425B-A71B-247D4A164097</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>9054E718-3AB4-425B-A71B-247D4A164097.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198269.05719399</real>
+			<key>timeStoppedRecording</key>
+			<real>686198303.60122502</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>9054E718-3AB4-425B-A71B-247D4A164097</string>
+		</dict>
+		<key>912D519B-7024-4201-9685-DB4CB7402EAC</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>912D519B-7024-4201-9685-DB4CB7402EAC.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197676.33370399</real>
+			<key>timeStoppedRecording</key>
+			<real>686197803.43176699</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>912D519B-7024-4201-9685-DB4CB7402EAC</string>
+		</dict>
+		<key>9435C141-81F8-4057-9A09-E7A01F9446E1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>9435C141-81F8-4057-9A09-E7A01F9446E1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198544.76772904</real>
+			<key>timeStoppedRecording</key>
+			<real>686198567.26984799</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>9435C141-81F8-4057-9A09-E7A01F9446E1</string>
+		</dict>
+		<key>982BEAEF-5976-4CB1-99BA-2F6BF96BE0C1</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>982BEAEF-5976-4CB1-99BA-2F6BF96BE0C1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198043.96642303</real>
+			<key>timeStoppedRecording</key>
+			<real>686198157.33291495</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>982BEAEF-5976-4CB1-99BA-2F6BF96BE0C1</string>
+		</dict>
+		<key>A1E30A57-3442-46D3-8753-2AE668FAF754</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A1E30A57-3442-46D3-8753-2AE668FAF754.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686195656.13376296</real>
+			<key>timeStoppedRecording</key>
+			<real>686195767.10588801</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>A1E30A57-3442-46D3-8753-2AE668FAF754</string>
+		</dict>
+		<key>A80083A6-DD1A-4224-A2CC-D378A897595D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A80083A6-DD1A-4224-A2CC-D378A897595D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198159.33520603</real>
+			<key>timeStoppedRecording</key>
+			<real>686198208.37466705</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>A80083A6-DD1A-4224-A2CC-D378A897595D</string>
+		</dict>
+		<key>A8AC829A-CFB2-4195-8478-4C02BEB53071</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A8AC829A-CFB2-4195-8478-4C02BEB53071.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198346.81650805</real>
+			<key>timeStoppedRecording</key>
+			<real>686198451.14862895</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>A8AC829A-CFB2-4195-8478-4C02BEB53071</string>
+		</dict>
+		<key>AA28F23A-DDB4-4C48-A382-B2383DD9F7D4</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AA28F23A-DDB4-4C48-A382-B2383DD9F7D4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197892.91063201</real>
+			<key>timeStoppedRecording</key>
+			<real>686197920.732234</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>AA28F23A-DDB4-4C48-A382-B2383DD9F7D4</string>
+		</dict>
+		<key>AD08E12D-B11D-4B3C-A600-EA989BF344C3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AD08E12D-B11D-4B3C-A600-EA989BF344C3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686199263.38349199</real>
+			<key>timeStoppedRecording</key>
+			<real>686199320.97190499</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>AD08E12D-B11D-4B3C-A600-EA989BF344C3</string>
+		</dict>
+		<key>B135D168-30F8-4B6A-8A7C-EBC243510E41</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B135D168-30F8-4B6A-8A7C-EBC243510E41.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197552.64451098</real>
+			<key>timeStoppedRecording</key>
+			<real>686197594.90622699</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>B135D168-30F8-4B6A-8A7C-EBC243510E41</string>
+		</dict>
+		<key>B6BA40DA-6114-421B-A2AA-2B7874E6A7B3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B6BA40DA-6114-421B-A2AA-2B7874E6A7B3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197351.21289003</real>
+			<key>timeStoppedRecording</key>
+			<real>686197382.65136099</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>B6BA40DA-6114-421B-A2AA-2B7874E6A7B3</string>
+		</dict>
+		<key>B9E1D722-230B-40ED-ADE5-5C3E433733F0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B9E1D722-230B-40ED-ADE5-5C3E433733F0.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198567.83334005</real>
+			<key>timeStoppedRecording</key>
+			<real>686198787.24294901</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>B9E1D722-230B-40ED-ADE5-5C3E433733F0</string>
+		</dict>
+		<key>BB114DB6-9287-4F86-BFEF-2BB621123815</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BB114DB6-9287-4F86-BFEF-2BB621123815.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686199974.017133</real>
+			<key>timeStoppedRecording</key>
+			<real>686199998.46530998</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>BB114DB6-9287-4F86-BFEF-2BB621123815</string>
+		</dict>
+		<key>BC4A31C2-698B-49F3-8E6B-F6C1363237FD</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BC4A31C2-698B-49F3-8E6B-F6C1363237FD.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197628.68921196</real>
+			<key>timeStoppedRecording</key>
+			<real>686197674.94683897</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>BC4A31C2-698B-49F3-8E6B-F6C1363237FD</string>
+		</dict>
+		<key>C8389BF6-B470-4985-A479-61C60515BD40</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>C8389BF6-B470-4985-A479-61C60515BD40.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686199008.64366305</real>
+			<key>timeStoppedRecording</key>
+			<real>686199259.73138702</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>C8389BF6-B470-4985-A479-61C60515BD40</string>
+		</dict>
+		<key>D938CAE9-BC74-4E69-ACA5-C3A66C6A8C86</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D938CAE9-BC74-4E69-ACA5-C3A66C6A8C86.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686198808.524629</real>
+			<key>timeStoppedRecording</key>
+			<real>686198883.39754701</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>D938CAE9-BC74-4E69-ACA5-C3A66C6A8C86</string>
+		</dict>
+		<key>DA7A9BAA-0342-4384-93FD-62030D7932E3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>DA7A9BAA-0342-4384-93FD-62030D7932E3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197596.40492702</real>
+			<key>timeStoppedRecording</key>
+			<real>686197627.36095297</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>DA7A9BAA-0342-4384-93FD-62030D7932E3</string>
+		</dict>
+		<key>DB6E1FA5-1F33-493B-9FDC-B92FB77F59D4</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>DB6E1FA5-1F33-493B-9FDC-B92FB77F59D4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686199565.59508896</real>
+			<key>timeStoppedRecording</key>
+			<real>686199932.81021404</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>DB6E1FA5-1F33-493B-9FDC-B92FB77F59D4</string>
+		</dict>
+		<key>DE035544-65E3-46ED-909D-EFC80DD069BF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>DE035544-65E3-46ED-909D-EFC80DD069BF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197809.156407</real>
+			<key>timeStoppedRecording</key>
+			<real>686197826.90832305</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>DE035544-65E3-46ED-909D-EFC80DD069BF</string>
+		</dict>
+		<key>E45D5969-A06A-40E6-B214-4CF6868FD595</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>E45D5969-A06A-40E6-B214-4CF6868FD595.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686195801.11623001</real>
+			<key>timeStoppedRecording</key>
+			<real>686195968.87589705</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>E45D5969-A06A-40E6-B214-4CF6868FD595</string>
+		</dict>
+		<key>F0D8F147-8613-4DB5-B117-AEA82EEEF06A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>F0D8F147-8613-4DB5-B117-AEA82EEEF06A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Student Day project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Student Day</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run Student Day</string>
+			<key>timeStartedRecording</key>
+			<real>686197921.26970804</real>
+			<key>timeStoppedRecording</key>
+			<real>686197994.74128604</real>
+			<key>title</key>
+			<string>Run Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>F0D8F147-8613-4DB5-B117-AEA82EEEF06A</string>
 		</dict>
 		<key>FDB48C0E-CEEB-4BFC-9CC2-03B530C25AF3</key>
 		<dict>
