@@ -8,10 +8,25 @@
 import UIKit
 
 class SettingsClassesController: UITableViewController {
+    
+    var isFirstLoad:Bool = true
+    let storage = Storage()
+    
+    var arrayOfClasses:[CellForScheduleModel]?{
+        didSet{
+            arrayOfClasses = arrayOfClasses?.sorted(by: { $0.timeEnd < $1.timeStart })
+            storage.saveAllCleseesToStorage(arrayOfClasses!)
+            
+            tableView.reloadData()
+        }
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setConfigurationTableView()
+        arrayOfClasses = storage.getAllClassesFromStorage()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -29,22 +44,18 @@ class SettingsClassesController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return arrayOfClasses?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         let asd = UINib(nibName: "CellForSchedule", bundle: nil)
         tableView.register(asd, forCellReuseIdentifier: "CellForSchedule")
-        let storage = Storage()
-        let allcells = storage.getAllClassesFromStorage()
-        
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
-        if let allcells = allcells {
-            cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: allcells)
+        if let arrayOfClasses = arrayOfClasses {
+            cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: arrayOfClasses)
         }
         
 
@@ -69,66 +80,51 @@ class SettingsClassesController: UITableViewController {
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            arrayOfClasses?.remove(at: indexPath.row)
+            
+            if arrayOfClasses?.count != 0{
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            }else{
+                tableView.reloadSections([indexPath.section], with: .left)
+            }
+            
+        }
     }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // MARK: - configuration TableView
     
     private func setConfigurationTableView(){
-        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil),UIBarButtonItem(barButtonSystemItem: .edit, target: nil, action: nil)]
+        self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil),editButtonItem]
         
-        let action = UIAction { _ in
-            let storage = Storage()
-            storage.saveAllCleseesToStorage(test())
+        let actionAdd = UIAction { _ in
             self.tableView.reloadData()
             
-            let addingController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController")
+            let addingController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
+            addingController.doAfterAdd = { [self]
+                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation in
+                    let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation)
+                    
+                arrayOfClasses?.append(newClass)
+                tableView.reloadData()
+            }
+            
             self.navigationController?.pushViewController(addingController, animated: true)
         }
         
-        self.navigationItem.rightBarButtonItems?[0].primaryAction = action
+        self.navigationItem.rightBarButtonItems?[0].primaryAction = actionAdd
+//        self.navigationItem.rightBarButtonItems?[1].primaryAction = actionEdit
     }
 
 }

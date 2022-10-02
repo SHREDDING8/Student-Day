@@ -34,34 +34,6 @@
 			<key>uniqueIdentifier</key>
 			<string>1BCC8E69-E6B2-4142-ACAE-00ECFCE2D63C</string>
 		</dict>
-		<key>6D55ABFD-AFC3-4BEF-917E-6690C393F56C</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
-			<key>fileName</key>
-			<string>6D55ABFD-AFC3-4BEF-917E-6690C393F56C.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>Student_Day-eplqnwmnrxsphjcgifljecbsvzdn</string>
-			<key>timeStartedRecording</key>
-			<real>686235780.36639202</real>
-			<key>timeStoppedRecording</key>
-			<real>686235782.26588905</real>
-			<key>title</key>
-			<string>Build target Student Day</string>
-			<key>uniqueIdentifier</key>
-			<string>6D55ABFD-AFC3-4BEF-917E-6690C393F56C</string>
-		</dict>
 		<key>A4493EA9-1141-4886-BF67-D911C52D07F0</key>
 		<dict>
 			<key>className</key>
@@ -89,6 +61,34 @@
 			<string>Build target Pods-Student Day</string>
 			<key>uniqueIdentifier</key>
 			<string>A4493EA9-1141-4886-BF67-D911C52D07F0</string>
+		</dict>
+		<key>E6D8C77C-EFF1-4550-ACCE-95EAC496DB97</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.application</string>
+			<key>fileName</key>
+			<string>E6D8C77C-EFF1-4550-ACCE-95EAC496DB97.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Student_Day-eplqnwmnrxsphjcgifljecbsvzdn</string>
+			<key>timeStartedRecording</key>
+			<real>686242051.408692</real>
+			<key>timeStoppedRecording</key>
+			<real>686242052.44933903</real>
+			<key>title</key>
+			<string>Build target Student Day</string>
+			<key>uniqueIdentifier</key>
+			<string>E6D8C77C-EFF1-4550-ACCE-95EAC496DB97</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>

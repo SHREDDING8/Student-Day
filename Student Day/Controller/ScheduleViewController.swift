@@ -188,7 +188,7 @@ extension ScheduleViewController:FSCalendarDelegate,FSCalendarDataSource{
     }
 }
 
-//MARK:- TABLE VIEW
+//MARK: - TABLE VIEW
 
 extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
     
