@@ -105,7 +105,7 @@ class Storage:StorageProtocol{
     func removeClassFromStorage(indexPath:IndexPath){
         let fetchRequest = CellsForSchedule.fetchRequest()
         
-        let sort = NSSortDescriptor(key: "timeStart", ascending: false)
+        let sort = NSSortDescriptor(key: "timeStart", ascending: true)
         fetchRequest.sortDescriptors = [sort]
         
         if let cells = try? context.fetch(fetchRequest){

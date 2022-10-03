@@ -11,20 +11,37 @@ import UIKit
 enum TypeClass:String{
     case lecture = "Лекция"
     case tutorial = "Туториал"
+    case lab = "Лабораторная"
+    case practice = "Практика"
+    case lesson = "Урок"
+    case meeting = "Встреча"
+    case work = "Работа"
+    
 }
 let typeClassArray = [
     "Лекция",
-    "Туториал"
+    "Туториал",
+    "Лабораторная",
+    "Практика",
+    "Урок",
+    "Встреча",
+    "Работа"
 ]
+
 enum backroundColorCell:String{
     case noColor = "settingsCellColor"
     case red = "cell red"
+    case blue = "cell blue"
+    case lightYellow = "cell light yellow"
+    case pink = "cell pink"
 }
 let backroundColorCellArray = [
     "settingsCellColor",
     "cell red",
+    "cell blue",
+    "cell light yellow",
+    "cell pink"
 ]
-
 protocol CellForScheduleModelProtocol{
     var nameOfCourse:String{ get set}
     var nameOfProf:String{get set}

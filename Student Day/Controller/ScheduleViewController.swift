@@ -15,6 +15,8 @@ import FSCalendar
 
 class ScheduleViewController: UIViewController {
     
+    let storage = Storage()
+    
     // MARK: -  Objects
     
     private var calendarView:FSCalendar = {
@@ -58,7 +60,7 @@ class ScheduleViewController: UIViewController {
     
     
     private var tableViewSchedule:UITableView = {
-        let tableViewSchedule = UITableView()
+        let tableViewSchedule = UITableView(frame: CGRect.zero, style: .insetGrouped)
         tableViewSchedule.translatesAutoresizingMaskIntoConstraints = false
         return tableViewSchedule
     }()
@@ -209,7 +211,7 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return storage.getAllClassesFromStorage()!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -222,7 +224,7 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
         
-        cell = configureCell(cell: cell, indexPathRow: indexPath.row)
+        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: storage.getAllClassesFromStorage()!)
         return cell
     }
     
@@ -233,21 +235,31 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
     
     // MARK: - Cells for Schedule
     
-    private func configureCell(cell:CellForSchedule,indexPathRow:Int)->CellForSchedule{
+    private func configureCell(cell:CellForSchedule,indexPathRow:Int,allCells:[CellForScheduleModel])->CellForSchedule{
+        if allCells.count != 0{
+        let cellModel = allCells[indexPathRow]
         let dateformatter = DateFormatter()
         dateformatter.setLocalizedDateFormatFromTemplate("HH:mm")
         
-        cell.nameOfProf.text = "cellModel.nameOfProf"
-        cell.nameOfCourse.text = "cellModel.nameOfCourse"
-        cell.timeStartLabel.text = ""
-        cell.place.text = "cellModel.place"
-        cell.type.text = "cellModel.typeOfClass.rawValue"
+        cell.nameOfProf.text = cellModel.nameOfProf
+        cell.nameOfCourse.text = cellModel.nameOfCourse
+            cell.timeStartLabel.text = "\(dateformatter.string(from: cellModel.timeStart))"
+            cell.timeEndLabel.text = "\(dateformatter.string(from: cellModel.timeEnd))"
+        cell.place.text = cellModel.place
+        cell.type.text = cellModel.typeOfClass.rawValue
         
-//        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
-        
+            cell.nameOfProf.textColor = cellModel.textColor
+            cell.nameOfCourse.textColor = cellModel.textColor
+            cell.timeStartLabel.textColor = cellModel.textColor
+            cell.timeEndLabel.textColor = cellModel.textColor
+            cell.place.textColor = cellModel.textColor
+            cell.type.textColor = cellModel.textColor
+        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
+        }
         return cell
         
     }
-    
-    
 }
+    
+    
+

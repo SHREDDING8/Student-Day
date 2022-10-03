@@ -9,6 +9,10 @@ import UIKit
 
 class AddingClassController: UITableViewController, UITextFieldDelegate {
     
+    // MARK: - My variables
+    
+    var isExitWithSave = false
+    
     //MARK: - OUTLETS
     
     @IBOutlet weak var labelOfCellOfChoosingColor: UILabel!
@@ -39,10 +43,13 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     
     var doAfterAdd: ((String,String,Date,Date,String,TypeClass,backroundColorCell,Bool)->Void)?
 
+    
+    // MARK: - VIEW CONTROLLER FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
         setConfigurationTableView()
     }
+    
 
     // MARK: - Table view data source
 
@@ -62,6 +69,21 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
             return 0
         }
     }
+    
+    // MARK: - TABLE VIEW DELEGATE
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        if selectedCell?.reuseIdentifier == "SubjectCell"{
+            subjectOutlet.becomeFirstResponder()
+        }else if selectedCell?.reuseIdentifier == "profCell"{
+            nameOfProfOutlet.becomeFirstResponder()
+        }else if selectedCell?.reuseIdentifier == "placeCell"{
+            placeOutlet.becomeFirstResponder()
+        }
+    }
+    
+    
     
 
 
@@ -107,7 +129,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor(named: "background Color")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveClass))
         
-        
+
         self.placeOutlet.delegate = self
         self.nameOfProfOutlet.delegate = self
         self.subjectOutlet.delegate = self
@@ -129,21 +151,57 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func subjectAction(_ sender: UITextField) {
         self.nameOfCourse = sender.text ?? ""
+        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
     }
     
     @IBAction func profAction(_ sender: UITextField) {
         self.nameOfProf = sender.text ?? ""
+        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
     }
     
     @IBAction func placeAction(_ sender: UITextField) {
         self.place = sender.text ?? ""
-        print(self.place)
+        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
     }
     
     @objc func saveClass(){
-        doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation)
+        if tryGetAllTextField(){
+            doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation)
+            
+            isExitWithSave = true
+            self.navigationController?.popViewController(animated: true)
+        }else{
+            let alert = UIAlertController(title: "Ошибка сохранения", message: "Заполните все поля", preferredStyle: .alert)
+            let actionOk = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(actionOk)
+            self.present(alert, animated: true)
+        }
         
-        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Text field Delegate
+    
+    private func tryGetAllTextField()->Bool{
+        self.nameOfProf = (nameOfProfOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
+        self.nameOfCourse = (subjectOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
+        self.place = (placeOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
+        
+        
+        if (self.nameOfProf == "" || self.nameOfCourse == "" || self.place == ""){
+            return false
+        }
+        return true
+    }
+    private func tryGetSomeTextField()->Bool{
+        self.nameOfProf = (nameOfProfOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
+        self.nameOfCourse = (subjectOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
+        self.place = (placeOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
+        
+        
+        if (self.nameOfProf != "" || self.nameOfCourse != "" || self.place != ""){
+            return true
+        }
+        return false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
