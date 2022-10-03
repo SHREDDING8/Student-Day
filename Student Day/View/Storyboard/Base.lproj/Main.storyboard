@@ -172,7 +172,7 @@
         <scene sceneID="att-pp-ZgO">
             <objects>
                 <tableViewController id="8kT-KX-5IS" customClass="SettingsClassesController" customModule="Student_Day" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="s5d-35-N9A">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="s5d-35-N9A">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,6 +215,9 @@
                                                     <rect key="frame" x="20" y="39" width="310" height="23.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="subjectAction:" destination="iXh-Lz-r9X" eventType="editingDidEnd" id="oH5-GG-dZA"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -245,6 +248,9 @@
                                                     <rect key="frame" x="20" y="39" width="310" height="23.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="profAction:" destination="iXh-Lz-r9X" eventType="editingDidEnd" id="IU1-mV-uXZ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -315,6 +321,9 @@
                                                         <constraint firstAttribute="width" constant="70" id="q3b-fB-v5s"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="cv_RU"/>
+                                                    <connections>
+                                                        <action selector="timeStartAction:" destination="iXh-Lz-r9X" eventType="valueChanged" id="9qh-H7-skC"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -347,6 +356,9 @@
                                                         <constraint firstAttribute="width" constant="70" id="gqQ-g5-Hf9"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="cv_RU"/>
+                                                    <connections>
+                                                        <action selector="timeEndActions:" destination="iXh-Lz-r9X" eventType="valueChanged" id="pls-3M-JIx"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -376,6 +388,9 @@
                                                     <rect key="frame" x="20" y="39" width="310" height="23.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="placeAction:" destination="iXh-Lz-r9X" eventType="editingDidEnd" id="ESF-rN-tyy"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -434,6 +449,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tT3-Xh-4SJ">
                                                     <rect key="frame" x="281" y="27" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="userNotificationsAction:" destination="iXh-Lz-r9X" eventType="valueChanged" id="0Ar-59-eno"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -457,6 +475,9 @@
                     </tableView>
                     <connections>
                         <outlet property="labelOfCellOfChoosingColor" destination="Wq5-LS-KEd" id="hS3-he-OKI"/>
+                        <outlet property="nameOfProfOutlet" destination="5fE-an-SMb" id="zv5-Ga-OXe"/>
+                        <outlet property="placeOutlet" destination="Y35-IT-nAU" id="HZ1-yz-5QH"/>
+                        <outlet property="subjectOutlet" destination="N4v-i6-g5P" id="BIA-eJ-YDl"/>
                         <outlet property="typeOfClassCell" destination="MZN-e1-q8c" id="V0q-Gk-5Hb"/>
                     </connections>
                 </tableViewController>

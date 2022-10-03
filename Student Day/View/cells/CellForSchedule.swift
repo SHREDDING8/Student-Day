@@ -15,7 +15,9 @@ class CellForSchedule: UITableViewCell {
     
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var place: UILabel!
-    @IBOutlet weak var time: UILabel!
+    
+    @IBOutlet weak var timeStartLabel: UILabel!
+    @IBOutlet weak var timeEndLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

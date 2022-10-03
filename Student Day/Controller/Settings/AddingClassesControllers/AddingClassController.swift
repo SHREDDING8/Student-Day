@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddingClassController: UITableViewController {
+class AddingClassController: UITableViewController, UITextFieldDelegate {
     
     //MARK: - OUTLETS
     
@@ -15,6 +15,11 @@ class AddingClassController: UITableViewController {
     @IBOutlet weak var typeOfClassCell: UITableViewCell!
     
     
+    @IBOutlet weak var subjectOutlet: UITextField!
+    
+    @IBOutlet weak var nameOfProfOutlet: UITextField!
+    
+    @IBOutlet weak var placeOutlet: UITextField!
     
     private var nameOfCourse: String = ""
 
@@ -100,8 +105,51 @@ class AddingClassController: UITableViewController {
     
     private func setConfigurationTableView(){
         self.view.backgroundColor = UIColor(named: "background Color")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveClass))
+        
+        
+        self.placeOutlet.delegate = self
+        self.nameOfProfOutlet.delegate = self
+        self.subjectOutlet.delegate = self
     }
     
-
+    
+    // MARK: - Actions
+    
+    @IBAction func userNotificationsAction(_ sender: UISwitch) {
+        self.userNotofocation = (sender.isOn ? true : false)
+    }
+    
+    @IBAction func timeStartAction(_ sender: UIDatePicker) {
+        self.timeStart = sender.date
+    }
+    @IBAction func timeEndActions(_ sender: UIDatePicker) {
+        self.timeEnd = sender.date
+    }
+    
+    @IBAction func subjectAction(_ sender: UITextField) {
+        self.nameOfCourse = sender.text ?? ""
+    }
+    
+    @IBAction func profAction(_ sender: UITextField) {
+        self.nameOfProf = sender.text ?? ""
+    }
+    
+    @IBAction func placeAction(_ sender: UITextField) {
+        self.place = sender.text ?? ""
+        print(self.place)
+    }
+    
+    @objc func saveClass(){
+        doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation)
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
 }

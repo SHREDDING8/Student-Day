@@ -41,7 +41,6 @@ protocol CellForScheduleModelProtocol{
 }
 
 class CellForScheduleModel:CellForScheduleModelProtocol{
-    
     // properties
     var nameOfCourse: String
 
@@ -56,7 +55,7 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
 
     var backgroundColor: backroundColorCell
 
-    internal var textColor: UIColor = .white
+    var textColor: UIColor = .white
 
     internal var userNotofocation: Bool
 
@@ -70,18 +69,15 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
         self.typeOfClass = typeOfClass
         self.backgroundColor = backgroundColor
         self.userNotofocation = userNotofocation
+        
+        if backgroundColor == .noColor{
+            textColor = UIColor(named: "gray")!
+        }else{
+            textColor = .white
+        }
     }
     
     //MARK: - cell Classes
 
 }
 
-func test() -> [CellForScheduleModel]{
-    let first = CellForScheduleModel(course: "Differential Equations", prof: "da", timeStart: Date(),timeEnd: Date(), place: "320", typeOfClass: .lecture, backgroundColor: .red, userNotofocation: true)
-    
-    let second = CellForScheduleModel(course: "Introduction to optimization", prof: "da", timeStart: Date(),timeEnd: Date(), place: "123", typeOfClass: .lecture, backgroundColor: .red, userNotofocation: true)
-    
-    let result = [first,second]
-    return result
-    
-}

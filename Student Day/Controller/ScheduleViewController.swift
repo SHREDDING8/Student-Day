@@ -234,18 +234,16 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
     // MARK: - Cells for Schedule
     
     private func configureCell(cell:CellForSchedule,indexPathRow:Int)->CellForSchedule{
-        let gfd = test()
-        let cellModel = gfd[indexPathRow]
         let dateformatter = DateFormatter()
         dateformatter.setLocalizedDateFormatFromTemplate("HH:mm")
         
-        cell.nameOfProf.text = cellModel.nameOfProf
-        cell.nameOfCourse.text = cellModel.nameOfCourse
-        cell.time.text = "\(dateformatter.string(from: cellModel.timeStart))-\(dateformatter.string(from: cellModel.timeEnd))"
-        cell.place.text = cellModel.place
-        cell.type.text = cellModel.typeOfClass.rawValue
+        cell.nameOfProf.text = "cellModel.nameOfProf"
+        cell.nameOfCourse.text = "cellModel.nameOfCourse"
+        cell.timeStartLabel.text = ""
+        cell.place.text = "cellModel.place"
+        cell.type.text = "cellModel.typeOfClass.rawValue"
         
-        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
+//        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
         
         return cell
         

@@ -12,7 +12,7 @@
 		EE4A381128E2F3150041C714 /* CellForSchedule.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4A380F28E2F3150041C714 /* CellForSchedule.xib */; };
 		EE6037C128E499EB00FE308F /* SettingsFirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6037C028E499EB00FE308F /* SettingsFirstPageController.swift */; };
 		EE6037C328E4A7CC00FE308F /* SettingsClassesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6037C228E4A7CC00FE308F /* SettingsClassesController.swift */; };
-		EE6BF66328EAF404006CFAD0 /* ScheduleData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE6BF66128EAF404006CFAD0 /* ScheduleData.xcdatamodeld */; };
+		EE6BF66328EAF404006CFAD0 /* Student Day.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE6BF66128EAF404006CFAD0 /* Student Day.xcdatamodeld */; };
 		EE6FE3AB28E4AEB900F0EADA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FE3AA28E4AEB900F0EADA /* Storage.swift */; };
 		EE8110B128E8E628003E0CF8 /* ChoosingTypeOfClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8110AF28E8E628003E0CF8 /* ChoosingTypeOfClassCell.swift */; };
 		EE8110B228E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE8110B028E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib */; };
@@ -172,7 +172,7 @@
 			children = (
 				EE9C835628E4526800A3E603 /* CellForScheduleModel.swift */,
 				EE6FE3AA28E4AEB900F0EADA /* Storage.swift */,
-				EE6BF66128EAF404006CFAD0 /* ScheduleData.xcdatamodeld */,
+				EE6BF66128EAF404006CFAD0 /* Student Day.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 				EEAA478128E88B0C00E7D087 /* ChoosingColorAndTypeController.swift in Sources */,
 				EED70C3028E1AA3C009B976C /* SceneDelegate.swift in Sources */,
 				EE6037C328E4A7CC00FE308F /* SettingsClassesController.swift in Sources */,
-				EE6BF66328EAF404006CFAD0 /* ScheduleData.xcdatamodeld in Sources */,
+				EE6BF66328EAF404006CFAD0 /* Student Day.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,13 +546,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		EE6BF66128EAF404006CFAD0 /* ScheduleData.xcdatamodeld */ = {
+		EE6BF66128EAF404006CFAD0 /* Student Day.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				EE6BF66228EAF404006CFAD0 /* ScheduleData.xcdatamodel */,
 			);
 			currentVersion = EE6BF66228EAF404006CFAD0 /* ScheduleData.xcdatamodel */;
-			path = ScheduleData.xcdatamodeld;
+			path = "Student Day.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
 protocol StorageProtocol{
     var scheduleStorageKey:String { get }
@@ -29,52 +31,92 @@ enum CellKey:String{
 class Storage:StorageProtocol{
     var scheduleStorageKey: String = "AllClasses"
     let userdefaluts = UserDefaults.standard
+    lazy var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    let dateFormatter = DateFormatter()
+    
+//    let dateFormatter = DateFormatter()
     
     func getAllClassesFromStorage() -> [CellForScheduleModel]? {
         
-        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        // Constants
         
         var cells:[CellForScheduleModel] = []
-        let arrayFromStorage = userdefaluts.array(forKey: scheduleStorageKey) as? [[String:String]] ?? []
-        for cellFromStorage in arrayFromStorage {
-            guard let nameOfProf = cellFromStorage[CellKey.nameOfProf.rawValue],
-                let nameOfCourse = cellFromStorage[CellKey.nameOfCourse.rawValue],
-                  let timeStart = dateFormatter.date(from: cellFromStorage[CellKey.timeStart.rawValue] ?? "0"),
-                let timeEnd = dateFormatter.date(from: cellFromStorage[CellKey.timeEnd.rawValue] ?? "0"),
-                let place = cellFromStorage[CellKey.place.rawValue],
-                let type = cellFromStorage[CellKey.type.rawValue],
-                let backgroundColor = cellFromStorage[CellKey.backgroundColor.rawValue],
-                let userNotification = cellFromStorage[CellKey.userNotification.rawValue] else{
+        
+        let gettedCellsFromCoreData:[CellsForSchedule]
+        
+//        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+    
+        let fetchRequest:NSFetchRequest<CellsForSchedule> = CellsForSchedule.fetchRequest()
+        
+        // getting cells from storage
+        
+        do {
+             gettedCellsFromCoreData = try context.fetch(fetchRequest)
+        } catch  _ as NSError {
+            gettedCellsFromCoreData = []
+        }
+        
+        for gettedClass in gettedCellsFromCoreData{
+            
+            guard let nameOfProf = gettedClass.nameOfProf,
+                let nameOfCourse = gettedClass.nameOfCourse,
+                let timeStart = gettedClass.timeStart,
+                let timeEnd = gettedClass.timeEnd,
+                let place = gettedClass.place,
+                let type = TypeClass(rawValue: gettedClass.typeOfClass!),
+                let backgroundColor = backroundColorCell(rawValue: gettedClass.backgroundColor!)
+                else{
                     continue
             }
             
-            let cellToArray = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart,timeEnd: timeEnd, place: place, typeOfClass: TypeClass(rawValue: type)!, backgroundColor: backroundColorCell(rawValue: backgroundColor)!, userNotofocation: Bool(userNotification)!)
+            let cellToArray = CellForScheduleModel(course:nameOfCourse , prof: nameOfProf, timeStart:timeStart , timeEnd:timeEnd , place:place , typeOfClass: type, backgroundColor:backgroundColor , userNotofocation:gettedClass.userNotofocation)
             cells.append(cellToArray)
         }
-        
         
         return cells
     }
     
     func saveAllCleseesToStorage(_ cells: [CellForScheduleModel]) {
-        var arrayForStorage:[[String:String]] = []
-        dateFormatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        
+        //getting entity
+        
+        guard let classesEntity = NSEntityDescription.entity(forEntityName: "CellsForSchedule", in: context) else{return}
         
         cells.forEach { cell in
-            var dictForCell:[String:String] = [:]
-            dictForCell[CellKey.nameOfProf.rawValue] = cell.nameOfProf
-            dictForCell[CellKey.nameOfCourse.rawValue] = cell.nameOfCourse
-            dictForCell[CellKey.timeStart.rawValue] = dateFormatter.string(from: cell.timeStart)
-            dictForCell[CellKey.timeEnd.rawValue] = dateFormatter.string(from: cell.timeEnd)
-            dictForCell[CellKey.type.rawValue] = cell.typeOfClass.rawValue
-            dictForCell[CellKey.backgroundColor.rawValue] = cell.backgroundColor.rawValue
-            dictForCell[CellKey.place.rawValue] = cell.place
-            dictForCell[CellKey.userNotification.rawValue] = String(cell.userNotofocation)
-            arrayForStorage.append(dictForCell)
+            let cellOblect = CellsForSchedule(entity: classesEntity, insertInto: context)
+            
+            cellOblect.nameOfCourse = cell.nameOfCourse
+            cellOblect.nameOfProf = cell.nameOfProf
+            cellOblect.timeStart = cell.timeStart
+            cellOblect.timeEnd = cell.timeEnd
+            cellOblect.typeOfClass = cell.typeOfClass.rawValue
+            cellOblect.backgroundColor = cell.backgroundColor.rawValue
+            cellOblect.place = cell.place
+            cellOblect.userNotofocation = cell.userNotofocation
+            
+            do{
+                try context.save()
+            }catch {
+                return
+            }
         }
-        userdefaluts.set(arrayForStorage, forKey: scheduleStorageKey)
+        
+    }
+    func removeClassFromStorage(indexPath:IndexPath){
+        let fetchRequest = CellsForSchedule.fetchRequest()
+        
+        let sort = NSSortDescriptor(key: "timeStart", ascending: false)
+        fetchRequest.sortDescriptors = [sort]
+        
+        if let cells = try? context.fetch(fetchRequest){
+            context.delete(cells[indexPath.row])
+            do{
+                try context.save()
+            }catch {
+                return
+            }
+        }
+        
     }
     
     

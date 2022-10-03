@@ -14,10 +14,7 @@ class SettingsClassesController: UITableViewController {
     
     var arrayOfClasses:[CellForScheduleModel]?{
         didSet{
-            arrayOfClasses = arrayOfClasses?.sorted(by: { $0.timeEnd < $1.timeStart })
-            storage.saveAllCleseesToStorage(arrayOfClasses!)
-            
-            tableView.reloadData()
+            arrayOfClasses = arrayOfClasses?.sorted(by: { $0.timeStart < $1.timeStart })
         }
     }
     
@@ -69,10 +66,17 @@ class SettingsClassesController: UITableViewController {
         
         cell.nameOfProf.text = cellModel.nameOfProf
         cell.nameOfCourse.text = cellModel.nameOfCourse
-            cell.time.text = "\(dateformatter.string(from: cellModel.timeStart))-\(dateformatter.string(from: cellModel.timeEnd))"
+            cell.timeStartLabel.text = "\(dateformatter.string(from: cellModel.timeStart))"
+            cell.timeEndLabel.text = "\(dateformatter.string(from: cellModel.timeEnd))"
         cell.place.text = cellModel.place
         cell.type.text = cellModel.typeOfClass.rawValue
         
+            cell.nameOfProf.textColor = cellModel.textColor
+            cell.nameOfCourse.textColor = cellModel.textColor
+            cell.timeStartLabel.textColor = cellModel.textColor
+            cell.timeEndLabel.textColor = cellModel.textColor
+            cell.place.textColor = cellModel.textColor
+            cell.type.textColor = cellModel.textColor
         cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
         }
         return cell
@@ -87,12 +91,13 @@ class SettingsClassesController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             arrayOfClasses?.remove(at: indexPath.row)
+            storage.removeClassFromStorage(indexPath: indexPath)
             
-            if arrayOfClasses?.count != 0{
+            if arrayOfClasses?.count != 0 {
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                
+                tableView.reloadSections([indexPath.section], with: .automatic)
             }else{
-                tableView.reloadSections([indexPath.section], with: .left)
+                tableView.reloadSections([indexPath.section], with: .automatic)
             }
             
         }
@@ -117,6 +122,7 @@ class SettingsClassesController: UITableViewController {
                     let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation)
                     
                 arrayOfClasses?.append(newClass)
+                storage.saveAllCleseesToStorage([newClass])
                 tableView.reloadData()
             }
             
@@ -124,7 +130,6 @@ class SettingsClassesController: UITableViewController {
         }
         
         self.navigationItem.rightBarButtonItems?[0].primaryAction = actionAdd
-//        self.navigationItem.rightBarButtonItems?[1].primaryAction = actionEdit
     }
 
 }
