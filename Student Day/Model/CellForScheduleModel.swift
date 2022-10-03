@@ -73,9 +73,7 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
     }
     
     //MARK: - cell Classes
-    
-    
-    
+
 }
 
 func test() -> [CellForScheduleModel]{
