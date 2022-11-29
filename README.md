@@ -15,5 +15,5 @@ ___
 ### version 0.1
 **completed the first part of application (schedule)**
 
-![video1](video1.gif)
+![video1](videos-and-photos/video1.gif)
 
