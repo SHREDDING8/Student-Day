@@ -15,19 +15,8 @@ enum CellFrom{
 }
 
 class ChoosingColorAndTypeController: UIViewController {
-    
-    let remiderArray = [
-    "Не напоминать",
-    "Напомнить за 5 минут",
-    "Напомнить за 15 минут",
-    "Напомнить за 30 минут",
-    "Напомнить за 1 час",
-    "Напомнить за 2 часа",
-    "Напомнить за 1 день",
-    "Напомнить за 2 дня",
-    "Напомнить за 1 неделю",
-    ]
-    var reminderChoose = "Не напоминать"
+    // notificationTimeBefore from file Notifications
+    var reminderChoose:notificationTimeBefore = .none
     
     var typeClass:TypeClass = .lecture
     var backroundColor:backroundColorCell = .red
@@ -44,7 +33,8 @@ class ChoosingColorAndTypeController: UIViewController {
     var doAfterChooseType:((TypeClass)->Void)?
     var doAfterChooseColor:((backroundColorCell)->Void)?
     var doAfterChooseDays:(([Int:Bool])->Void)?
-    var doAfterChooseReminder:((String)->Void)?
+    // notificationTimeBefore from file Notifications
+    var doAfterChooseReminder:((notificationTimeBefore)->Void)?
     
     var cellFrom:CellFrom = .classType
     
@@ -120,7 +110,8 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
         case .days:
             return 7
         case .reminder:
-            return remiderArray.count
+            // notificationTimeBefore from file Notifications
+            return notificationTimeBefore.reminderDict.count
         }
     }
     
@@ -189,8 +180,8 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
             
         case .reminder:
             let cellForRemider = (tableView.dequeueReusableCell(withIdentifier: "ChoosingTypeOfClassCell") as! ChoosingTypeOfClassCell)
-            cellForRemider.typeOfClassLabel.text = remiderArray[indexPath.row]
-            if remiderArray[indexPath.row] == reminderChoose{
+            cellForRemider.typeOfClassLabel.text = notificationTimeBefore.reminderArray[indexPath.row]
+            if notificationTimeBefore(rawValue: cellForRemider.typeOfClassLabel.text!) == reminderChoose{
                 cellForRemider.accessoryType = .checkmark
             }else{
                 cellForRemider.accessoryType = .none
@@ -215,7 +206,7 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
             daysDict[indexPath.row] = daysDict[indexPath.row]! ? false : true
         case .reminder:
             tableView.deselectRow(at: indexPath, animated: true)
-            reminderChoose = remiderArray[indexPath.row]
+            reminderChoose = notificationTimeBefore(rawValue: notificationTimeBefore.reminderArray[indexPath.row])!
             self.navigationController?.popViewController(animated: true)
         }
     

@@ -87,14 +87,13 @@ class SettingsClassesController: UITableViewController {
         controllerEdit.place = (arrayOfClasses?[indexPath.row].place)!
         controllerEdit.typeOfClass = (arrayOfClasses?[indexPath.row].typeOfClass)!
         controllerEdit.backgroundColor = (arrayOfClasses?[indexPath.row].backgroundColor)!
-        controllerEdit.userNotofocation = (arrayOfClasses?[indexPath.row].userNotofocation)!
+        controllerEdit.userNotification = notificationTimeBefore(rawValue: (arrayOfClasses?[indexPath.row].userNotification)!)!
         controllerEdit.daysDict = (arrayOfClasses?[indexPath.row].days)!
-        controllerEdit.userNotofocation = (arrayOfClasses?[indexPath.row].userNotofocation)!
         
         controllerEdit.doAfterAdd = {[self]
-            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation,daysDict in
+            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
             
-            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation,days:daysDict)
+            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
             
             arrayOfClasses?.remove(at: indexPath.row)
             storage.removeClassFromStorage(indexPath: indexPath)
@@ -152,8 +151,8 @@ class SettingsClassesController: UITableViewController {
             
             let addingController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
             addingController.doAfterAdd = { [self]
-                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation,daysDict in
-                let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation,days:daysDict)
+                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
+                let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
                     
                 arrayOfClasses?.append(newClass)
                 storage.saveAllCleseesToStorage([newClass])

@@ -11,8 +11,27 @@ import UIKit
 
 // MARK: - CONSTANTS
 
-// enum with possible notifications
-enum notificationTimeBefore:String{
+/**
+ enum with possible notifications
+ 
+ 
+ **parameters:**
+ - none
+ - minute5
+ - minute15
+ - minute30
+ - hour1
+ - hour2
+ - hour2
+ - day1
+ - day2
+ - week1
+ 
+ - remiderDict
+ - remiderArray
+ */
+
+public enum notificationTimeBefore:String{
     case none = "Не напоминать"
     case minute5 = "Напомнить за 5 минут"
     case minute15 = "Напомнить за 15 минут"
@@ -23,21 +42,34 @@ enum notificationTimeBefore:String{
     case day2 = "Напомнить за 2 дня"
     case week1 = "Напомнить за 1 неделю"
     
+    // Dict with possible notifications
+    public static let reminderDict = [
+        
+        "Не напоминать": (0,0),
+        "Напомнить за 5 минут": (1,5),
+        "Напомнить за 15 минут": (2,15),
+        "Напомнить за 30 минут": (3,30),
+        "Напомнить за 1 час": (4,1),
+        "Напомнить за 2 часа": (5,2),
+        "Напомнить за 1 день": (6,1),
+        "Напомнить за 2 дня": (7,2),
+        "Напомнить за 1 неделю": (8,1)
+    ]
+    public static let reminderArray = [
+        "Не напоминать",
+        "Напомнить за 5 минут",
+        "Напомнить за 15 минут",
+        "Напомнить за 30 минут",
+        "Напомнить за 1 час",
+        "Напомнить за 2 часа",
+        "Напомнить за 1 день",
+        "Напомнить за 2 дня",
+        "Напомнить за 1 неделю"
+    ]
+    
 }
 
-// Dict with possible notifications
-public let remiderDict = [
-    
-    "Не напоминать": (0,0),
-    "Напомнить за 5 минут": (1,5),
-    "Напомнить за 15 минут": (2,15),
-    "Напомнить за 30 минут": (3,30),
-    "Напомнить за 1 час": (4,1),
-    "Напомнить за 2 часа": (5,2),
-    "Напомнить за 1 день": (6,1),
-    "Напомнить за 2 дня": (7,2),
-    "Напомнить за 1 неделю": (8,1)
-]
+
 
 // MARK: - Class Notifications
 
@@ -60,20 +92,19 @@ public class Notifications: NSObject{
         - time: time of Class/Course
         - weekDayClass: Week day of user Class/Course
      */
-    public func scheduleNotifications(className:String, timeBeforeClass:String,time:Date,weekDayClass: Int){
+    public func scheduleNotifications(className:String, timeBeforeClass:notificationTimeBefore,time:Date,weekDayClass: Int){
         
-        let timeBeforeClassSplitted = timeBeforeClass.split(separator: " ")
-        guard let timeBeforeClassEnum = notificationTimeBefore(rawValue: timeBeforeClass) else { return }
+        let timeBeforeClassSplitted = timeBeforeClass.rawValue.split(separator: " ")
         // size of array
         let sizeTimeBeforeClassSplitted = timeBeforeClassSplitted.count
         
         // notification content
         let content = UNMutableNotificationContent()
         content.title = "Напоминание"
-        content.body = "\(className) начнётся через \(timeBeforeClassSplitted[sizeTimeBeforeClassSplitted - 2]) \(timeBeforeClassSplitted[sizeTimeBeforeClassSplitted - 1])"
+        content.body = "\(className) начнётся через \(notificationTimeBefore.reminderDict[timeBeforeClass.rawValue]!.1) \(timeBeforeClassSplitted[sizeTimeBeforeClassSplitted - 1])"
         content.sound = .default
         
-        let dateClass = createDateOfNotificationBeforeClass(timeClass: time, weekDayClass: weekDayClass,timeBeforeClass: timeBeforeClassEnum)
+        let dateClass = createDateOfNotificationBeforeClass(timeClass: time, weekDayClass: weekDayClass,timeBeforeClass: timeBeforeClass)
         
         // notification trigger
         let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.weekday,.hour,.minute,.second], from: dateClass), repeats: true)
@@ -127,11 +158,11 @@ public class Notifications: NSObject{
         case .none:
             break;
         case .minute5,.minute15,.minute30:
-            DateOfClass = Calendar.current.date(byAdding: DateComponents(minute: -remiderDict[timeBeforeClass.rawValue]!.1), to: DateOfClass!)
+            DateOfClass = Calendar.current.date(byAdding: DateComponents(minute: -notificationTimeBefore.reminderDict[timeBeforeClass.rawValue]!.1), to: DateOfClass!)
         case .hour1,.hour2:
-            DateOfClass = Calendar.current.date(byAdding: DateComponents(hour: -remiderDict[timeBeforeClass.rawValue]!.1), to: DateOfClass!)
+            DateOfClass = Calendar.current.date(byAdding: DateComponents(hour: -notificationTimeBefore.reminderDict[timeBeforeClass.rawValue]!.1), to: DateOfClass!)
         case .day1,.day2:
-            DateOfClass = Calendar.current.date(byAdding: DateComponents(day: -remiderDict[timeBeforeClass.rawValue]!.1), to: DateOfClass!)
+            DateOfClass = Calendar.current.date(byAdding: DateComponents(day: -notificationTimeBefore.reminderDict[timeBeforeClass.rawValue]!.1), to: DateOfClass!)
         case .week1:
             DateOfClass = Calendar.current.date(byAdding: DateComponents(day: -6), to: DateOfClass!)
         }

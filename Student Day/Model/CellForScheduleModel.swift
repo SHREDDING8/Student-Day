@@ -131,7 +131,7 @@ protocol CellForScheduleModelProtocol{
     var backgroundColor:backroundColorCell{get set}
     var textColor:UIColor{get set}
     
-    var userNotofocation:String{get set}
+    var userNotification:String{get set}
     
 }
 
@@ -162,10 +162,10 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
         6:false
     ]
 
-    var userNotofocation: String
+    var userNotification: String
 
     // init
-    init(course:String, prof:String, timeStart:Date,timeEnd:Date, place:String,typeOfClass:TypeClass,backgroundColor:backroundColorCell,userNotofocation:String,days:[Int:Bool]) {
+    init(course:String, prof:String, timeStart:Date,timeEnd:Date, place:String,typeOfClass:TypeClass,backgroundColor:backroundColorCell,userNotification:String,days:[Int:Bool]) {
         self.nameOfCourse = course
         self.nameOfProf = prof
         self.timeStart = timeStart
@@ -173,7 +173,7 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
         self.place = place
         self.typeOfClass = typeOfClass
         self.backgroundColor = backgroundColor
-        self.userNotofocation = userNotofocation
+        self.userNotification = userNotification
         self.days = days
         
         if backgroundColor == .noColor{

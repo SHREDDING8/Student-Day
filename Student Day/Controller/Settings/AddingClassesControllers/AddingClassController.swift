@@ -45,8 +45,9 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     public var typeOfClass: TypeClass = .lecture
 
     public var backgroundColor: backroundColorCell = .noColor
-
-    public var userNotofocation: String = "Не напоминать"
+    
+    // enum from Notifications file
+    public var userNotification: notificationTimeBefore = .none
     
     public var daysDict:[Int:Bool] = [
         0:false,
@@ -58,7 +59,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
         6:false
     ]
     
-    var doAfterAdd: ((String,String,Date,Date,String,TypeClass,backroundColorCell,String,[Int:Bool])->Void)?
+    var doAfterAdd: ((String,String,Date,Date,String,TypeClass,backroundColorCell,notificationTimeBefore,[Int:Bool])->Void)?
 
     
     // MARK: - VIEW CONTROLLER FUNCTIONS
@@ -151,11 +152,11 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
         else if segue.identifier == "reminder"{
             let controller = segue.destination as!ChoosingColorAndTypeController
             controller.cellFrom = .reminder
-            controller.reminderChoose = self.userNotofocation
+            controller.reminderChoose = self.userNotification
             controller.doAfterChooseReminder = {[self]
                 reminder in
-                self.userNotofocation = reminder
-                self.reminderOutlet.text = reminder
+                self.userNotification = reminder
+                self.reminderOutlet.text = reminder.rawValue
             }
         }else if segue.identifier == "subjectSegue"{
             let controller = segue.destination as! AddedSubjectTeacherPlaceController
@@ -206,7 +207,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
         self.timeEndOtutlet.date = self.timeEnd
         (self.typeOfClassCell.viewWithTag(1) as! UILabel).text = self.typeOfClass.rawValue
         self.colorViewCell.backgroundColor = UIColor(named: self.backgroundColor.rawValue)
-        self.reminderOutlet.text = self.userNotofocation
+        self.reminderOutlet.text = self.userNotification.rawValue
         
         if self.backgroundColor.rawValue == "settingsCellColor"{
             labelOfCellOfChoosingColor.textColor = UIColor(named: "gray")
@@ -230,14 +231,14 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     
     @objc func saveClass(){
         if validationBeforeSave(){
-            doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation,daysDict)
+            doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict)
             
-            if userNotofocation != "Не напоминать"{
+            if userNotification.rawValue != "Не напоминать"{
                 
                 for (weekDayKey, WeekDayValue) in daysDict{
                     if WeekDayValue == true{
                         let notification = Notifications(identifer: nameOfCourse)
-                        notification.scheduleNotifications(className: nameOfCourse, timeBeforeClass: userNotofocation, time: timeStart, weekDayClass: weekDayKey)
+                        notification.scheduleNotifications(className: nameOfCourse, timeBeforeClass: userNotification, time: timeStart, weekDayClass: weekDayKey)
                     }
                     
                 }

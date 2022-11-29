@@ -14,7 +14,7 @@
         <attribute name="timeStart" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="tuesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="typeOfClass" optional="YES" attributeType="String"/>
-        <attribute name="userNotofocation" optional="YES" attributeType="String"/>
+        <attribute name="userNotification" optional="YES" attributeType="String"/>
         <attribute name="wednesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="Place" representedClassName="Place" syncable="YES" codeGenerationType="class">

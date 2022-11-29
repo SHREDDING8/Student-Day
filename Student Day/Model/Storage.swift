@@ -76,7 +76,7 @@ class Storage:StorageProtocol{
                 let place = gettedClass.place,
                 let type = TypeClass(rawValue: gettedClass.typeOfClass!),
                 let backgroundColor = backroundColorCell(rawValue: gettedClass.backgroundColor!),
-                let userNotification = gettedClass.userNotofocation
+                let userNotification = gettedClass.userNotification
                 else{
                     continue
             }
@@ -88,7 +88,7 @@ class Storage:StorageProtocol{
             daysDict[5] = gettedClass.saturday
             daysDict[6] = gettedClass.sunday
             
-            let cellToArray = CellForScheduleModel(course:nameOfCourse , prof: nameOfProf, timeStart:timeStart , timeEnd:timeEnd , place:place , typeOfClass: type, backgroundColor:backgroundColor , userNotofocation:userNotification,days: daysDict)
+            let cellToArray = CellForScheduleModel(course:nameOfCourse , prof: nameOfProf, timeStart:timeStart , timeEnd:timeEnd , place:place , typeOfClass: type, backgroundColor:backgroundColor , userNotification:userNotification,days: daysDict)
             cells.append(cellToArray)
         }
         
@@ -111,7 +111,7 @@ class Storage:StorageProtocol{
             cellOblect.typeOfClass = cell.typeOfClass.rawValue
             cellOblect.backgroundColor = cell.backgroundColor.rawValue
             cellOblect.place = cell.place
-            cellOblect.userNotofocation = cell.userNotofocation
+            cellOblect.userNotification = cell.userNotification
             
             cellOblect.monday = cell.days[0]!
             cellOblect.tuesday = cell.days[1]!
