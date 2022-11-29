@@ -15,5 +15,5 @@ ___
 ### version 0.1
 **completed the first part of application (schedule)**
 
-![обзорное видео](my_video.mov)
+![обзорное видео](video1.mp4)
 
