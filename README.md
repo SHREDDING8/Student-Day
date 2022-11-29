@@ -15,5 +15,5 @@ ___
 ### version 0.1
 **completed the first part of application (schedule)**
 
-([video1](https://github.com/SHREDDING8/Student-Day/blob/master/videos%20and%20photos/video1.mp4)
+([video1](https://github.com/SHREDDING8/Student-Day/blob/master/videos%20and%20photos/video1.mp4))
 
