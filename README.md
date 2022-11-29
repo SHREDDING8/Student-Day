@@ -15,5 +15,7 @@ ___
 ### version 0.1
 **completed the first part of application (schedule)**
 
-![video1](videos-and-photos/video1.gif)
+https://user-images.githubusercontent.com/88378430/204603239-4f97275d-d2e3-4e97-ae9b-08f481aac9a2.mp4
+
+
 
