@@ -9,12 +9,27 @@ import Foundation
 import UIKit
 import CoreData
 
-protocol StorageProtocol{
+// MARK: - StorageProtocol and enums
+private protocol StorageProtocol{
     func getAllClassesFromStorage()->[CellForScheduleModel]?
-    func saveAllCleseesToStorage(_: [CellForScheduleModel])
+    func saveClassesToStorage(_: [CellForScheduleModel])
     
 }
 
+/**
+ Enum with possible key for Class/Course
+ 
+
+ **parameters:**
+ - nameOfProf
+ - nameOfCourse
+ - timeStart
+ - timeEnd
+ - place
+ - type
+ - backgroundColor
+ - userNotification
+ */
 enum CellKey:String{
     case nameOfProf
     case nameOfCourse
@@ -33,18 +48,24 @@ enum SubjectTeacherPlace {
 }
 
 
+// MARK: - class Storage
 class Storage:StorageProtocol{
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
-//    let dateFormatter = DateFormatter()
+    /**
+     get all Classes/Courses from storage
+     
     
-    func getAllClassesFromStorage() -> [CellForScheduleModel]? {
+     **return**
+     - [CellForScheduleModel]?
+     */
+    public func getAllClassesFromStorage() -> [CellForScheduleModel]? {
         
-        // Constants
-        
+        // resulting array
         var cells:[CellForScheduleModel] = []
         
+        // array from storage
         let gettedCellsFromCoreData:[CellsForSchedule]
         
     
@@ -69,6 +90,7 @@ class Storage:StorageProtocol{
                 6:false
             ]
             
+            // set variables from storage
             guard let nameOfProf = gettedClass.nameOfProf,
                 let nameOfCourse = gettedClass.nameOfCourse,
                 let timeStart = gettedClass.timeStart,
@@ -88,6 +110,7 @@ class Storage:StorageProtocol{
             daysDict[5] = gettedClass.saturday
             daysDict[6] = gettedClass.sunday
             
+            // create class of Class/Course
             let cellToArray = CellForScheduleModel(course:nameOfCourse , prof: nameOfProf, timeStart:timeStart , timeEnd:timeEnd , place:place , typeOfClass: type, backgroundColor:backgroundColor , userNotification:userNotification,days: daysDict)
             cells.append(cellToArray)
         }
@@ -95,12 +118,19 @@ class Storage:StorageProtocol{
         return cells
     }
     
-    func saveAllCleseesToStorage(_ cells: [CellForScheduleModel]) {
+    /**
+     this function save array of Classes/Courses to storage
+     
+     
+     **parameters:**
+     - cells: array with Classes/Courses
+     */
+    public func saveClassesToStorage(_ cells: [CellForScheduleModel]) {
         
-        //getting entity
-        
+        // getting entity
         guard let classesEntity = NSEntityDescription.entity(forEntityName: "CellsForSchedule", in: context) else{return}
         
+        // set variables
         cells.forEach { cell in
             let cellOblect = CellsForSchedule(entity: classesEntity, insertInto: context)
             
@@ -121,6 +151,7 @@ class Storage:StorageProtocol{
             cellOblect.saturday = cell.days[5]!
             cellOblect.sunday = cell.days[6]!
             
+            // save model to storage
             do{
                 try context.save()
             }catch {
@@ -129,12 +160,22 @@ class Storage:StorageProtocol{
         }
         
     }
-    func removeClassFromStorage(indexPath:IndexPath){
+    
+    /**
+     this function removes Class/Course from storage
+     
+     
+     **parameters:**
+     - indexPath: IndexPath for determine what Class/Course should be removed
+     */
+    public func removeClassFromStorage(indexPath:IndexPath){
         let fetchRequest = CellsForSchedule.fetchRequest()
         
+        // sort all element in Entity by time start
         let sort = NSSortDescriptor(key: "timeStart", ascending: true)
         fetchRequest.sortDescriptors = [sort]
         
+        // remove class
         if let cells = try? context.fetch(fetchRequest){
             context.delete(cells[indexPath.row])
             do{
@@ -143,13 +184,23 @@ class Storage:StorageProtocol{
                 return
             }
         }
-        
     }
     
     
-    func getSubjectTeacherPlace(getting: SubjectTeacherPlace)->[String]{
+    /**
+     _this functions gets all names of Classes/Courses or Teachers or Places_
+     
+     
+     **parameters:**
+     - getting: item of enum SubjectTeacherPlace that means what kind of array shold be
+     
+     **return:**
+     - [String]: array with names of Classes/Courses or Teachers or Places
+     */
+    public func getSubjectTeacherPlaceArray(getting: SubjectTeacherPlace)->[String]{
         
         var returned:[String] = []
+
         
         switch getting{
             
@@ -190,18 +241,20 @@ class Storage:StorageProtocol{
             } catch  _ as NSError {
                 fromStorage = []
             }
-            
             for objectFrom in fromStorage{
                 
                 returned.append(objectFrom.teacher ?? "")
             }
+            
         }
         
         returned = returned.sorted()
         return returned
     }
     
-    func saveSubjectTeacherPlace(saving:SubjectTeacherPlace,array: [String]){
+    
+    
+    public func saveSubjectTeacherPlace(saving:SubjectTeacherPlace,array: [String]){
         
         
     
@@ -254,7 +307,7 @@ class Storage:StorageProtocol{
     }
     
     
-    func removeSubjectTeacherPlace(Object:String, type:SubjectTeacherPlace){
+    public func removeSubjectTeacherPlace(Object:String, type:SubjectTeacherPlace){
         
         
         switch type {
@@ -293,7 +346,6 @@ class Storage:StorageProtocol{
                 
             }
             
-            
         case .place:
             let fetchRequest = Place.fetchRequest()
             
@@ -314,6 +366,5 @@ class Storage:StorageProtocol{
         }
         
     }
-    
     
 }

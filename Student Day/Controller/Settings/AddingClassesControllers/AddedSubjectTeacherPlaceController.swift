@@ -41,11 +41,11 @@ class AddedSubjectTeacherPlaceController: UIViewController {
         
         switch cellFrom{
         case .Place:
-            arrayHint = storage.getSubjectTeacherPlace(getting: .place)
+            arrayHint = storage.getSubjectTeacherPlaceArray(getting: .place)
         case .Subject:
-            arrayHint = storage.getSubjectTeacherPlace(getting: .subject)
+            arrayHint = storage.getSubjectTeacherPlaceArray(getting: .subject)
         case .Teacher:
-            arrayHint = storage.getSubjectTeacherPlace(getting: .teacher)
+            arrayHint = storage.getSubjectTeacherPlaceArray(getting: .teacher)
             
         }
 
@@ -162,7 +162,7 @@ class AddedSubjectTeacherPlaceController: UIViewController {
         textField.text = textField.text?.trimmingCharacters(in: .whitespaces)
         if let text = textField.text{
             if (text != ""){
-                for Object in storage.getSubjectTeacherPlace(getting: getting){
+                for Object in storage.getSubjectTeacherPlaceArray(getting: getting){
                     if Object == text{
                         self.navigationController?.popViewController(animated: true)
                         doafterClose?(textField.text ?? "")
@@ -262,7 +262,7 @@ extension AddedSubjectTeacherPlaceController:UITextFieldDelegate{
             getting = .place
         }
         
-        let storageObjects = storage.getSubjectTeacherPlace(getting: getting)
+        let storageObjects = storage.getSubjectTeacherPlaceArray(getting: getting)
         
         
         var newArrayHint:[String] = []

@@ -376,7 +376,7 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource,UIScr
             arrayOfClasses?.remove(at: indexPath.row)
             storage.removeClassFromStorage(indexPath: indexPath)
             arrayOfClasses?.append(newClass)
-            storage.saveAllCleseesToStorage([newClass])
+            storage.saveClassesToStorage([newClass])
             tableView.reloadData()
             
         }

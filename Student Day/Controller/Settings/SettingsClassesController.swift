@@ -98,7 +98,7 @@ class SettingsClassesController: UITableViewController {
             arrayOfClasses?.remove(at: indexPath.row)
             storage.removeClassFromStorage(indexPath: indexPath)
             arrayOfClasses?.append(newClass)
-            storage.saveAllCleseesToStorage([newClass])
+            storage.saveClassesToStorage([newClass])
             tableView.reloadData()
             
         }
@@ -155,7 +155,7 @@ class SettingsClassesController: UITableViewController {
                 let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
                     
                 arrayOfClasses?.append(newClass)
-                storage.saveAllCleseesToStorage([newClass])
+                storage.saveClassesToStorage([newClass])
                 tableView.reloadData()
             }
             
