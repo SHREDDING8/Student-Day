@@ -14,5 +14,6 @@ ___
 ___
 ### version 0.1
 **completed the first part of application (schedule)**
-<video>https://www.youtube.com/watch?v=ID</video>
+
+![обзорное видео](my_video.mov)
 
