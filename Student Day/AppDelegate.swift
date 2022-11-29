@@ -7,16 +7,38 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
+
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    private let notificationCenter = UNUserNotificationCenter.current()
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        notificationCenter.requestAuthorization(options: [.alert,.badge,.sound]) { granted, error in
+            guard granted else {return}
+            
+            self.notificationCenter.getNotificationSettings { settings in
+                print(settings)
+                guard settings.authorizationStatus == .authorized else {return}
+            }
+            
+        }
+        notificationCenter.delegate = self
+        
         return true
     }
+    
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound,.badge,.banner])
+    }
+    
+    
 
     // MARK: UISceneSession Lifecycle
 

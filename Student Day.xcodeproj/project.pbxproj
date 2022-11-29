@@ -10,6 +10,7 @@
 		7CF0C777B7D041BEFABDD14C /* Pods_Student_Day.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F30DD24B222130252440634 /* Pods_Student_Day.framework */; };
 		EE4A381028E2F3150041C714 /* CellForSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4A380E28E2F3150041C714 /* CellForSchedule.swift */; };
 		EE4A381128E2F3150041C714 /* CellForSchedule.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE4A380F28E2F3150041C714 /* CellForSchedule.xib */; };
+		EE56C7BD29353DED0011433A /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE56C7BC29353DED0011433A /* Notifications.swift */; };
 		EE6037C128E499EB00FE308F /* SettingsFirstPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6037C028E499EB00FE308F /* SettingsFirstPageController.swift */; };
 		EE6037C328E4A7CC00FE308F /* SettingsClassesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6037C228E4A7CC00FE308F /* SettingsClassesController.swift */; };
 		EE6BF66328EAF404006CFAD0 /* Student Day.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EE6BF66128EAF404006CFAD0 /* Student Day.xcdatamodeld */; };
@@ -17,11 +18,10 @@
 		EE6FE3AB28E4AEB900F0EADA /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6FE3AA28E4AEB900F0EADA /* Storage.swift */; };
 		EE8110B128E8E628003E0CF8 /* ChoosingTypeOfClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8110AF28E8E628003E0CF8 /* ChoosingTypeOfClassCell.swift */; };
 		EE8110B228E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE8110B028E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib */; };
-		EE8110B528E8F09D003E0CF8 /* setBackgroundColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8110B328E8F09D003E0CF8 /* setBackgroundColorCell.swift */; };
-		EE8110B628E8F09D003E0CF8 /* setBackgroundColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE8110B428E8F09D003E0CF8 /* setBackgroundColorCell.xib */; };
 		EE9C835728E4526800A3E603 /* CellForScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9C835628E4526800A3E603 /* CellForScheduleModel.swift */; };
 		EEAA478128E88B0C00E7D087 /* ChoosingColorAndTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAA478028E88B0C00E7D087 /* ChoosingColorAndTypeController.swift */; };
 		EEADA21328E6818D007B11B2 /* AddingClassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEADA21228E6818D007B11B2 /* AddingClassController.swift */; };
+		EEBB738F28F6F8320086B48D /* AddedSubjectTeacherPlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBB738E28F6F8320086B48D /* AddedSubjectTeacherPlaceController.swift */; };
 		EEC5884228E1C656005FB604 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC5884128E1C656005FB604 /* ScheduleViewController.swift */; };
 		EED70C2E28E1AA3C009B976C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED70C2D28E1AA3C009B976C /* AppDelegate.swift */; };
 		EED70C3028E1AA3C009B976C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EED70C2F28E1AA3C009B976C /* SceneDelegate.swift */; };
@@ -36,6 +36,7 @@
 		BA32DF8EF6545A037D3B9D58 /* Pods-Student Day.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Student Day.release.xcconfig"; path = "Target Support Files/Pods-Student Day/Pods-Student Day.release.xcconfig"; sourceTree = "<group>"; };
 		EE4A380E28E2F3150041C714 /* CellForSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForSchedule.swift; sourceTree = "<group>"; };
 		EE4A380F28E2F3150041C714 /* CellForSchedule.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CellForSchedule.xib; sourceTree = "<group>"; };
+		EE56C7BC29353DED0011433A /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		EE6037C028E499EB00FE308F /* SettingsFirstPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFirstPageController.swift; sourceTree = "<group>"; };
 		EE6037C228E4A7CC00FE308F /* SettingsClassesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsClassesController.swift; sourceTree = "<group>"; };
 		EE6BF66228EAF404006CFAD0 /* ScheduleData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScheduleData.xcdatamodel; sourceTree = "<group>"; };
@@ -43,11 +44,10 @@
 		EE6FE3AA28E4AEB900F0EADA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EE8110AF28E8E628003E0CF8 /* ChoosingTypeOfClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingTypeOfClassCell.swift; sourceTree = "<group>"; };
 		EE8110B028E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoosingTypeOfClassCell.xib; sourceTree = "<group>"; };
-		EE8110B328E8F09D003E0CF8 /* setBackgroundColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setBackgroundColorCell.swift; sourceTree = "<group>"; };
-		EE8110B428E8F09D003E0CF8 /* setBackgroundColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = setBackgroundColorCell.xib; sourceTree = "<group>"; };
 		EE9C835628E4526800A3E603 /* CellForScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForScheduleModel.swift; sourceTree = "<group>"; };
 		EEAA478028E88B0C00E7D087 /* ChoosingColorAndTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingColorAndTypeController.swift; sourceTree = "<group>"; };
 		EEADA21228E6818D007B11B2 /* AddingClassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingClassController.swift; sourceTree = "<group>"; };
+		EEBB738E28F6F8320086B48D /* AddedSubjectTeacherPlaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddedSubjectTeacherPlaceController.swift; sourceTree = "<group>"; };
 		EEC5884128E1C656005FB604 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		EED70C2A28E1AA3C009B976C /* Student Day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Day.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED70C2D28E1AA3C009B976C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,8 +94,6 @@
 				EE4A380F28E2F3150041C714 /* CellForSchedule.xib */,
 				EE8110AF28E8E628003E0CF8 /* ChoosingTypeOfClassCell.swift */,
 				EE8110B028E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib */,
-				EE8110B328E8F09D003E0CF8 /* setBackgroundColorCell.swift */,
-				EE8110B428E8F09D003E0CF8 /* setBackgroundColorCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				EEAA477F28E88AC000E7D087 /* AddingClassesControllers */,
-				EE6037C028E499EB00FE308F /* SettingsFirstPageController.swift */,
 				EE6037C228E4A7CC00FE308F /* SettingsClassesController.swift */,
 			);
 			path = Settings;
@@ -115,6 +112,8 @@
 			children = (
 				EEADA21228E6818D007B11B2 /* AddingClassController.swift */,
 				EEAA478028E88B0C00E7D087 /* ChoosingColorAndTypeController.swift */,
+				EEBB738E28F6F8320086B48D /* AddedSubjectTeacherPlaceController.swift */,
+				EE6037C028E499EB00FE308F /* SettingsFirstPageController.swift */,
 			);
 			path = AddingClassesControllers;
 			sourceTree = "<group>";
@@ -176,6 +175,7 @@
 				EE9C835628E4526800A3E603 /* CellForScheduleModel.swift */,
 				EE6FE3AA28E4AEB900F0EADA /* Storage.swift */,
 				EE6BF66128EAF404006CFAD0 /* Student Day.xcdatamodeld */,
+				EE56C7BC29353DED0011433A /* Notifications.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,7 +257,6 @@
 				EE8110B228E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib in Resources */,
 				EED70C3A28E1AA3F009B976C /* LaunchScreen.storyboard in Resources */,
 				EED70C3728E1AA3F009B976C /* Assets.xcassets in Resources */,
-				EE8110B628E8F09D003E0CF8 /* setBackgroundColorCell.xib in Resources */,
 				EED70C3528E1AA3C009B976C /* Main.storyboard in Resources */,
 				EE6BF68828EB3F86006CFAD0 /* TO - DO.rtf in Resources */,
 			);
@@ -316,10 +315,11 @@
 				EE6037C128E499EB00FE308F /* SettingsFirstPageController.swift in Sources */,
 				EE9C835728E4526800A3E603 /* CellForScheduleModel.swift in Sources */,
 				EE4A381028E2F3150041C714 /* CellForSchedule.swift in Sources */,
+				EEBB738F28F6F8320086B48D /* AddedSubjectTeacherPlaceController.swift in Sources */,
 				EE8110B128E8E628003E0CF8 /* ChoosingTypeOfClassCell.swift in Sources */,
 				EEC5884228E1C656005FB604 /* ScheduleViewController.swift in Sources */,
-				EE8110B528E8F09D003E0CF8 /* setBackgroundColorCell.swift in Sources */,
 				EED70C2E28E1AA3C009B976C /* AppDelegate.swift in Sources */,
+				EE56C7BD29353DED0011433A /* Notifications.swift in Sources */,
 				EE6FE3AB28E4AEB900F0EADA /* Storage.swift in Sources */,
 				EEAA478128E88B0C00E7D087 /* ChoosingColorAndTypeController.swift in Sources */,
 				EED70C3028E1AA3C009B976C /* SceneDelegate.swift in Sources */,

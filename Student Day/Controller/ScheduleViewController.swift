@@ -16,6 +16,11 @@ import FSCalendar
 class ScheduleViewController: UIViewController {
     
     let storage = Storage()
+    private var arrayOfClasses:[CellForScheduleModel]?{
+        didSet{
+            arrayOfClasses = arrayOfClasses?.sorted(by: { $0.timeStart < $1.timeStart })
+        }
+    }
     
     // MARK: -  Objects
     
@@ -74,6 +79,14 @@ class ScheduleViewController: UIViewController {
         
         return button
     }()
+    private var todayButton:UIButton = {
+        let button = UIButton()
+        button.setTitle("⟲", for: .normal)
+        button.setTitleColor(UIColor.orange, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = button.titleLabel?.font.withSize(40)
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +95,52 @@ class ScheduleViewController: UIViewController {
         setCalendar()
         setButtonShowCloseCalendar()
         setConfigurationTableView()
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        }
+    
+    @objc func swipeAction(gesture:UISwipeGestureRecognizer){
+        var date:Date = Date.now
+        
+        if gesture.direction == .right{
+            let prevDay = Calendar.current.date(byAdding: DateComponents(day: -1), to: calendarView.selectedDate ?? Date.now)
+            calendarView.select(prevDay, scrollToDate: true)
+            self.getCurrentClasses(date: prevDay!)
+            date = prevDay!
+        } else if gesture.direction == .left{
+            let nextDay = Calendar.current.date(byAdding: DateComponents(day: 1), to: calendarView.selectedDate ?? Date.now)
+            calendarView.select(nextDay, scrollToDate: true)
+            self.getCurrentClasses(date: nextDay!)
+            date = nextDay!
+        }
         
         
-
+        UIView.transition(with: tableViewSchedule, duration: 0.5,options: .transitionCrossDissolve) {
+            self.tableViewSchedule.reloadData()
+        }
+        
+        todayButton.isHidden = false
+        if date == calendarView.today{
+            todayButton.isHidden = true
+            calendarView.deselect(date)
+        }
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getCurrentClasses(date: calendarView.selectedDate ?? Date.now)
+        UIView.transition(with: tableViewSchedule, duration: 0.5,options: .transitionCrossDissolve) {
+            self.tableViewSchedule.reloadData()
+        }
+        
     }
     
 
@@ -103,7 +159,7 @@ class ScheduleViewController: UIViewController {
     }
     
     @objc func transitionToSettings(){
-        let settingsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsFirstPageController")
+        let settingsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingsFirstPageController") as! SettingsFirstPageController
         navigationController?.pushViewController(settingsController, animated: true)
     }
 
@@ -130,6 +186,8 @@ class ScheduleViewController: UIViewController {
         
         self.view.addSubview(showCloseCalendarButton)
         
+        self.view.addSubview(todayButton)
+        
         
         NSLayoutConstraint.activate([
             showCloseCalendarButton.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 10),
@@ -137,9 +195,38 @@ class ScheduleViewController: UIViewController {
             showCloseCalendarButton.heightAnchor.constraint(equalToConstant: 20)
         ])
         
+        NSLayoutConstraint.activate([
+            todayButton.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 5),
+            todayButton.heightAnchor.constraint(equalToConstant: 20),
+            todayButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+        ])
+        
         showCloseCalendarButton.addTarget(nil, action: #selector(buttonShowCloseTapped), for: .touchUpInside)
+        todayButton.addTarget(self, action: #selector(returnToToday), for: .touchUpInside)
+        todayButton.isHidden = true
     }
     
+    
+    @objc private func returnToToday(){
+        
+                    if let today =  calendarView.today{
+                    self.calendarView.setScope(.week, animated: true)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: {
+                            if let selected = self.calendarView.selectedDate{
+                                self.calendarView.deselect(selected)
+                            }
+                            self.calendarView.setCurrentPage(today, animated: true)
+                            self.getCurrentClasses(date: .now)
+        
+                            UIView.transition(with: self.tableViewSchedule, duration: 0.5,options: .transitionCrossDissolve) {
+                                self.tableViewSchedule.reloadData()
+                            }
+        
+                        })
+                        todayButton.isHidden = true
+                    }
+        
+    }
     @objc private func buttonShowCloseTapped(){
         if calendarView.scope == .week{
             // change the scope
@@ -150,23 +237,32 @@ class ScheduleViewController: UIViewController {
                 self.showCloseCalendarButton.setTitle( "Скрыть", for: .normal)
             }, completion: nil)
         }else{
-            
-            
-            if let today =  calendarView.today{
-                    calendarView.setScope(.week, animated: false)
-                let month = Calendar.current.date(byAdding: .month, value: 1, to: today)!
-                calendarView.setCurrentPage(month, animated: false)
-                    calendarView.setCurrentPage(today, animated: true)
-               
-            }
+            self.calendarView.setScope(.week, animated: true)
             UIView.transition(with: showCloseCalendarButton , duration: 0.5, options: .transitionFlipFromTop, animations: {
                 self.showCloseCalendarButton.setTitle( "Развернуть", for: .normal)
             }, completion: nil)
-            if let selected = calendarView.selectedDate{
-                calendarView.deselect(selected)
-            }
             
+            if arrayOfClasses?.count == 0{
+                if let today =  calendarView.today{
+                self.calendarView.setScope(.week, animated: true)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: {
+                        if let selected = self.calendarView.selectedDate{
+                            self.calendarView.deselect(selected)
+                        }
+                        self.calendarView.setCurrentPage(today, animated: true)
+                        self.getCurrentClasses(date: .now)
+    
+                        UIView.transition(with: self.tableViewSchedule, duration: 0.5,options: .transitionCrossDissolve) {
+                            self.tableViewSchedule.reloadData()
+                        }
+    
+                    })
+                    todayButton.isHidden = true
+                }
+            }
+                        
         }
+        
     }
     
 }
@@ -174,7 +270,19 @@ class ScheduleViewController: UIViewController {
 //MARK: - CALENDAR FSCalendarDelegate,FSCalendarDataSource
 extension ScheduleViewController:FSCalendarDelegate,FSCalendarDataSource{
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-            self.calendarView.setScope(.month, animated: true)
+        if calendarView.scope == .week{
+            buttonShowCloseTapped()
+        }
+        self.getCurrentClasses(date: date)
+        UIView.transition(with: tableViewSchedule, duration: 0.5,options: .transitionCrossDissolve) {
+            self.tableViewSchedule.reloadData()
+        }
+        
+        todayButton.isHidden = false
+        if date == calendarView.today{
+            todayButton.isHidden = true
+            calendarView.deselect(date)
+        }
         
     }
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
@@ -186,13 +294,29 @@ extension ScheduleViewController:FSCalendarDelegate,FSCalendarDataSource{
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru")
         dateFormatter.setLocalizedDateFormatFromTemplate("MMMM YYYY")
+        
         calendar.appearance.headerDateFormat = dateFormatter.string(from: calendar.currentPage)
+    }
+    
+    private func getCurrentClasses(date:Date){
+        let myCalendar = Calendar(identifier: .gregorian)
+        var weekDay = myCalendar.component(.weekday, from: date) - 2
+        if weekDay == -1{
+            weekDay = 6
+        }
+        let allClasses = storage.getAllClassesFromStorage()
+        arrayOfClasses = []
+        allClasses?.forEach({ cell in
+            if cell.days[weekDay]!{
+                arrayOfClasses?.append(cell)
+            }
+        })
     }
 }
 
 //MARK: - TABLE VIEW
 
-extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
+extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate{
     
     fileprivate func setConfigurationTableView(){
         
@@ -208,31 +332,66 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource{
             tableViewSchedule.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             tableViewSchedule.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        
+        getCurrentClasses(date: calendarView.selectedDate ?? Date.now)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storage.getAllClassesFromStorage()!.count
+        return arrayOfClasses!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         
         
-        
-        let asd = UINib(nibName: "CellForSchedule", bundle: nil)
-        tableView.register(asd, forCellReuseIdentifier: "CellForSchedule")
+        let CellForScheduleNib = UINib(nibName: "CellForSchedule", bundle: nil)
+        tableView.register(CellForScheduleNib, forCellReuseIdentifier: "CellForSchedule")
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
         
-        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: storage.getAllClassesFromStorage()!)
+        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: arrayOfClasses!)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
+        
+        controllerEdit.nameOfProf = (arrayOfClasses?[indexPath.row].nameOfProf)!
+        controllerEdit.nameOfCourse = (arrayOfClasses?[indexPath.row].nameOfCourse)!
+        controllerEdit.timeStart = (arrayOfClasses?[indexPath.row].timeStart)!
+        controllerEdit.timeEnd = (arrayOfClasses?[indexPath.row].timeEnd)!
+        controllerEdit.place = (arrayOfClasses?[indexPath.row].place)!
+        controllerEdit.typeOfClass = (arrayOfClasses?[indexPath.row].typeOfClass)!
+        controllerEdit.backgroundColor = (arrayOfClasses?[indexPath.row].backgroundColor)!
+        controllerEdit.userNotofocation = (arrayOfClasses?[indexPath.row].userNotofocation)!
+        controllerEdit.daysDict = (arrayOfClasses?[indexPath.row].days)!
+        
+        controllerEdit.doAfterAdd = {[self]
+            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation,daysDict in
+            
+            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation,days:daysDict)
+            
+            arrayOfClasses?.remove(at: indexPath.row)
+            storage.removeClassFromStorage(indexPath: indexPath)
+            arrayOfClasses?.append(newClass)
+            storage.saveAllCleseesToStorage([newClass])
+            tableView.reloadData()
+            
+        }
+        self.navigationController?.pushViewController(controllerEdit, animated: true)
+        
     }
     
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == tableViewSchedule{
+            if calendarView.scope == .month{
+                buttonShowCloseTapped()
+            }
+        }
+        
+    }
     // MARK: - Cells for Schedule
     
     private func configureCell(cell:CellForSchedule,indexPathRow:Int,allCells:[CellForScheduleModel])->CellForSchedule{

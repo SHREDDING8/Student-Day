@@ -77,7 +77,33 @@ class SettingsClassesController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
+        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
+        
+        controllerEdit.nameOfProf = (arrayOfClasses?[indexPath.row].nameOfProf)!
+        controllerEdit.nameOfCourse = (arrayOfClasses?[indexPath.row].nameOfCourse)!
+        controllerEdit.timeStart = (arrayOfClasses?[indexPath.row].timeStart)!
+        controllerEdit.timeEnd = (arrayOfClasses?[indexPath.row].timeEnd)!
+        controllerEdit.place = (arrayOfClasses?[indexPath.row].place)!
+        controllerEdit.typeOfClass = (arrayOfClasses?[indexPath.row].typeOfClass)!
+        controllerEdit.backgroundColor = (arrayOfClasses?[indexPath.row].backgroundColor)!
+        controllerEdit.userNotofocation = (arrayOfClasses?[indexPath.row].userNotofocation)!
+        controllerEdit.daysDict = (arrayOfClasses?[indexPath.row].days)!
+        controllerEdit.userNotofocation = (arrayOfClasses?[indexPath.row].userNotofocation)!
+        
+        controllerEdit.doAfterAdd = {[self]
+            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation,daysDict in
+            
+            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation,days:daysDict)
+            
+            arrayOfClasses?.remove(at: indexPath.row)
+            storage.removeClassFromStorage(indexPath: indexPath)
+            arrayOfClasses?.append(newClass)
+            storage.saveAllCleseesToStorage([newClass])
+            tableView.reloadData()
+            
+        }
+        self.navigationController?.pushViewController(controllerEdit, animated: true)
         
     }
     
@@ -111,6 +137,7 @@ class SettingsClassesController: UITableViewController {
     
 
 
+
     
     // MARK: - configuration TableView
     
@@ -125,8 +152,8 @@ class SettingsClassesController: UITableViewController {
             
             let addingController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
             addingController.doAfterAdd = { [self]
-                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation in
-                    let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation)
+                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation,daysDict in
+                let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotofocation: userNotofocation,days:daysDict)
                     
                 arrayOfClasses?.append(newClass)
                 storage.saveAllCleseesToStorage([newClass])

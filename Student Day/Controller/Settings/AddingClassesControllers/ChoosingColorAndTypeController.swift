@@ -10,15 +10,41 @@ import UIKit
 enum CellFrom{
     case classType
     case Color
+    case days
+    case reminder
 }
 
 class ChoosingColorAndTypeController: UIViewController {
     
+    let remiderArray = [
+    "Не напоминать",
+    "Напомнить за 5 минут",
+    "Напомнить за 15 минут",
+    "Напомнить за 30 минут",
+    "Напомнить за 1 час",
+    "Напомнить за 2 часа",
+    "Напомнить за 1 день",
+    "Напомнить за 2 дня",
+    "Напомнить за 1 неделю",
+    ]
+    var reminderChoose = "Не напоминать"
+    
     var typeClass:TypeClass = .lecture
     var backroundColor:backroundColorCell = .red
+    var daysDict:[Int:Bool] = [
+        0:false,
+        1:false,
+        2:false,
+        3:false,
+        4:false,
+        5:false,
+        6:false
+    ]
     
     var doAfterChooseType:((TypeClass)->Void)?
     var doAfterChooseColor:((backroundColorCell)->Void)?
+    var doAfterChooseDays:(([Int:Bool])->Void)?
+    var doAfterChooseReminder:((String)->Void)?
     
     var cellFrom:CellFrom = .classType
     
@@ -38,6 +64,9 @@ class ChoosingColorAndTypeController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         doAfterChooseType?(typeClass)
         doAfterChooseColor?(backroundColor)
+        doAfterChooseDays?(daysDict)
+        doAfterChooseReminder?(reminderChoose)
+        
     }
     
     
@@ -49,7 +78,12 @@ class ChoosingColorAndTypeController: UIViewController {
             self.title = "Тип занятия"
         case .Color:
             self.title = "Цвет"
+        case .days:
+            self.title = "Дни"
+        case .reminder:
+            self.title = "Напоминание"
         }
+        
     }
 
     
@@ -83,12 +117,16 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
             return typeClassArray.count
         case .Color:
             return backroundColorCellArray.count
+        case .days:
+            return 7
+        case .reminder:
+            return remiderArray.count
         }
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellTypeClass:ChoosingTypeOfClassCell
-        let cellColor:setBackgroundColorCell
+        let cellColor:ChoosingTypeOfClassCell
         
         switch cellFrom{
         case .classType:
@@ -96,30 +134,92 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
             cellTypeClass.typeOfClassLabel.text = typeClassArray[indexPath.row]
             if typeClassArray[indexPath.row] == typeClass.rawValue{
                 cellTypeClass.accessoryType = .checkmark
+            }else{
+                cellTypeClass.accessoryType = .none
             }
             return cellTypeClass
             
         case .Color:
-            cellColor = tableView.dequeueReusableCell(withIdentifier: "setBackgroundColorCell")! as! setBackgroundColorCell
+            cellColor = tableView.dequeueReusableCell(withIdentifier: "ChoosingTypeOfClassCell")! as! ChoosingTypeOfClassCell
             cellColor.backgroundColor = UIColor(named: backroundColorCellArray[indexPath.row])
+            
+            cellColor.typeOfClassLabel.text = "Выбрать цвет"
+            
             if backroundColorCellArray[indexPath.row] == "settingsCellColor" {
-                cellColor.chooseColorLabel.textColor = UIColor(named: "gray")
+                cellColor.typeOfClassLabel.textColor = UIColor(named: "gray")
 
             }else{
-                cellColor.chooseColorLabel.textColor =   .white          }
+                cellColor.typeOfClassLabel.textColor =   .white  }
+            
+            if backroundColorCellArray[indexPath.row] == self.backroundColor.rawValue{
+                print(backroundColorCellArray[indexPath.row] + "  "  + self.backroundColor.rawValue )
+                cellColor.accessoryType = .checkmark
+            }else{
+                cellColor.accessoryType = .none
+            }
             return cellColor
+        
+        case .days:
+            let cellForDay = (tableView.dequeueReusableCell(withIdentifier: "ChoosingTypeOfClassCell") as! ChoosingTypeOfClassCell)
+            switch indexPath.row{
+                case 0:
+                cellForDay.typeOfClassLabel.text = "Понедельник"
+            case 1:
+                cellForDay.typeOfClassLabel.text = "Вторник"
+            case 2:
+                cellForDay.typeOfClassLabel.text = "Среда"
+            case 3:
+                cellForDay.typeOfClassLabel.text = "Четверг"
+            case 4:
+                cellForDay.typeOfClassLabel.text = "Пятница"
+            case 5:
+                cellForDay.typeOfClassLabel.text = "Суббота"
+            case 6:
+                cellForDay.typeOfClassLabel.text = "Воскресенье"
+            default:
+                break
+            }
+            if daysDict[indexPath.row]!{
+                cellForDay.accessoryType = .checkmark
+            }else{
+                cellForDay.accessoryType = .none
+            }
+            return cellForDay
+            
+            
+        case .reminder:
+            let cellForRemider = (tableView.dequeueReusableCell(withIdentifier: "ChoosingTypeOfClassCell") as! ChoosingTypeOfClassCell)
+            cellForRemider.typeOfClassLabel.text = remiderArray[indexPath.row]
+            if remiderArray[indexPath.row] == reminderChoose{
+                cellForRemider.accessoryType = .checkmark
+            }else{
+                cellForRemider.accessoryType = .none
+            }
+            
+            return cellForRemider
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    
         switch cellFrom{
         case .classType:
             typeClass =  .init(rawValue: typeClassArray[indexPath.row])!
+            navigationController?.popViewController(animated: true)
         case .Color:
             backroundColor = .init(rawValue: backroundColorCellArray[indexPath.row])!
+            navigationController?.popViewController(animated: true)
+        case .days:
+            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.cellForRow(at: indexPath)?.accessoryType = (tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark) ? .none : .checkmark
+            daysDict[indexPath.row] = daysDict[indexPath.row]! ? false : true
+        case .reminder:
+            tableView.deselectRow(at: indexPath, animated: true)
+            reminderChoose = remiderArray[indexPath.row]
+            self.navigationController?.popViewController(animated: true)
         }
+    
         
-        navigationController?.popViewController(animated: true)
+        
     }
 }

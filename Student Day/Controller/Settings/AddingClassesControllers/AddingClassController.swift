@@ -9,39 +9,56 @@ import UIKit
 
 class AddingClassController: UITableViewController, UITextFieldDelegate {
     
-    // MARK: - My variables
     
-    var isExitWithSave = false
     
     //MARK: - OUTLETS
     
-    @IBOutlet weak var labelOfCellOfChoosingColor: UILabel!
-    @IBOutlet weak var typeOfClassCell: UITableViewCell!
+    @IBOutlet private weak var labelOfCellOfChoosingColor: UILabel!
+    
+    @IBOutlet private weak var colorViewCell: UITableViewCell!
+    @IBOutlet private weak var typeOfClassCell: UITableViewCell!
+    
+    @IBOutlet private weak var timeStartOutlet: UIDatePicker!
+    
+    @IBOutlet private weak var timeEndOtutlet: UIDatePicker!
     
     
-    @IBOutlet weak var subjectOutlet: UITextField!
+    @IBOutlet private weak var subjectOutlet: UILabel!
     
-    @IBOutlet weak var nameOfProfOutlet: UITextField!
+    @IBOutlet private weak var nameOfProfOutlet: UILabel!
     
-    @IBOutlet weak var placeOutlet: UITextField!
+    @IBOutlet private weak var placeOutlet: UILabel!
     
-    private var nameOfCourse: String = ""
+    @IBOutlet weak var reminderOutlet: UILabel!
+    // MARK: - My Fields
+    
+    public var nameOfCourse: String = "Не выбран"
 
-    private var nameOfProf: String = ""
+    public var nameOfProf: String = "Не выбран"
 
-    private var timeStart: Date = Date()
+    public var timeStart: Date = Date()
     
-    private var timeEnd:Date = Date()
+    public var timeEnd:Date = Date()
 
-    private var place: String = ""
+    public var place: String = "Не выбран"
 
-    private var typeOfClass: TypeClass = .lecture
+    public var typeOfClass: TypeClass = .lecture
 
-    private var backgroundColor: backroundColorCell = .noColor
+    public var backgroundColor: backroundColorCell = .noColor
 
-    private var userNotofocation: Bool = true
+    public var userNotofocation: String = "Не напоминать"
     
-    var doAfterAdd: ((String,String,Date,Date,String,TypeClass,backroundColorCell,Bool)->Void)?
+    public var daysDict:[Int:Bool] = [
+        0:false,
+        1:false,
+        2:false,
+        3:false,
+        4:false,
+        5:false,
+        6:false
+    ]
+    
+    var doAfterAdd: ((String,String,Date,Date,String,TypeClass,backroundColorCell,String,[Int:Bool])->Void)?
 
     
     // MARK: - VIEW CONTROLLER FUNCTIONS
@@ -61,8 +78,10 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         switch section{
-        case 0,1:
+        case 0:
             return 3
+        case 1:
+         return 4
         case 2:
             return 2
         default:
@@ -119,6 +138,56 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
                 
             }
             tableView.reloadData()
+        }else if segue.identifier == "segueFromDaysToChoose"{
+            let controller = segue.destination as!ChoosingColorAndTypeController
+            controller.cellFrom = .days
+            controller.daysDict = self.daysDict
+            controller.doAfterChooseDays = {[self]
+                daysDict in
+                self.daysDict = daysDict
+            }
+            
+        }
+        else if segue.identifier == "reminder"{
+            let controller = segue.destination as!ChoosingColorAndTypeController
+            controller.cellFrom = .reminder
+            controller.reminderChoose = self.userNotofocation
+            controller.doAfterChooseReminder = {[self]
+                reminder in
+                self.userNotofocation = reminder
+                self.reminderOutlet.text = reminder
+            }
+        }else if segue.identifier == "subjectSegue"{
+            let controller = segue.destination as! AddedSubjectTeacherPlaceController
+            
+            controller.cellFrom = .Subject
+            controller.textField.text = self.nameOfCourse == "Не выбран" ? "" : self.nameOfCourse
+            
+            controller.doafterClose = {[self]
+                subject in
+                self.subjectOutlet.text = subject == "" ? "Не выбран" : subject
+                self.nameOfCourse = subject
+            }
+        }else if segue.identifier == "placeSegue"{
+            let controller = segue.destination as! AddedSubjectTeacherPlaceController
+            
+            controller.cellFrom = .Place
+            controller.textField.text = self.place == "Не выбран" ? "" : self.place
+            controller.doafterClose = {[self]
+                place in
+                self.placeOutlet.text = place == "" ? "Не выбран" : place
+                self.place = place
+            }
+        }else if segue.identifier == "teacherSegue"{
+            let controller = segue.destination as! AddedSubjectTeacherPlaceController
+            
+            controller.cellFrom = .Teacher
+            controller.textField.text = self.nameOfProf == "Не выбран" ? "" : self.nameOfProf
+            controller.doafterClose = {[self]
+                teacher in
+                self.nameOfProfOutlet.text = teacher == "" ? "Не выбран" : teacher
+                self.nameOfProf = teacher
+            }
         }
     }
     
@@ -129,46 +198,55 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor(named: "background Color")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveClass))
         
-
-        self.placeOutlet.delegate = self
-        self.nameOfProfOutlet.delegate = self
-        self.subjectOutlet.delegate = self
+        self.nameOfProfOutlet.text = self.nameOfProf
+        self.subjectOutlet.text = self.nameOfCourse
+        self.placeOutlet.text = self.place
+        
+        self.timeStartOutlet.date = self.timeStart
+        self.timeEndOtutlet.date = self.timeEnd
+        (self.typeOfClassCell.viewWithTag(1) as! UILabel).text = self.typeOfClass.rawValue
+        self.colorViewCell.backgroundColor = UIColor(named: self.backgroundColor.rawValue)
+        self.reminderOutlet.text = self.userNotofocation
+        
+        if self.backgroundColor.rawValue == "settingsCellColor"{
+            labelOfCellOfChoosingColor.textColor = UIColor(named: "gray")
+        }else{
+            labelOfCellOfChoosingColor.textColor = .white
+        }
+        
     }
     
     
     // MARK: - Actions
     
-    @IBAction func userNotificationsAction(_ sender: UISwitch) {
-        self.userNotofocation = (sender.isOn ? true : false)
-    }
-    
     @IBAction func timeStartAction(_ sender: UIDatePicker) {
         self.timeStart = sender.date
+        self.timeEndOtutlet.setDate(sender.date, animated: true)
+        self.timeEndOtutlet.minimumDate = sender.date
     }
     @IBAction func timeEndActions(_ sender: UIDatePicker) {
         self.timeEnd = sender.date
     }
     
-    @IBAction func subjectAction(_ sender: UITextField) {
-        self.nameOfCourse = sender.text ?? ""
-        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
-    }
-    
-    @IBAction func profAction(_ sender: UITextField) {
-        self.nameOfProf = sender.text ?? ""
-        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
-    }
-    
-    @IBAction func placeAction(_ sender: UITextField) {
-        self.place = sender.text ?? ""
-        sender.text = sender.text?.trimmingCharacters(in: .whitespaces)
-    }
-    
     @objc func saveClass(){
-        if tryGetAllTextField(){
-            doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation)
+        if validationBeforeSave(){
+            doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotofocation,daysDict)
             
-            isExitWithSave = true
+            if userNotofocation != "Не напоминать"{
+                
+                for (weekDayKey, WeekDayValue) in daysDict{
+                    if WeekDayValue == true{
+                        let notification = Notifications(identifer: nameOfCourse)
+                        notification.scheduleNotifications(className: nameOfCourse, timeBeforeClass: userNotofocation, time: timeStart, weekDayClass: weekDayKey)
+                    }
+                    
+                }
+                
+            }else{
+                let notification = Notifications(identifer: nameOfCourse)
+                notification.removeNotifications()
+            }
+            
             self.navigationController?.popViewController(animated: true)
         }else{
             let alert = UIAlertController(title: "Ошибка сохранения", message: "Заполните все поля", preferredStyle: .alert)
@@ -181,28 +259,28 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     
     // MARK: - Text field Delegate
     
-    private func tryGetAllTextField()->Bool{
-        self.nameOfProf = (nameOfProfOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
-        self.nameOfCourse = (subjectOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
-        self.place = (placeOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
-        
-        
+    private func validationBeforeSave()->Bool{
         if (self.nameOfProf == "" || self.nameOfCourse == "" || self.place == ""){
             return false
         }
-        return true
-    }
-    private func tryGetSomeTextField()->Bool{
-        self.nameOfProf = (nameOfProfOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
-        self.nameOfCourse = (subjectOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
-        self.place = (placeOutlet.text ?? "").trimmingCharacters(in: .whitespaces)
         
+        var daysBool = false
         
-        if (self.nameOfProf != "" || self.nameOfCourse != "" || self.place != ""){
-            return true
+        for i in daysDict.values{
+            if i == true{
+                daysBool = true
+            }
         }
-        return false
+        
+        return daysBool
     }
+//    private func tryGetSomeTextField()->Bool{
+//        
+//        if (self.nameOfProf != "" || self.nameOfCourse != "" || self.place != ""){
+//            return true
+//        }
+//        return false
+//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
