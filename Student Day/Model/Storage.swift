@@ -52,7 +52,7 @@ enum SubjectTeacherPlace {
 class Storage:StorageProtocol{
     lazy var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    
+    // MARK: - schedule Entities
     /**
      get all Classes/Courses from storage
      
@@ -187,6 +187,7 @@ class Storage:StorageProtocol{
     }
     
     
+    // MARK: - SubjectTeacherPlace entities
     /**
      _this functions gets all names of Classes/Courses or Teachers or Places_
      
