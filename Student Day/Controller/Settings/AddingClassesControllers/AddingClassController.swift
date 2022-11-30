@@ -29,6 +29,9 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet private weak var placeOutlet: UILabel!
     
+    @IBOutlet weak var TypeClassOutlet: UILabel!
+    
+    
     @IBOutlet weak var reminderOutlet: UILabel!
     // MARK: - My Fields
     
@@ -42,9 +45,9 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
 
     public var place: String = "Не выбран"
 
-    public var typeOfClass: TypeClass = .lecture
+    public var typeOfClass: String = "Не выбран"
 
-    public var backgroundColor: backroundColorCell = .noColor
+    public var backgroundColor: BackroundColorCell = .noColor
     
     // enum from Notifications file
     public var userNotification: notificationTimeBefore = .none
@@ -59,7 +62,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
         6:false
     ]
     
-    var doAfterAdd: ((String,String,Date,Date,String,TypeClass,backroundColorCell,notificationTimeBefore,[Int:Bool])->Void)?
+    var doAfterAdd: ((String,String,Date,Date,String,String,BackroundColorCell,notificationTimeBefore,[Int:Bool])->Void)?
 
     
     // MARK: - VIEW CONTROLLER FUNCTIONS
@@ -112,16 +115,18 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueFromTypeClassToChoose"{
-            let controller = segue.destination as! ChoosingColorAndTypeController
-            controller.cellFrom = .classType
-            controller.typeClass = typeOfClass
-            controller.doAfterChooseType = {[self]
+            
+            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
+            
+            controller.cellFrom = .type
+            controller.textField.text = self.typeOfClass == "Не выбран" ? "" : self.typeOfClass
+            
+            controller.doafterClose = {[self]
                 typeClass in
-                typeOfClass = typeClass
-                (typeOfClassCell.viewWithTag(1) as! UILabel).text = typeOfClass.rawValue
-                tableView.reloadData()
-                
+                self.TypeClassOutlet.text = typeClass == "" ? "Не выбран" : typeClass
+                self.typeOfClass = typeClass
             }
+            
         }else if segue.identifier == "segueFromColorToChoose"{
             let controller = segue.destination as!ChoosingColorAndTypeController
             controller.cellFrom = .Color
@@ -159,7 +164,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
                 self.reminderOutlet.text = reminder.rawValue
             }
         }else if segue.identifier == "subjectSegue"{
-            let controller = segue.destination as! AddedSubjectTeacherPlaceController
+            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
             
             controller.cellFrom = .Subject
             controller.textField.text = self.nameOfCourse == "Не выбран" ? "" : self.nameOfCourse
@@ -170,7 +175,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
                 self.nameOfCourse = subject
             }
         }else if segue.identifier == "placeSegue"{
-            let controller = segue.destination as! AddedSubjectTeacherPlaceController
+            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
             
             controller.cellFrom = .Place
             controller.textField.text = self.place == "Не выбран" ? "" : self.place
@@ -180,7 +185,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
                 self.place = place
             }
         }else if segue.identifier == "teacherSegue"{
-            let controller = segue.destination as! AddedSubjectTeacherPlaceController
+            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
             
             controller.cellFrom = .Teacher
             controller.textField.text = self.nameOfProf == "Не выбран" ? "" : self.nameOfProf
@@ -205,7 +210,7 @@ class AddingClassController: UITableViewController, UITextFieldDelegate {
         
         self.timeStartOutlet.date = self.timeStart
         self.timeEndOtutlet.date = self.timeEnd
-        (self.typeOfClassCell.viewWithTag(1) as! UILabel).text = self.typeOfClass.rawValue
+        (self.typeOfClassCell.viewWithTag(1) as! UILabel).text = self.typeOfClass
         self.colorViewCell.backgroundColor = UIColor(named: self.backgroundColor.rawValue)
         self.reminderOutlet.text = self.userNotification.rawValue
         

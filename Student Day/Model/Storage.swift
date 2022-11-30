@@ -41,10 +41,11 @@ enum CellKey:String{
     case userNotification
 }
 
-enum SubjectTeacherPlace {
+enum SubjectTeacherPlaceClassType {
     case subject
     case teacher
     case place
+    case classType
 }
 
 
@@ -96,8 +97,8 @@ class Storage:StorageProtocol{
                 let timeStart = gettedClass.timeStart,
                 let timeEnd = gettedClass.timeEnd,
                 let place = gettedClass.place,
-                let type = TypeClass(rawValue: gettedClass.typeOfClass!),
-                let backgroundColor = backroundColorCell(rawValue: gettedClass.backgroundColor!),
+                let type = gettedClass.typeOfClass,
+                let backgroundColor = BackroundColorCell(rawValue: gettedClass.backgroundColor!),
                 let userNotification = gettedClass.userNotification
                 else{
                     continue
@@ -117,7 +118,6 @@ class Storage:StorageProtocol{
         
         return cells
     }
-    
     /**
      this function save array of Classes/Courses to storage
      
@@ -138,7 +138,7 @@ class Storage:StorageProtocol{
             cellOblect.nameOfProf = cell.nameOfProf
             cellOblect.timeStart = cell.timeStart
             cellOblect.timeEnd = cell.timeEnd
-            cellOblect.typeOfClass = cell.typeOfClass.rawValue
+            cellOblect.typeOfClass = cell.typeOfClass
             cellOblect.backgroundColor = cell.backgroundColor.rawValue
             cellOblect.place = cell.place
             cellOblect.userNotification = cell.userNotification
@@ -198,7 +198,7 @@ class Storage:StorageProtocol{
      **return:**
      - [String]: array with names of Classes/Courses or Teachers or Places
      */
-    public func getSubjectTeacherPlaceArray(getting: SubjectTeacherPlace)->[String]{
+    public func getSubjectTeacherPlaceClassTypeArray(getting: SubjectTeacherPlaceClassType)->[String]{
         
         var returned:[String] = []
 
@@ -247,6 +247,19 @@ class Storage:StorageProtocol{
                 returned.append(objectFrom.teacher ?? "")
             }
             
+        case .classType:
+            let fetchRequest = ClassType.fetchRequest()
+            var fromStorage:[ClassType] = []
+            
+            do {
+                fromStorage = try context.fetch(fetchRequest)
+            } catch  _ as NSError {
+                fromStorage = []
+            }
+            for objectFrom in fromStorage{
+                
+                returned.append(objectFrom.type ?? "")
+            }
         }
         
         returned = returned.sorted()
@@ -262,7 +275,7 @@ class Storage:StorageProtocol{
      - saving:SubjectTeacherPlace - enum (which kind of entity)
      - array: [String] - array with variables
      */
-    public func saveSubjectTeacherPlace(saving:SubjectTeacherPlace,array: [String]){
+    public func saveSubjectTeacherPlace(saving:SubjectTeacherPlaceClassType,array: [String]){
         
         
         switch saving {
@@ -309,6 +322,20 @@ class Storage:StorageProtocol{
                     return
                 }
             }
+        case .classType:
+            guard let entity = NSEntityDescription.entity(forEntityName: "ClassType", in: context)else{return}
+            
+            for i in array{
+                let objectSave = ClassType(entity: entity, insertInto: context)
+                
+                objectSave.type = i
+                
+                do{
+                    try context.save()
+                }catch {
+                    return
+                }
+            }
         }
         
     }
@@ -322,7 +349,7 @@ class Storage:StorageProtocol{
      - Object:String - variable to remove
      - type:SubjectTeacherPlace - enum (which kind of entity)
      */
-    public func removeSubjectTeacherPlace(Object:String, type:SubjectTeacherPlace){
+    public func removeSubjectTeacherPlace(Object:String, type:SubjectTeacherPlaceClassType){
         
         
         switch type {
@@ -366,6 +393,22 @@ class Storage:StorageProtocol{
                 
                 for i in cells{
                     if i.place == Object{
+                        context.delete(i)
+                        do{
+                            try context.save()
+                        }catch {
+                            return
+                        }
+                    }
+                }
+            }
+        case .classType:
+            let fetchRequest = ClassType.fetchRequest()
+            
+            if let cells = try? context.fetch(fetchRequest){
+                
+                for i in cells{
+                    if i.type == Object{
                         context.delete(i)
                         do{
                             try context.save()

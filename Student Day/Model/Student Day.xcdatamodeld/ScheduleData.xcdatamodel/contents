@@ -17,6 +17,9 @@
         <attribute name="userNotification" optional="YES" attributeType="String"/>
         <attribute name="wednesday" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
+    <entity name="ClassType" representedClassName="ClassType" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Place" representedClassName="Place" syncable="YES" codeGenerationType="class">
         <attribute name="place" optional="YES" attributeType="String"/>
     </entity>

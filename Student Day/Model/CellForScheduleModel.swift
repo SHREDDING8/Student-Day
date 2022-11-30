@@ -8,27 +8,14 @@
 import Foundation
 import UIKit
 
-enum TypeClass:String{
-    case lecture = "Лекция"
-    case tutorial = "Туториал"
-    case lab = "Лабораторная"
-    case practice = "Практика"
-    case lesson = "Урок"
-    case meeting = "Встреча"
-    case work = "Работа"
-    
-}
-let typeClassArray = [
-    "Лекция",
-    "Туториал",
-    "Лабораторная",
-    "Практика",
-    "Урок",
-    "Встреча",
-    "Работа"
-]
+// MARK: - enum backroundColorCell
 
-enum backroundColorCell:String{
+
+/**
+ This enum have all possible background colors for one cell
+ 
+ */
+enum BackroundColorCell:String{
     case noColor = "settingsCellColor"
     
     case lightBlue = "cell lightBlue"
@@ -71,64 +58,64 @@ enum backroundColorCell:String{
     case darkYellow = "cell darkYellow"
     case yellow = "cell yellow"
     
+    public static let backroundColorCellArray = [
+        "settingsCellColor",
+        
+        "cell lightBlue",
+        "cell Blue",
+        "cell darkBlue",
+        
+        "cell lightBrown",
+        "cell Brown",
+        "cell darkBrown",
+        
+        "cell lightGreen",
+        "cell Green",
+        "cell darkGreen",
+        
+        "cell lightGrey",
+        "cell Grey",
+        "cell darkGrey",
+        
+        "cell lightMint",
+        "cell Mint",
+        "cell darkMint",
+        
+        "cell lightOrange",
+        "cell Orange",
+        "cell darkOrange",
+        
+        "cell lightPurple",
+        "cell Purple",
+        "cell darkPurple",
+        
+        "cell lightRed",
+        "cell red",
+        "cell darkRed",
+        
+        "cell lightSky",
+        "cell Sky",
+        "cell darkSky",
+        
+        "cell lightYellow",
+        "cell darkYellow",
+        "cell yellow",
+        
+    ]
+    
 }
 
 
-let backroundColorCellArray = [
-    "settingsCellColor",
-    
-    "cell lightBlue",
-    "cell Blue",
-    "cell darkBlue",
-    
-    "cell lightBrown",
-    "cell Brown",
-    "cell darkBrown",
-    
-    "cell lightGreen",
-    "cell Green",
-    "cell darkGreen",
-    
-    "cell lightGrey",
-    "cell Grey",
-    "cell darkGrey",
-    
-    "cell lightMint",
-    "cell Mint",
-    "cell darkMint",
-    
-    "cell lightOrange",
-    "cell Orange",
-    "cell darkOrange",
-    
-    "cell lightPurple",
-    "cell Purple",
-    "cell darkPurple",
-    
-    "cell lightRed",
-    "cell red",
-    "cell darkRed",
-    
-    "cell lightSky",
-    "cell Sky",
-    "cell darkSky",
-    
-    "cell lightYellow",
-    "cell darkYellow",
-    "cell yellow",
-    
-    
-    
-]
+// MARK: - CellForScheduleModel
 protocol CellForScheduleModelProtocol{
     var nameOfCourse:String{ get set}
     var nameOfProf:String{get set}
     var timeStart:Date{get set}
     var timeEnd:Date{get set}
     var place:String{get set}
-    var typeOfClass:TypeClass{get set}
+    var typeOfClass:String{get set}
     
-    var backgroundColor:backroundColorCell{get set}
+    var backgroundColor:BackroundColorCell{get set}
     var textColor:UIColor{get set}
     
     var userNotification:String{get set}
@@ -146,9 +133,9 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
 
     var place: String
 
-    var typeOfClass: TypeClass
+    var typeOfClass: String
 
-    var backgroundColor: backroundColorCell
+    var backgroundColor: BackroundColorCell
 
     var textColor: UIColor = .white
     
@@ -164,8 +151,7 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
 
     var userNotification: String
 
-    // init
-    init(course:String, prof:String, timeStart:Date,timeEnd:Date, place:String,typeOfClass:TypeClass,backgroundColor:backroundColorCell,userNotification:String,days:[Int:Bool]) {
+    init(course:String, prof:String, timeStart:Date,timeEnd:Date, place:String,typeOfClass:String,backgroundColor:BackroundColorCell,userNotification:String,days:[Int:Bool]) {
         self.nameOfCourse = course
         self.nameOfProf = prof
         self.timeStart = timeStart
@@ -182,8 +168,5 @@ class CellForScheduleModel:CellForScheduleModelProtocol{
             textColor = .white
         }
     }
-    
-    //MARK: - cell Classes
-
 }
 

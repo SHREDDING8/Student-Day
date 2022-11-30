@@ -10,9 +10,10 @@ enum From{
     case Subject
     case Teacher
     case Place
+    case type
 }
 
-class AddedSubjectTeacherPlaceController: UIViewController {
+class AddedSubjectTeacherPlaceClassTypeController: UIViewController {
     let storage = Storage()
     
     var arrayHint:[String] = []
@@ -41,15 +42,16 @@ class AddedSubjectTeacherPlaceController: UIViewController {
         
         switch cellFrom{
         case .Place:
-            arrayHint = storage.getSubjectTeacherPlaceArray(getting: .place)
+            arrayHint = storage.getSubjectTeacherPlaceClassTypeArray(getting: .place)
         case .Subject:
-            arrayHint = storage.getSubjectTeacherPlaceArray(getting: .subject)
+            arrayHint = storage.getSubjectTeacherPlaceClassTypeArray(getting: .subject)
         case .Teacher:
-            arrayHint = storage.getSubjectTeacherPlaceArray(getting: .teacher)
+            arrayHint = storage.getSubjectTeacherPlaceClassTypeArray(getting: .teacher)
             
+        case .type:
+            arrayHint = storage.getSubjectTeacherPlaceClassTypeArray(getting: .classType)
         }
 
-        // Do any additional setup after loading the view.
     }
     
     
@@ -60,7 +62,7 @@ class AddedSubjectTeacherPlaceController: UIViewController {
         
         self.navigationItem.rightBarButtonItems = [
             UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped)),
-//             UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+            
             editButtonItem
         ]
         self.navigationItem.rightBarButtonItems![1].action = #selector(editButtonTapped)
@@ -74,6 +76,8 @@ class AddedSubjectTeacherPlaceController: UIViewController {
             self.title = "Преподаватель"
         case .Place:
             self.title = "Место проведения"
+        case .type:
+            self.title = "Тип занятия"
         }
         
         // textField
@@ -84,6 +88,8 @@ class AddedSubjectTeacherPlaceController: UIViewController {
             textField.placeholder = "Преподаватель"
         case .Place:
             textField.placeholder = "Место проведения"
+        case .type:
+            textField.placeholder = "Тип занятия"
         }
         
         textField.delegate = self
@@ -148,7 +154,7 @@ class AddedSubjectTeacherPlaceController: UIViewController {
     
     @objc func saveButtonTapped(){
         
-        var getting:SubjectTeacherPlace
+        var getting:SubjectTeacherPlaceClassType
         
         switch cellFrom {
         case .Subject:
@@ -157,12 +163,14 @@ class AddedSubjectTeacherPlaceController: UIViewController {
             getting = .teacher
         case .Place:
             getting = .place
+        case .type:
+            getting = .classType
         }
         
         textField.text = textField.text?.trimmingCharacters(in: .whitespaces)
         if let text = textField.text{
             if (text != ""){
-                for Object in storage.getSubjectTeacherPlaceArray(getting: getting){
+                for Object in storage.getSubjectTeacherPlaceClassTypeArray(getting: getting){
                     if Object == text{
                         self.navigationController?.popViewController(animated: true)
                         doafterClose?(textField.text ?? "")
@@ -176,12 +184,11 @@ class AddedSubjectTeacherPlaceController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
-
 }
 
 
 // MARK: - Table View DELEGATE
-extension AddedSubjectTeacherPlaceController:UITableViewDelegate,UITableViewDataSource{
+extension AddedSubjectTeacherPlaceClassTypeController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayHint.count
@@ -222,8 +229,9 @@ extension AddedSubjectTeacherPlaceController:UITableViewDelegate,UITableViewData
                 storage.removeSubjectTeacherPlace(Object: arrayHint[indexPath.row], type: .place)
             case .Subject:
                 storage.removeSubjectTeacherPlace(Object: arrayHint[indexPath.row], type: .subject)
+            case .type:
+                storage.removeSubjectTeacherPlace(Object: arrayHint[indexPath.row], type: .classType)
             }
-            
             
             arrayHint.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -236,7 +244,7 @@ extension AddedSubjectTeacherPlaceController:UITableViewDelegate,UITableViewData
 
 
 // MARK: - Text field Delegate
-extension AddedSubjectTeacherPlaceController:UITextFieldDelegate{
+extension AddedSubjectTeacherPlaceClassTypeController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         textField.text = textField.text?.trimmingCharacters(in: .whitespaces)
@@ -251,7 +259,7 @@ extension AddedSubjectTeacherPlaceController:UITextFieldDelegate{
     
     @objc func getNewText(){
         
-        var getting:SubjectTeacherPlace
+        var getting:SubjectTeacherPlaceClassType
         
         switch cellFrom {
         case .Subject:
@@ -260,9 +268,11 @@ extension AddedSubjectTeacherPlaceController:UITextFieldDelegate{
             getting = .teacher
         case .Place:
             getting = .place
+        case .type:
+            getting = .classType
         }
         
-        let storageObjects = storage.getSubjectTeacherPlaceArray(getting: getting)
+        let storageObjects = storage.getSubjectTeacherPlaceClassTypeArray(getting: getting)
         
         
         var newArrayHint:[String] = []
@@ -289,7 +299,4 @@ extension AddedSubjectTeacherPlaceController:UITextFieldDelegate{
             }
         }
     }
-    
-    
-    
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 enum CellFrom{
-    case classType
     case Color
     case days
     case reminder
@@ -18,8 +17,7 @@ class ChoosingColorAndTypeController: UIViewController {
     // notificationTimeBefore from file Notifications
     var reminderChoose:notificationTimeBefore = .none
     
-    var typeClass:TypeClass = .lecture
-    var backroundColor:backroundColorCell = .red
+    var backroundColor:BackroundColorCell = .red
     var daysDict:[Int:Bool] = [
         0:false,
         1:false,
@@ -30,13 +28,12 @@ class ChoosingColorAndTypeController: UIViewController {
         6:false
     ]
     
-    var doAfterChooseType:((TypeClass)->Void)?
-    var doAfterChooseColor:((backroundColorCell)->Void)?
+    var doAfterChooseColor:((BackroundColorCell)->Void)?
     var doAfterChooseDays:(([Int:Bool])->Void)?
     // notificationTimeBefore from file Notifications
     var doAfterChooseReminder:((notificationTimeBefore)->Void)?
     
-    var cellFrom:CellFrom = .classType
+    var cellFrom:CellFrom = .Color
     
     private let tableView:UITableView = {
         var tableView = UITableView(frame: CGRect.zero, style: .insetGrouped)
@@ -52,7 +49,6 @@ class ChoosingColorAndTypeController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillDisappear(_ animated: Bool) {
-        doAfterChooseType?(typeClass)
         doAfterChooseColor?(backroundColor)
         doAfterChooseDays?(daysDict)
         doAfterChooseReminder?(reminderChoose)
@@ -64,8 +60,6 @@ class ChoosingColorAndTypeController: UIViewController {
     private func setConfigurationView(){
         self.view.backgroundColor = UIColor(named: "background Color")
         switch cellFrom {
-        case .classType:
-            self.title = "Тип занятия"
         case .Color:
             self.title = "Цвет"
         case .days:
@@ -103,10 +97,8 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
     }
     internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch cellFrom{
-        case .classType:
-            return typeClassArray.count
         case .Color:
-            return backroundColorCellArray.count
+            return BackroundColorCell.backroundColorCellArray.count
         case .days:
             return 7
         case .reminder:
@@ -116,34 +108,22 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
     }
     
     internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellTypeClass:ChoosingTypeOfClassCell
         let cellColor:ChoosingTypeOfClassCell
         
         switch cellFrom{
-        case .classType:
-            cellTypeClass = (tableView.dequeueReusableCell(withIdentifier: "ChoosingTypeOfClassCell") as! ChoosingTypeOfClassCell)
-            cellTypeClass.typeOfClassLabel.text = typeClassArray[indexPath.row]
-            if typeClassArray[indexPath.row] == typeClass.rawValue{
-                cellTypeClass.accessoryType = .checkmark
-            }else{
-                cellTypeClass.accessoryType = .none
-            }
-            return cellTypeClass
-            
         case .Color:
             cellColor = tableView.dequeueReusableCell(withIdentifier: "ChoosingTypeOfClassCell")! as! ChoosingTypeOfClassCell
-            cellColor.backgroundColor = UIColor(named: backroundColorCellArray[indexPath.row])
+            cellColor.backgroundColor = UIColor(named: BackroundColorCell.backroundColorCellArray[indexPath.row])
             
             cellColor.typeOfClassLabel.text = "Выбрать цвет"
             
-            if backroundColorCellArray[indexPath.row] == "settingsCellColor" {
+            if BackroundColorCell.backroundColorCellArray[indexPath.row] == "settingsCellColor" {
                 cellColor.typeOfClassLabel.textColor = UIColor(named: "gray")
 
             }else{
                 cellColor.typeOfClassLabel.textColor =   .white  }
             
-            if backroundColorCellArray[indexPath.row] == self.backroundColor.rawValue{
-                print(backroundColorCellArray[indexPath.row] + "  "  + self.backroundColor.rawValue )
+            if BackroundColorCell.backroundColorCellArray[indexPath.row] == self.backroundColor.rawValue{
                 cellColor.accessoryType = .checkmark
             }else{
                 cellColor.accessoryType = .none
@@ -194,11 +174,8 @@ extension ChoosingColorAndTypeController:UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
         switch cellFrom{
-        case .classType:
-            typeClass =  .init(rawValue: typeClassArray[indexPath.row])!
-            navigationController?.popViewController(animated: true)
         case .Color:
-            backroundColor = .init(rawValue: backroundColorCellArray[indexPath.row])!
+            backroundColor = .init(rawValue: BackroundColorCell.backroundColorCellArray[indexPath.row])!
             navigationController?.popViewController(animated: true)
         case .days:
             tableView.deselectRow(at: indexPath, animated: true)

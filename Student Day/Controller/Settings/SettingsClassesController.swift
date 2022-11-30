@@ -118,7 +118,7 @@ class SettingsClassesController: UITableViewController {
             cell.timeStartLabel.text = "\(dateformatter.string(from: cellModel.timeStart))"
             cell.timeEndLabel.text = "\(dateformatter.string(from: cellModel.timeEnd))"
         cell.place.text = cellModel.place
-        cell.type.text = cellModel.typeOfClass.rawValue
+        cell.type.text = cellModel.typeOfClass
         
             cell.nameOfProf.textColor = cellModel.textColor
             cell.nameOfCourse.textColor = cellModel.textColor
