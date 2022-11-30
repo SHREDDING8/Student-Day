@@ -10,6 +10,10 @@ ___
 - Unpack the project
 - Enjoy
 
+## current work
+- Documentantion
+- Fix some bugs
+
 ## Updates
 ___
 ### version 0.1
