@@ -253,11 +253,17 @@ class Storage:StorageProtocol{
     }
     
     
-    
+    /**
+     this Function saves array with name of Class/Course or teachers or Places to storage
+     
+     
+     **parameters:**
+     - saving:SubjectTeacherPlace - enum (which kind of entity)
+     - array: [String] - array with variables
+     */
     public func saveSubjectTeacherPlace(saving:SubjectTeacherPlace,array: [String]){
         
         
-    
         switch saving {
         case .subject:
             guard let entity = NSEntityDescription.entity(forEntityName: "Subject", in: context)else{return}
@@ -307,6 +313,14 @@ class Storage:StorageProtocol{
     }
     
     
+    /**
+     this function removes from storage Name of Class/Course or Teacher or Place
+     
+     
+     **parameters:**
+     - Object:String - variable to remove
+     - type:SubjectTeacherPlace - enum (which kind of entity)
+     */
     public func removeSubjectTeacherPlace(Object:String, type:SubjectTeacherPlace){
         
         
@@ -325,7 +339,6 @@ class Storage:StorageProtocol{
                         }
                     }
                 }
-                
             }
             
         case .teacher:
@@ -343,7 +356,6 @@ class Storage:StorageProtocol{
                         }
                     }
                 }
-                
             }
             
         case .place:
@@ -361,10 +373,7 @@ class Storage:StorageProtocol{
                         }
                     }
                 }
-                
             }
         }
-        
     }
-    
 }
