@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22113.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22089.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="80" id="jQm-v8-nb1" customClass="NewClassWithSubTitleTableViewCell" customModule="Student_Day" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jQm-v8-nb1" id="lev-ss-jiZ">
+                <rect key="frame" x="0.0" y="0.0" width="319.66666666666669" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Предмет" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12b-bZ-hE1">
+                        <rect key="frame" x="20" y="11" width="291.66666666666669" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" systemColor="systemPurpleColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Не выбран" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpm-L5-kTA">
+                        <rect key="frame" x="20" y="39" width="269.66666666666669" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" systemColor="systemGray2Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="lpm-L5-kTA" secondAttribute="bottom" constant="18" id="04M-jD-3FX"/>
+                    <constraint firstItem="lpm-L5-kTA" firstAttribute="leading" secondItem="lev-ss-jiZ" secondAttribute="leading" constant="20" id="HzZ-m5-OSs"/>
+                    <constraint firstItem="12b-bZ-hE1" firstAttribute="top" secondItem="lev-ss-jiZ" secondAttribute="topMargin" id="cIw-lU-XoT"/>
+                    <constraint firstItem="lpm-L5-kTA" firstAttribute="top" secondItem="12b-bZ-hE1" secondAttribute="bottom" constant="5" id="isQ-eU-uOy"/>
+                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="lpm-L5-kTA" secondAttribute="trailing" constant="30" id="jUr-4v-etZ"/>
+                    <constraint firstItem="12b-bZ-hE1" firstAttribute="leading" secondItem="lev-ss-jiZ" secondAttribute="leadingMargin" id="vjK-na-HqI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="12b-bZ-hE1" secondAttribute="trailing" id="wF5-b9-yD4"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" name="settingsCellColor"/>
+            <point key="canvasLocation" x="-61" y="99"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="settingsCellColor">
+            <color red="0.96299999952316284" green="0.96299999952316284" blue="0.96299999952316284" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
