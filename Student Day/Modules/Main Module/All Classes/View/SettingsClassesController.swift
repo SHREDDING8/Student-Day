@@ -43,7 +43,7 @@ class SettingsClassesController: UITableViewController {
         
 //        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: allClassesWithoutDays)
         
-        cell.nameOfCourse.text = presenter?.classes[0].className
+        cell.nameOfCourse.text = presenter?.classes[0].title
         
         return cell
     }

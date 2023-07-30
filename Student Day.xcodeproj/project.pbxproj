@@ -16,6 +16,9 @@
 		EE1525362A75E0FC000FCAF3 /* NewClassBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */; };
 		EE15253A2A768C2E000FCAF3 /* NewClassReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1525392A768C2E000FCAF3 /* NewClassReminderTableViewController.swift */; };
 		EE15253C2A768CDD000FCAF3 /* NewClassReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15253B2A768CDD000FCAF3 /* NewClassReminderPresenter.swift */; };
+		EE15253E2A76937A000FCAF3 /* NewClassDaysTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15253D2A76937A000FCAF3 /* NewClassDaysTableViewController.swift */; };
+		EE1525402A76938C000FCAF3 /* NewClassDaysPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15253F2A76938C000FCAF3 /* NewClassDaysPresenter.swift */; };
+		EE1525432A76A134000FCAF3 /* NewClassModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1525422A76A134000FCAF3 /* NewClassModel.swift */; };
 		EE15904729ACB21600419BFC /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904629ACB21600419BFC /* ToDoViewController.swift */; };
 		EE15904A29AE0F3D00419BFC /* NewToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904929AE0F3D00419BFC /* NewToDoViewController.swift */; };
 		EE15904D29AEC28100419BFC /* customButtonAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904C29AEC28100419BFC /* customButtonAdd.swift */; };
@@ -87,6 +90,9 @@
 		EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassBuilder.swift; sourceTree = "<group>"; };
 		EE1525392A768C2E000FCAF3 /* NewClassReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassReminderTableViewController.swift; sourceTree = "<group>"; };
 		EE15253B2A768CDD000FCAF3 /* NewClassReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassReminderPresenter.swift; sourceTree = "<group>"; };
+		EE15253D2A76937A000FCAF3 /* NewClassDaysTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassDaysTableViewController.swift; sourceTree = "<group>"; };
+		EE15253F2A76938C000FCAF3 /* NewClassDaysPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassDaysPresenter.swift; sourceTree = "<group>"; };
+		EE1525422A76A134000FCAF3 /* NewClassModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassModel.swift; sourceTree = "<group>"; };
 		EE15904629ACB21600419BFC /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		EE15904929AE0F3D00419BFC /* NewToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToDoViewController.swift; sourceTree = "<group>"; };
 		EE15904C29AEC28100419BFC /* customButtonAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButtonAdd.swift; sourceTree = "<group>"; };
@@ -200,6 +206,14 @@
 				EE15252F2A75D3AC000FCAF3 /* ClassesStorageService.swift */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		EE1525412A769E6A000FCAF3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE1525422A76A134000FCAF3 /* NewClassModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		EE15904B29AEC26B00419BFC /* customViews */ = {
@@ -388,6 +402,7 @@
 		EE5B56502A74364600F5C262 /* New Class */ = {
 			isa = PBXGroup;
 			children = (
+				EE1525412A769E6A000FCAF3 /* Model */,
 				EE5B56522A74365100F5C262 /* Presenter */,
 				EE5B56512A74364B00F5C262 /* View */,
 				EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */,
@@ -401,6 +416,7 @@
 				EE9DA4CA2A749CA000E96CCA /* Cells */,
 				EEADA21228E6818D007B11B2 /* NewClassController.swift */,
 				EE1525392A768C2E000FCAF3 /* NewClassReminderTableViewController.swift */,
+				EE15253D2A76937A000FCAF3 /* NewClassDaysTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -410,6 +426,7 @@
 			children = (
 				EE9DA4DA2A7516BE00E96CCA /* NewClassPresenter.swift */,
 				EE15253B2A768CDD000FCAF3 /* NewClassReminderPresenter.swift */,
+				EE15253F2A76938C000FCAF3 /* NewClassDaysPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -831,6 +848,7 @@
 				EEAFE80B2A72EB7000CDDA39 /* ScheduleViewPresenter.swift in Sources */,
 				EE0C185229DF41D600DE259F /* ClassFields.swift in Sources */,
 				EE6037C128E499EB00FE308F /* SettingsFirstPageController.swift in Sources */,
+				EE1525432A76A134000FCAF3 /* NewClassModel.swift in Sources */,
 				EE5183D92A72E6A700F9DB94 /* MainModuleBuilder.swift in Sources */,
 				EE8DDBAF29DD85C6006A8209 /* LoginViewController.swift in Sources */,
 				EE5B56472A74280A00F5C262 /* SettingsTableViewCell.swift in Sources */,
@@ -860,6 +878,7 @@
 				EE9DA4C92A7484AE00E96CCA /* NewToDoPresenter.swift in Sources */,
 				EE5183DB2A72E75300F9DB94 /* MainUITabBarController.swift in Sources */,
 				EE6FE3AB28E4AEB900F0EADA /* ScheduleStorage.swift in Sources */,
+				EE15253E2A76937A000FCAF3 /* NewClassDaysTableViewController.swift in Sources */,
 				EEB88C9D29AF619400C30710 /* ToDoTableViewCell.swift in Sources */,
 				EEB17EBC29DE1C1E00D1BED7 /* AuthStorage.swift in Sources */,
 				EE15904729ACB21600419BFC /* ToDoViewController.swift in Sources */,
@@ -870,6 +889,7 @@
 				EED70C3028E1AA3C009B976C /* SceneDelegate.swift in Sources */,
 				EEB88CA129AF664600C30710 /* SectionToDo.swift in Sources */,
 				EE5B564F2A74338E00F5C262 /* SettingsClassesPresenter.swift in Sources */,
+				EE1525402A76938C000FCAF3 /* NewClassDaysPresenter.swift in Sources */,
 				EE6037C328E4A7CC00FE308F /* SettingsClassesController.swift in Sources */,
 				EE6BF66328EAF404006CFAD0 /* Student Day.xcdatamodeld in Sources */,
 				EE9DA4D22A749DAD00E96CCA /* NewClassWithSubTitleTableViewCell.swift in Sources */,

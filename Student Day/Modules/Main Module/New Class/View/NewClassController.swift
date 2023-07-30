@@ -169,7 +169,8 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
             case 2:
                 break
             case 3:
-                break
+                let daysController = NewClassBuilder.createDaysViewController()
+                self.navigationController?.pushViewController(daysController, animated: true)
             default:
                 break
             }

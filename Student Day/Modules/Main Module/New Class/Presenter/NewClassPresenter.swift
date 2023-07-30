@@ -12,14 +12,16 @@ protocol NewClassViewProtocol:AnyObject{
 }
 
 protocol NewClassPresenterProtocol:AnyObject{
-    init(view:NewClassViewProtocol)
+    init(view:NewClassViewProtocol, model:NewClassModel)
 
 }
 class NewClassPresenter:NewClassPresenterProtocol{
     weak var view:NewClassViewProtocol?
+    var newClass:NewClassModel!
     
-    required init(view:NewClassViewProtocol) {
+    required init(view:NewClassViewProtocol, model:NewClassModel) {
         self.view = view
+        self.newClass = model
     }
     
 }
