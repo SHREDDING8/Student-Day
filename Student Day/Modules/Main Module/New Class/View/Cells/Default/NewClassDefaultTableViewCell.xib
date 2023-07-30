@@ -35,6 +35,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" name="settingsCellColor"/>
+            <connections>
+                <outlet property="title" destination="aG2-mr-7ab" id="otf-2a-Vgc"/>
+            </connections>
             <point key="canvasLocation" x="-61" y="98"/>
         </tableViewCell>
     </objects>

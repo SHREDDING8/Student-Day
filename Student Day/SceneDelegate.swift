@@ -20,6 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         
+        let classesStorageService = ClassesStorageService()
+        classesStorageService.writeNewClass()
+        
+        
+        
         Notifications().removeAllNorifications()
         
         self.window = UIWindow(windowScene: windowScene)

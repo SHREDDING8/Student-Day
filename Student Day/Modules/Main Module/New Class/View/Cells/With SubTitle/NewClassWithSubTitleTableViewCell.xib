@@ -42,6 +42,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" name="settingsCellColor"/>
+            <connections>
+                <outlet property="subTitle" destination="lpm-L5-kTA" id="5jh-SV-3BC"/>
+                <outlet property="title" destination="12b-bZ-hE1" id="Ft2-QB-GbR"/>
+            </connections>
             <point key="canvasLocation" x="-61" y="99"/>
         </tableViewCell>
     </objects>

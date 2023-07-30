@@ -298,9 +298,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="settingsCellColor"/>
-                                        <connections>
-                                            <segue destination="qmh-Sg-on3" kind="show" identifier="segueFromColorToChoose" id="zB0-Kl-5jn"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="85" id="goO-Fv-C9D">
                                         <rect key="frame" x="20" y="755" width="350" height="85"/>
@@ -372,7 +369,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="cPN-fh-Aa2"/>
-        <segue reference="S28-VE-9df"/>
+        <segue reference="eLE-lq-7z4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="settingsCellColor">
@@ -382,10 +379,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

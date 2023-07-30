@@ -17,6 +17,8 @@ class SettingsClassesController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setConfigurationTableView()
+        presenter?.getAllClasses()
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -28,7 +30,7 @@ class SettingsClassesController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return allClassesWithoutDays.count
+        return 1
     }
 
     
@@ -39,7 +41,10 @@ class SettingsClassesController: UITableViewController {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
         
-        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: allClassesWithoutDays)
+//        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: allClassesWithoutDays)
+        
+        cell.nameOfCourse.text = presenter?.classes[0].className
+        
         return cell
     }
     
@@ -77,7 +82,7 @@ class SettingsClassesController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
+        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! NewClassController
         
         controllerEdit.nameOfProf = (allClassesWithoutDays[indexPath.row].nameOfProf)
         controllerEdit.nameOfCourse = (allClassesWithoutDays[indexPath.row].nameOfCourse)
@@ -89,27 +94,27 @@ class SettingsClassesController: UITableViewController {
         controllerEdit.userNotification = notificationTimeBefore(rawValue: (allClassesWithoutDays[indexPath.row].userNotification))!
         controllerEdit.daysDict = (allClassesWithoutDays[indexPath.row].days)
         
-        controllerEdit.doAfterAdd = {[self]
-            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
-            
-            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
-            storage.removeClassFromStorage(documentId: allClassesWithoutDays[indexPath.row].uniqDocumentId!)
-            let documentId = storage.saveClassesToStorage(cell: newClass)
-            newClass.uniqDocumentId = documentId
-            allClassesWithoutDays[indexPath.row] = newClass
-            
-            newClass.setNotification()
-            
-            for day in 0...6{
-                for index in 0..<allClassesWithDays[day]!.count{
-                    if allClassesWithDays[day]![index].uniqDocumentId == allClassesWithoutDays[indexPath.row].uniqDocumentId{
-                        allClassesWithDays[day]![index] = newClass
-                    }
-                }
-            }
-            tableView.reloadData()
-            
-        }
+//        controllerEdit.doAfterAdd = {[self]
+//            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
+//            
+//            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
+//            storage.removeClassFromStorage(documentId: allClassesWithoutDays[indexPath.row].uniqDocumentId!)
+//            let documentId = storage.saveClassesToStorage(cell: newClass)
+//            newClass.uniqDocumentId = documentId
+//            allClassesWithoutDays[indexPath.row] = newClass
+//            
+//            newClass.setNotification()
+//            
+//            for day in 0...6{
+//                for index in 0..<allClassesWithDays[day]!.count{
+//                    if allClassesWithDays[day]![index].uniqDocumentId == allClassesWithoutDays[indexPath.row].uniqDocumentId{
+//                        allClassesWithDays[day]![index] = newClass
+//                    }
+//                }
+//            }
+//            tableView.reloadData()
+//            
+//        }
         self.navigationController?.pushViewController(controllerEdit, animated: true)
         
     }
@@ -149,27 +154,27 @@ class SettingsClassesController: UITableViewController {
         self.navigationItem.rightBarButtonItems = [UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil),editButtonItem]
         
         let actionAdd = UIAction { _ in
-            let addingController = MainModuleBuilder.createNewClassViewController() as! AddingClassController
+            let addingController = MainModuleBuilder.createNewClassViewController() as! NewClassController
             
-            addingController.doAfterAdd = { [self]
-                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
-                let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
-                
-                let documentId = storage.saveClassesToStorage(cell: newClass)
-                newClass.uniqDocumentId = documentId
-                
-                newClass.setNotification()
-                
-                for day in 0...6{
-                    if newClass.days[day]!{
-                        allClassesWithDays[day]?.append(newClass)
-                    }
-                }
-                    
-                allClassesWithoutDays.append(newClass)
-                
-                tableView.reloadData()
-            }
+//            addingController.doAfterAdd = { [self]
+//                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
+//                let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
+//                
+//                let documentId = storage.saveClassesToStorage(cell: newClass)
+//                newClass.uniqDocumentId = documentId
+//                
+//                newClass.setNotification()
+//                
+//                for day in 0...6{
+//                    if newClass.days[day]!{
+//                        allClassesWithDays[day]?.append(newClass)
+//                    }
+//                }
+//                    
+//                allClassesWithoutDays.append(newClass)
+//                
+//                tableView.reloadData()
+//            }
             
             self.navigationController?.pushViewController(addingController, animated: true)
         }

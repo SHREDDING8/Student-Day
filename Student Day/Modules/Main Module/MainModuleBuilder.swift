@@ -35,6 +35,7 @@ class MainModuleBuilder:MainModuleBuilderProtocol{
         let presenter = ScheduleViewPresenter(view: view)
         view.presenter = presenter
         let navBar = UINavigationController(rootViewController: view)
+        navBar.navigationBar.prefersLargeTitles = true
         return navBar
     }
     
@@ -76,7 +77,7 @@ class MainModuleBuilder:MainModuleBuilderProtocol{
     }
     
     static func createNewClassViewController()->UIViewController{
-        let view = AddingClassController(style: .insetGrouped)
+        let view = NewClassController(style: .insetGrouped)
         let presenter = NewClassPresenter(view: view)
         view.presenter = presenter
         return view

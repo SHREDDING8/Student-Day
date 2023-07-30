@@ -388,25 +388,25 @@ class ScheduleViewController: UIViewController {
         
         let newToDo = UIAlertAction(title: "Новое занятие", style: .default) { _ in
             
-            let addingController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
+            let addingController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! NewClassController
             
-            addingController.doAfterAdd = { [self]
-                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
-                let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
-                let documentId = storage.saveClassesToStorage(cell: newClass)
-                newClass.uniqDocumentId = documentId
-                
-                newClass.setNotification()
-                
-                for day in 0...6{
-                    if newClass.days[day]!{
-                        allClassesWithDays[day]?.append(newClass)
-                    }
-                }
-                
-                allClassesWithoutDays.append(newClass)
-                
-            }
+//            addingController.doAfterAdd = { [self]
+//                                         nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
+//                let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
+//                let documentId = storage.saveClassesToStorage(cell: newClass)
+//                newClass.uniqDocumentId = documentId
+//                
+//                newClass.setNotification()
+//                
+//                for day in 0...6{
+//                    if newClass.days[day]!{
+//                        allClassesWithDays[day]?.append(newClass)
+//                    }
+//                }
+//                
+//                allClassesWithoutDays.append(newClass)
+//                
+//            }
             
             self.navigationController?.pushViewController(addingController, animated: true)
             
@@ -513,7 +513,7 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource,UIScr
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! AddingClassController
+        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! NewClassController
         
         controllerEdit.nameOfProf = (arrayOfCurrentClasses?[indexPath.row].nameOfProf)!
         controllerEdit.nameOfCourse = (arrayOfCurrentClasses?[indexPath.row].nameOfCourse)!
@@ -525,33 +525,33 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource,UIScr
         controllerEdit.userNotification = notificationTimeBefore(rawValue: (arrayOfCurrentClasses?[indexPath.row].userNotification)!)!
         controllerEdit.daysDict = (arrayOfCurrentClasses?[indexPath.row].days)!
         
-        controllerEdit.doAfterAdd = {[self]
-            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
-            
-            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
-            
-            storage.removeClassFromStorage(documentId:arrayOfCurrentClasses?[indexPath.row].uniqDocumentId ?? "")
-            let documentId = storage.saveClassesToStorage(cell: newClass)
-            newClass.uniqDocumentId = documentId
-            
-            newClass.setNotification()
-            
-            for day in 0...6{
-                for index in 0..<allClassesWithDays[day]!.count{
-                    if allClassesWithDays[day]![index].uniqDocumentId == arrayOfCurrentClasses?[indexPath.row].uniqDocumentId{
-                        allClassesWithDays[day]![index] = newClass
-                    }
-                }
-            }
-            
-            for index in 0..<allClassesWithoutDays.count{
-                if allClassesWithoutDays[index].uniqDocumentId == arrayOfCurrentClasses?[indexPath.row].uniqDocumentId{
-                    allClassesWithoutDays[index] = newClass
-                }
-            }
-            reloadData()
-            
-        }
+//        controllerEdit.doAfterAdd = {[self]
+//            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
+//            
+//            let newClass = CellForScheduleModel(course: nameOfCourse, prof: nameOfProf, timeStart: timeStart, timeEnd: timeEnd, place: place, typeOfClass: typeOfClass, backgroundColor: backgroundColor, userNotification: userNotification.rawValue,days:daysDict)
+//            
+//            storage.removeClassFromStorage(documentId:arrayOfCurrentClasses?[indexPath.row].uniqDocumentId ?? "")
+//            let documentId = storage.saveClassesToStorage(cell: newClass)
+//            newClass.uniqDocumentId = documentId
+//            
+//            newClass.setNotification()
+//            
+//            for day in 0...6{
+//                for index in 0..<allClassesWithDays[day]!.count{
+//                    if allClassesWithDays[day]![index].uniqDocumentId == arrayOfCurrentClasses?[indexPath.row].uniqDocumentId{
+//                        allClassesWithDays[day]![index] = newClass
+//                    }
+//                }
+//            }
+//            
+//            for index in 0..<allClassesWithoutDays.count{
+//                if allClassesWithoutDays[index].uniqDocumentId == arrayOfCurrentClasses?[indexPath.row].uniqDocumentId{
+//                    allClassesWithoutDays[index] = newClass
+//                }
+//            }
+//            reloadData()
+//            
+//        }
         self.navigationController?.pushViewController(controllerEdit, animated: true)
         
     }

@@ -9,11 +9,11 @@ import Foundation
 
 
 protocol NewClassViewProtocol:AnyObject{
-    
 }
 
 protocol NewClassPresenterProtocol:AnyObject{
     init(view:NewClassViewProtocol)
+
 }
 class NewClassPresenter:NewClassPresenterProtocol{
     weak var view:NewClassViewProtocol?
@@ -21,4 +21,5 @@ class NewClassPresenter:NewClassPresenterProtocol{
     required init(view:NewClassViewProtocol) {
         self.view = view
     }
+    
 }

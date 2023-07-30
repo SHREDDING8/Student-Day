@@ -11,6 +11,9 @@
 		EE0C185229DF41D600DE259F /* ClassFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0C185129DF41D600DE259F /* ClassFields.swift */; };
 		EE1525282A7530DA000FCAF3 /* NewClassTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1525262A7530DA000FCAF3 /* NewClassTimeTableViewCell.swift */; };
 		EE1525292A7530DA000FCAF3 /* NewClassTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE1525272A7530DA000FCAF3 /* NewClassTimeTableViewCell.xib */; };
+		EE15252E2A75D2AF000FCAF3 /* Classes Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15252D2A75D2AF000FCAF3 /* Classes Models.swift */; };
+		EE1525302A75D3AC000FCAF3 /* ClassesStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15252F2A75D3AC000FCAF3 /* ClassesStorageService.swift */; };
+		EE1525362A75E0FC000FCAF3 /* NewClassBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */; };
 		EE15904729ACB21600419BFC /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904629ACB21600419BFC /* ToDoViewController.swift */; };
 		EE15904A29AE0F3D00419BFC /* NewToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904929AE0F3D00419BFC /* NewToDoViewController.swift */; };
 		EE15904D29AEC28100419BFC /* customButtonAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904C29AEC28100419BFC /* customButtonAdd.swift */; };
@@ -44,7 +47,7 @@
 		EE9DA4D92A749E3700E96CCA /* NewClassDefaultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9DA4D72A749E3700E96CCA /* NewClassDefaultTableViewCell.xib */; };
 		EE9DA4DB2A7516BE00E96CCA /* NewClassPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DA4DA2A7516BE00E96CCA /* NewClassPresenter.swift */; };
 		EEAA478128E88B0C00E7D087 /* ChoosingColorAndTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAA478028E88B0C00E7D087 /* ChoosingColorAndTypeController.swift */; };
-		EEADA21328E6818D007B11B2 /* AddingClassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEADA21228E6818D007B11B2 /* AddingClassController.swift */; };
+		EEADA21328E6818D007B11B2 /* NewClassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEADA21228E6818D007B11B2 /* NewClassController.swift */; };
 		EEAFE80B2A72EB7000CDDA39 /* ScheduleViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFE80A2A72EB7000CDDA39 /* ScheduleViewPresenter.swift */; };
 		EEAFE8112A72ECE300CDDA39 /* ToDoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEAFE8102A72ECE200CDDA39 /* ToDoViewController.xib */; };
 		EEAFE8132A72ED4C00CDDA39 /* ToDoViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAFE8122A72ED4C00CDDA39 /* ToDoViewPresenter.swift */; };
@@ -77,6 +80,9 @@
 		EE0C185129DF41D600DE259F /* ClassFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassFields.swift; sourceTree = "<group>"; };
 		EE1525262A7530DA000FCAF3 /* NewClassTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassTimeTableViewCell.swift; sourceTree = "<group>"; };
 		EE1525272A7530DA000FCAF3 /* NewClassTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewClassTimeTableViewCell.xib; sourceTree = "<group>"; };
+		EE15252D2A75D2AF000FCAF3 /* Classes Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes Models.swift"; sourceTree = "<group>"; };
+		EE15252F2A75D3AC000FCAF3 /* ClassesStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesStorageService.swift; sourceTree = "<group>"; };
+		EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassBuilder.swift; sourceTree = "<group>"; };
 		EE15904629ACB21600419BFC /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		EE15904929AE0F3D00419BFC /* NewToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToDoViewController.swift; sourceTree = "<group>"; };
 		EE15904C29AEC28100419BFC /* customButtonAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButtonAdd.swift; sourceTree = "<group>"; };
@@ -110,7 +116,7 @@
 		EE9DA4D72A749E3700E96CCA /* NewClassDefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewClassDefaultTableViewCell.xib; sourceTree = "<group>"; };
 		EE9DA4DA2A7516BE00E96CCA /* NewClassPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassPresenter.swift; sourceTree = "<group>"; };
 		EEAA478028E88B0C00E7D087 /* ChoosingColorAndTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingColorAndTypeController.swift; sourceTree = "<group>"; };
-		EEADA21228E6818D007B11B2 /* AddingClassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingClassController.swift; sourceTree = "<group>"; };
+		EEADA21228E6818D007B11B2 /* NewClassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassController.swift; sourceTree = "<group>"; };
 		EEAFE80A2A72EB7000CDDA39 /* ScheduleViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewPresenter.swift; sourceTree = "<group>"; };
 		EEAFE8102A72ECE200CDDA39 /* ToDoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToDoViewController.xib; sourceTree = "<group>"; };
 		EEAFE8122A72ED4C00CDDA39 /* ToDoViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewPresenter.swift; sourceTree = "<group>"; };
@@ -165,6 +171,31 @@
 				BA32DF8EF6545A037D3B9D58 /* Pods-Student Day.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EE15252A2A75D279000FCAF3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EE15252B2A75D287000FCAF3 /* Offline Storage */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EE15252B2A75D287000FCAF3 /* Offline Storage */ = {
+			isa = PBXGroup;
+			children = (
+				EE15252C2A75D295000FCAF3 /* Classes */,
+			);
+			path = "Offline Storage";
+			sourceTree = "<group>";
+		};
+		EE15252C2A75D295000FCAF3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EE15252D2A75D2AF000FCAF3 /* Classes Models.swift */,
+				EE15252F2A75D3AC000FCAF3 /* ClassesStorageService.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		EE15904B29AEC26B00419BFC /* customViews */ = {
@@ -355,6 +386,7 @@
 			children = (
 				EE5B56522A74365100F5C262 /* Presenter */,
 				EE5B56512A74364B00F5C262 /* View */,
+				EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */,
 			);
 			path = "New Class";
 			sourceTree = "<group>";
@@ -363,7 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				EE9DA4CA2A749CA000E96CCA /* Cells */,
-				EEADA21228E6818D007B11B2 /* AddingClassController.swift */,
+				EEADA21228E6818D007B11B2 /* NewClassController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -591,6 +623,7 @@
 		EED70C2C28E1AA3C009B976C /* Student Day */ = {
 			isa = PBXGroup;
 			children = (
+				EE15252A2A75D279000FCAF3 /* Services */,
 				EE5183C22A7137A200F9DB94 /* Modules */,
 				EED70C4428E1AA73009B976C /* Controller */,
 				EED70C4328E1AA6B009B976C /* Model */,
@@ -787,7 +820,7 @@
 			files = (
 				EEE5308929DD808C009BE299 /* SignInViewController.swift in Sources */,
 				EEAFE81A2A73FD7500CDDA39 /* ProfileViewPresenter.swift in Sources */,
-				EEADA21328E6818D007B11B2 /* AddingClassController.swift in Sources */,
+				EEADA21328E6818D007B11B2 /* NewClassController.swift in Sources */,
 				EEAFE80B2A72EB7000CDDA39 /* ScheduleViewPresenter.swift in Sources */,
 				EE0C185229DF41D600DE259F /* ClassFields.swift in Sources */,
 				EE6037C128E499EB00FE308F /* SettingsFirstPageController.swift in Sources */,
@@ -810,8 +843,11 @@
 				EEC5884228E1C656005FB604 /* ScheduleViewController.swift in Sources */,
 				EEB17EB329DE0C4B00D1BED7 /* Auth.swift in Sources */,
 				EE5183C82A7137DE00F9DB94 /* AuthBuider.swift in Sources */,
+				EE15252E2A75D2AF000FCAF3 /* Classes Models.swift in Sources */,
+				EE1525302A75D3AC000FCAF3 /* ClassesStorageService.swift in Sources */,
 				EED70C2E28E1AA3C009B976C /* AppDelegate.swift in Sources */,
 				EE56C7BD29353DED0011433A /* Notifications.swift in Sources */,
+				EE1525362A75E0FC000FCAF3 /* NewClassBuilder.swift in Sources */,
 				EE9DA4DB2A7516BE00E96CCA /* NewClassPresenter.swift in Sources */,
 				EE9DA4C92A7484AE00E96CCA /* NewToDoPresenter.swift in Sources */,
 				EE5183DB2A72E75300F9DB94 /* MainUITabBarController.swift in Sources */,

@@ -8,7 +8,13 @@
 import UIKit
 
 class NewClassTimeTableViewCell: UITableViewCell {
-
+    
+    
+    @IBOutlet weak var title: UILabel!
+    
+    @IBOutlet weak var time: UIDatePicker!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

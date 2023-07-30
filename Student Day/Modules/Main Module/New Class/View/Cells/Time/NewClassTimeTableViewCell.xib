@@ -42,6 +42,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" name="settingsCellColor"/>
+            <connections>
+                <outlet property="time" destination="2fh-e5-oAU" id="ljD-e6-nue"/>
+                <outlet property="title" destination="uR0-MB-C54" id="hal-Nk-SVM"/>
+            </connections>
             <point key="canvasLocation" x="6" y="111"/>
         </tableViewCell>
     </objects>
