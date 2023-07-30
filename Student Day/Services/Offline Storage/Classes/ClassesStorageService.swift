@@ -23,7 +23,7 @@ class ClassesStorageService:ClassesStorageServiceProtocol{
     func writeNewClass() {
         let days = ClassDaysRealm(monday: false, tuesday: true, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false)
         
-        let newClass = ClassRealm(title: "Hello", teacher: "World", type: "type", startTime: Date.now, endTime: Date.now, place: "place", days: days, reminder: .day1)
+        let newClass = ClassRealm(title: "Hello", teacher: "World", type: "type", startTime: Date.now, endTime: Date.now, place: "place", backgroundColor: "#ffffff", days: days, reminder: .day1)
         
         try! realm.write {
             realm.add(newClass)

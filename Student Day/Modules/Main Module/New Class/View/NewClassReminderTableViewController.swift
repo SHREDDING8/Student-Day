@@ -34,16 +34,29 @@ class NewClassReminderTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassDefaultTableViewCell", for: indexPath) as! NewClassDefaultTableViewCell
         
         cell.title.text = presenter?.getReminderString(index: indexPath.row)
-        cell.accessoryType = .none
+        cell.accessoryType = presenter?.isCurrentReminder(index: indexPath.row) == true ? .checkmark : .none
                                 
         return cell
     }
     
-    
-    
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        presenter?.setReminder(index: indexPath.row)
+        
+    }
 }
 
 extension NewClassReminderTableViewController:NewClassReminderViewProtocol{
+    func setCheckmark(index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+    }
     
+    func removeCheckmark(index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        self.tableView.cellForRow(at: indexPath)?.accessoryType = .none
+    }
+    func dismiss() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }

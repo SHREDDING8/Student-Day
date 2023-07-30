@@ -53,6 +53,11 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
         configurationColorPicker()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.getReminderString()
+    }
+    
     
     fileprivate func configurationColorPicker(){
         self.colorPicker = UIColorPickerViewController()
@@ -353,5 +358,9 @@ extension NewClassController:UIColorPickerViewControllerDelegate{
 }
 
 extension NewClassController:NewClassViewProtocol{
+    func setReminderString(reminderString: String) {
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as! NewClassDefaultTableViewCell
+        cell.title.text = reminderString
+    }
     
 }

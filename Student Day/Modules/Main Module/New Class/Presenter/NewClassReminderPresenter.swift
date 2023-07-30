@@ -8,13 +8,17 @@
 import Foundation
 
 protocol NewClassReminderViewProtocol:AnyObject{
-    
+    func setCheckmark(index:Int)
+    func removeCheckmark(index:Int)
+    func dismiss()
 }
 
 protocol NewClassReminderPresenterProtocol:AnyObject{
     init(view:NewClassReminderViewProtocol, model:NewClassModel)
     func getReminderCount()->Int
     func getReminderString(index:Int)->String
+    func isCurrentReminder(index:Int)->Bool
+    func setReminder(index:Int)
 }
 class NewClassReminderPresenter:NewClassReminderPresenterProtocol{
     weak var view:NewClassReminderViewProtocol?
@@ -32,5 +36,21 @@ class NewClassReminderPresenter:NewClassReminderPresenterProtocol{
     func getReminderString(index:Int)->String{
         let reminder = NewClassModel.ReminderEnum(index: index)
         return reminder.getString()
+    }
+    
+    func isCurrentReminder(index:Int)->Bool{
+        let guessReminder = NewClassModel.ReminderEnum(index: index)
+        
+        return newClass.currentReminder == guessReminder
+    }
+    func setReminder(index:Int){
+        if let lastReminderIndex = newClass.currentReminder?.getIndex(){
+            view?.removeCheckmark(index: lastReminderIndex)
+        }
+        
+        newClass.currentReminder = .init(index: index)
+        view?.setCheckmark(index:index)
+        view?.dismiss()
+        
     }
 }

@@ -14,7 +14,7 @@ class NewClassModel{
         var isSelected:Bool
     }
     
-    public enum ReminderEnum{
+    public enum ReminderEnum: Equatable{
         case none
         case minute5
         case minute15
@@ -72,6 +72,28 @@ class NewClassModel{
                 return "Напомнить за 1 неделю"
             }
         }
+        func getIndex()->Int{
+            switch self {
+            case .none:
+                return 0
+            case .minute5:
+                return 1
+            case .minute15:
+                return 2
+            case .minute30:
+                return 3
+            case .hour1:
+                return 4
+            case .hour2:
+                return 5
+            case .day1:
+                return 6
+            case .day2:
+                return 7
+            case .week1:
+                return 8
+            }
+        }
     }
     
     var title:String?
@@ -80,6 +102,7 @@ class NewClassModel{
     var startTime:Date?
     var endTime:Date?
     var place:String?
+    var currentReminder:ReminderEnum?
     
     var backgroundColor:String?
     

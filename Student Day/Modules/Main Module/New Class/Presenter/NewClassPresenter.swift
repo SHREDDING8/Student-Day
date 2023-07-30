@@ -9,11 +9,13 @@ import Foundation
 
 
 protocol NewClassViewProtocol:AnyObject{
+    func setReminderString(reminderString:String)
 }
 
 protocol NewClassPresenterProtocol:AnyObject{
     init(view:NewClassViewProtocol, model:NewClassModel)
     func setBackgroundColor(hex:String)
+    func getReminderString()
 
 }
 class NewClassPresenter:NewClassPresenterProtocol{
@@ -27,6 +29,12 @@ class NewClassPresenter:NewClassPresenterProtocol{
     
     func setBackgroundColor(hex:String){
         newClass.backgroundColor = hex
+    }
+    
+    func getReminderString(){
+        let string = newClass.currentReminder?.getString() ?? NewClassModel.ReminderEnum.none.getString()
+        
+        view?.setReminderString(reminderString: string)
     }
     
 }
