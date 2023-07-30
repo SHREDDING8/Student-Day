@@ -14,8 +14,15 @@ protocol NewClassViewProtocol:AnyObject{
 
 protocol NewClassPresenterProtocol:AnyObject{
     init(view:NewClassViewProtocol, model:NewClassModel)
+    
     func setBackgroundColor(hex:String)
+    
     func getReminderString()
+    
+    func setStartTime(time:Date)
+    func setEndTime(time:Date)
+    
+    
 
 }
 class NewClassPresenter:NewClassPresenterProtocol{
@@ -37,4 +44,10 @@ class NewClassPresenter:NewClassPresenterProtocol{
         view?.setReminderString(reminderString: string)
     }
     
+    func setStartTime(time:Date){
+        newClass.startTime = time
+    }
+    func setEndTime(time:Date){
+        newClass.endTime = time
+    }
 }

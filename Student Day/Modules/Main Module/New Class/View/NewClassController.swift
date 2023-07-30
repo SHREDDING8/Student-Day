@@ -116,10 +116,19 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassTimeTableViewCell", for: indexPath) as! NewClassTimeTableViewCell
                 cell.title.text = "Начало"
+                cell.time.addAction(UIAction(handler: { _ in
+                    self.presenter?.setStartTime(time: cell.time.date)
+                }), for: .valueChanged)
+                
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassTimeTableViewCell", for: indexPath) as! NewClassTimeTableViewCell
                 cell.title.text = "Конец"
+                
+                cell.time.addAction(UIAction(handler: { _ in
+                    self.presenter?.setEndTime(time: cell.time.date)
+                }), for: .valueChanged)
+                
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassWithSubTitleTableViewCell", for: indexPath) as! NewClassWithSubTitleTableViewCell
