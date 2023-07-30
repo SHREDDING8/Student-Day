@@ -14,6 +14,8 @@
 		EE15252E2A75D2AF000FCAF3 /* Classes Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15252D2A75D2AF000FCAF3 /* Classes Models.swift */; };
 		EE1525302A75D3AC000FCAF3 /* ClassesStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15252F2A75D3AC000FCAF3 /* ClassesStorageService.swift */; };
 		EE1525362A75E0FC000FCAF3 /* NewClassBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */; };
+		EE15253A2A768C2E000FCAF3 /* NewClassReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1525392A768C2E000FCAF3 /* NewClassReminderTableViewController.swift */; };
+		EE15253C2A768CDD000FCAF3 /* NewClassReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15253B2A768CDD000FCAF3 /* NewClassReminderPresenter.swift */; };
 		EE15904729ACB21600419BFC /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904629ACB21600419BFC /* ToDoViewController.swift */; };
 		EE15904A29AE0F3D00419BFC /* NewToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904929AE0F3D00419BFC /* NewToDoViewController.swift */; };
 		EE15904D29AEC28100419BFC /* customButtonAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE15904C29AEC28100419BFC /* customButtonAdd.swift */; };
@@ -83,6 +85,8 @@
 		EE15252D2A75D2AF000FCAF3 /* Classes Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classes Models.swift"; sourceTree = "<group>"; };
 		EE15252F2A75D3AC000FCAF3 /* ClassesStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesStorageService.swift; sourceTree = "<group>"; };
 		EE1525352A75E0FC000FCAF3 /* NewClassBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassBuilder.swift; sourceTree = "<group>"; };
+		EE1525392A768C2E000FCAF3 /* NewClassReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassReminderTableViewController.swift; sourceTree = "<group>"; };
+		EE15253B2A768CDD000FCAF3 /* NewClassReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewClassReminderPresenter.swift; sourceTree = "<group>"; };
 		EE15904629ACB21600419BFC /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		EE15904929AE0F3D00419BFC /* NewToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToDoViewController.swift; sourceTree = "<group>"; };
 		EE15904C29AEC28100419BFC /* customButtonAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customButtonAdd.swift; sourceTree = "<group>"; };
@@ -396,6 +400,7 @@
 			children = (
 				EE9DA4CA2A749CA000E96CCA /* Cells */,
 				EEADA21228E6818D007B11B2 /* NewClassController.swift */,
+				EE1525392A768C2E000FCAF3 /* NewClassReminderTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				EE9DA4DA2A7516BE00E96CCA /* NewClassPresenter.swift */,
+				EE15253B2A768CDD000FCAF3 /* NewClassReminderPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -819,6 +825,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEE5308929DD808C009BE299 /* SignInViewController.swift in Sources */,
+				EE15253C2A768CDD000FCAF3 /* NewClassReminderPresenter.swift in Sources */,
 				EEAFE81A2A73FD7500CDDA39 /* ProfileViewPresenter.swift in Sources */,
 				EEADA21328E6818D007B11B2 /* NewClassController.swift in Sources */,
 				EEAFE80B2A72EB7000CDDA39 /* ScheduleViewPresenter.swift in Sources */,
@@ -835,6 +842,7 @@
 				EEB17EB929DE18F300D1BED7 /* ProfileViewController.swift in Sources */,
 				EE4A381028E2F3150041C714 /* CellForSchedule.swift in Sources */,
 				EEBB738F28F6F8320086B48D /* AddedSubjectTeacherPlaceClassTypeController.swift in Sources */,
+				EE15253A2A768C2E000FCAF3 /* NewClassReminderTableViewController.swift in Sources */,
 				EE5183D22A72DD0A00F9DB94 /* LoginViewPresenter.swift in Sources */,
 				EE15904D29AEC28100419BFC /* customButtonAdd.swift in Sources */,
 				EE15904A29AE0F3D00419BFC /* NewToDoViewController.swift in Sources */,

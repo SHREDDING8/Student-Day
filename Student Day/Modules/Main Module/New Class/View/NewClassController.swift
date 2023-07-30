@@ -178,7 +178,8 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
             case 0:
                 self.navigationController?.pushViewController(self.colorPicker, animated: true)
             case 1:
-                break
+                let reminderController = NewClassBuilder.createReminderViewController()
+                self.navigationController?.pushViewController(reminderController, animated: true)
             default:
                 break
             }

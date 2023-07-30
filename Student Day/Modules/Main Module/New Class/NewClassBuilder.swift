@@ -9,9 +9,15 @@ import Foundation
 import UIKit
 
 protocol NewClassBuilderProtocol{
+    static func createReminderViewController()->UIViewController
     
 }
 
 class NewClassBuilder:NewClassBuilderProtocol{
-
+    static func createReminderViewController()->UIViewController{
+        let view = NewClassReminderTableViewController(style: .insetGrouped)
+        let presenter = NewClassReminderPresenter(view: view)
+        view.presenter = presenter
+        return view
+    }
 }
