@@ -50,11 +50,12 @@ class ClassRealm: Object{
     @Persisted var startTime:Date
     @Persisted var endTime:Date
     @Persisted var place:String
+    @Persisted var backgroundColor:String
     @Persisted var days:ClassDaysRealm?
     @Persisted var reminder:ClassReminderRealm = .none
     
     
-    convenience init(title: String, teacher:String, type:String, startTime:Date, endTime:Date, place:String, days:ClassDaysRealm, reminder:ClassReminderRealm) {
+    convenience init(title: String, teacher:String, type:String, startTime:Date, endTime:Date, place:String, backgroundColor:String, days:ClassDaysRealm, reminder:ClassReminderRealm) {
         self.init()
         self.title = title
         self.teacher = teacher
@@ -62,6 +63,7 @@ class ClassRealm: Object{
         self.startTime = startTime
         self.endTime = endTime
         self.place = place
+        self.backgroundColor = backgroundColor
         self.days = days
         self.reminder = reminder
     }

@@ -81,6 +81,9 @@ class NewClassModel{
     var endTime:Date?
     var place:String?
     
+    var backgroundColor:String?
+    
+    
     var days:[Day] = [
         Day(title: "Понедельник", isSelected: false),
         Day(title: "Вторник", isSelected: false),

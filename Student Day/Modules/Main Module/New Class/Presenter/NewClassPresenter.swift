@@ -13,6 +13,7 @@ protocol NewClassViewProtocol:AnyObject{
 
 protocol NewClassPresenterProtocol:AnyObject{
     init(view:NewClassViewProtocol, model:NewClassModel)
+    func setBackgroundColor(hex:String)
 
 }
 class NewClassPresenter:NewClassPresenterProtocol{
@@ -22,6 +23,10 @@ class NewClassPresenter:NewClassPresenterProtocol{
     required init(view:NewClassViewProtocol, model:NewClassModel) {
         self.view = view
         self.newClass = model
+    }
+    
+    func setBackgroundColor(hex:String){
+        newClass.backgroundColor = hex
     }
     
 }

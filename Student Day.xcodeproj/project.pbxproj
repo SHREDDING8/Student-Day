@@ -44,6 +44,7 @@
 		EE8110B228E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE8110B028E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib */; };
 		EE8DDBAF29DD85C6006A8209 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8DDBAE29DD85C6006A8209 /* LoginViewController.swift */; };
 		EE8DDBB129DD85E0006A8209 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8DDBB029DD85E0006A8209 /* passwordViewController.swift */; };
+		EE92EDCA2A76F49A009CAADA /* UIColor Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = EE92EDC92A76F49A009CAADA /* UIColor Extensions */; };
 		EE9C835728E4526800A3E603 /* CellForScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9C835628E4526800A3E603 /* CellForScheduleModel.swift */; };
 		EE9DA4C92A7484AE00E96CCA /* NewToDoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DA4C82A7484AE00E96CCA /* NewToDoPresenter.swift */; };
 		EE9DA4D22A749DAD00E96CCA /* NewClassWithSubTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9DA4D02A749DAD00E96CCA /* NewClassWithSubTitleTableViewCell.swift */; };
@@ -160,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF0C777B7D041BEFABDD14C /* Pods_Student_Day.framework in Frameworks */,
+				EE92EDCA2A76F49A009CAADA /* UIColor Extensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +730,7 @@
 			);
 			name = "Student Day";
 			packageProductDependencies = (
+				EE92EDC92A76F49A009CAADA /* UIColor Extensions */,
 			);
 			productName = "Student Day";
 			productReference = EED70C2A28E1AA3C009B976C /* Student Day.app */;
@@ -758,6 +761,7 @@
 			);
 			mainGroup = EED70C2128E1AA3C009B976C;
 			packageReferences = (
+				EE92EDC82A76F49A009CAADA /* XCRemoteSwiftPackageReference "UIColor-Extensions" */,
 			);
 			productRefGroup = EED70C2B28E1AA3C009B976C /* Products */;
 			projectDirPath = "";
@@ -1120,6 +1124,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EE92EDC82A76F49A009CAADA /* XCRemoteSwiftPackageReference "UIColor-Extensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SHREDDING8/UIColor-Extensions.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EE92EDC92A76F49A009CAADA /* UIColor Extensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE92EDC82A76F49A009CAADA /* XCRemoteSwiftPackageReference "UIColor-Extensions" */;
+			productName = "UIColor Extensions";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		EE6BF66128EAF404006CFAD0 /* Student Day.xcdatamodeld */ = {

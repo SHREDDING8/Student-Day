@@ -8,13 +8,16 @@
 import Foundation
 
 protocol NewClassDaysViewProtocol:AnyObject{
-    
+    func changeAccesoryType(toChange:[IndexPath:Bool])
 }
 
 protocol NewClassDaysPresenterProtocol:AnyObject{
     init(view:NewClassDaysViewProtocol, model:NewClassModel)
     func getCountDays()->Int
     func getDayString(index:Int)->String
+    func getDayIsSelected(index:Int)->Bool
+    
+    func dayTapped(indexPath:IndexPath)
 }
 class NewClassDaysPresenter:NewClassDaysPresenterProtocol{
     weak var view:NewClassDaysViewProtocol?
@@ -30,5 +33,14 @@ class NewClassDaysPresenter:NewClassDaysPresenterProtocol{
     }
     func getDayString(index:Int)->String{
         return newClass.days[index].title
+    }
+    func getDayIsSelected(index:Int)->Bool{
+        return newClass.days[index].isSelected
+    }
+    
+    func dayTapped(indexPath:IndexPath){
+        newClass.days[indexPath.row].isSelected = !newClass.days[indexPath.row].isSelected
+        let result = [indexPath: newClass.days[indexPath.row].isSelected]
+        view?.changeAccesoryType(toChange:result)
     }
 }

@@ -35,9 +35,12 @@ class NewClassReminderTableViewController: UITableViewController {
         
         cell.title.text = presenter?.getReminderString(index: indexPath.row)
         cell.accessoryType = .none
-        
+                                
         return cell
     }
+    
+    
+    
     
 }
 

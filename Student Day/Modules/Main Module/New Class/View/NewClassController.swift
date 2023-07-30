@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIColor_Extensions
 
 class NewClassController: UITableViewController, UITextFieldDelegate {
     
@@ -346,6 +347,7 @@ extension NewClassController:UIColorPickerViewControllerDelegate{
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         let colorIndexPath = IndexPath(row: 0, section: 2)
         let colorCell = self.tableView.cellForRow(at: colorIndexPath)
+        presenter?.setBackgroundColor(hex: viewController.selectedColor.toHex())
         colorCell?.backgroundColor = viewController.selectedColor
     }
 }

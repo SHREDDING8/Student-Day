@@ -35,14 +35,25 @@ class NewClassDaysTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassDefaultTableViewCell", for: indexPath) as! NewClassDefaultTableViewCell
         cell.title.text = presenter?.getDayString(index: indexPath.row)
         
-        cell.accessoryType = .none
+        cell.accessoryType = presenter?.getDayIsSelected(index: indexPath.row) == true ? .checkmark : .none
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        presenter?.dayTapped(indexPath: indexPath)
     }
     
 }
 
 
 extension NewClassDaysTableViewController:NewClassDaysViewProtocol{
+    func changeAccesoryType(toChange: [IndexPath : Bool]) {
+        for (key,value) in toChange{
+            let cell = self.tableView.cellForRow(at: key)
+            cell?.accessoryType = value == true ? .checkmark : .none
+        }
+    }
     
 }
