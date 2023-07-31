@@ -1166,8 +1166,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SHREDDING8/UIColor-Extensions.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		EE92EDCB2A771024009CAADA /* XCRemoteSwiftPackageReference "AlertKit" */ = {
