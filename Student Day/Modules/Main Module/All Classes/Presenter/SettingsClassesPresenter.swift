@@ -17,6 +17,7 @@ protocol SettingsClassesPresenterProtocol:AnyObject{
     
     init(view:SettingsClassesProtocol)
     
+    func getClassesCount()->Int
     func getAllClasses()
     
 }
@@ -30,7 +31,12 @@ class SettingsClassesPresenter:SettingsClassesPresenterProtocol{
         self.view = view
     }
     
+    func getClassesCount()->Int{
+        return classes.count
+    }
+    
     func getAllClasses(){
         classes = classesStorageService.getAllClasses()
+        print(classes[0].backgroundColor)
     }
 }
