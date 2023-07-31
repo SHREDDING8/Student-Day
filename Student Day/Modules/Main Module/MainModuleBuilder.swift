@@ -70,7 +70,7 @@ class MainModuleBuilder:MainModuleBuilderProtocol{
     }
     
     static func createAllClassesViewController()->UIViewController{
-        let view = SettingsClassesController()
+        let view = SettingsClassesController(style: .insetGrouped)
         let presenter = SettingsClassesPresenter(view: view)
         view.presenter = presenter
         return view

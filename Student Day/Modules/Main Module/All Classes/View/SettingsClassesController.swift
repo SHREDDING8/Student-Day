@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIColor_Extensions
 
 class SettingsClassesController: UITableViewController {
     
@@ -30,7 +31,7 @@ class SettingsClassesController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return presenter?.getClassesCount() ?? 0
     }
 
     
@@ -39,11 +40,19 @@ class SettingsClassesController: UITableViewController {
         let asd = UINib(nibName: "CellForSchedule", bundle: nil)
         tableView.register(asd, forCellReuseIdentifier: "CellForSchedule")
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellForSchedule", for: indexPath) as! CellForSchedule
         
-//        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: allClassesWithoutDays)
+        cell.nameOfCourse.text = presenter?.classes[indexPath.row].title
+        cell.nameOfProf.text = presenter?.classes[indexPath.row].teacher
+        cell.place.text = presenter?.classes[indexPath.row].place
+        cell.type.text = presenter?.classes[indexPath.row].type
+        cell.timeStartLabel.text = presenter?.classes[indexPath.row].startTime.formatted()
+        cell.timeEndLabel.text = presenter?.classes[indexPath.row].endTime.formatted()
         
-        cell.nameOfCourse.text = presenter?.classes[0].title
+        let color = UIColor(hexString: presenter?.classes[indexPath.row].backgroundColor ?? "")
+        
+        cell.contentView.backgroundColor = color
+        cell.backgroundColor = color
         
         return cell
     }
@@ -82,7 +91,7 @@ class SettingsClassesController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! NewClassController
+//        let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! NewClassController
                 
 //        controllerEdit.doAfterAdd = {[self]
 //            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
@@ -105,34 +114,34 @@ class SettingsClassesController: UITableViewController {
 //            tableView.reloadData()
 //            
 //        }
-        self.navigationController?.pushViewController(controllerEdit, animated: true)
+//        self.navigationController?.pushViewController(controllerEdit, animated: true)
         
     }
     
-    // MARK: - Configure Cell
-    private func configureCell(cell:CellForSchedule,indexPathRow:Int,allCells:[CellForScheduleModel])->CellForSchedule{
-        if allCells.count != 0{
-        let cellModel = allCells[indexPathRow]
-        let dateformatter = DateFormatter()
-        dateformatter.setLocalizedDateFormatFromTemplate("HH:mm")
-        
-        cell.nameOfProf.text = cellModel.nameOfProf
-        cell.nameOfCourse.text = cellModel.nameOfCourse
-            cell.timeStartLabel.text = "\(dateformatter.string(from: cellModel.timeStart))"
-            cell.timeEndLabel.text = "\(dateformatter.string(from: cellModel.timeEnd))"
-        cell.place.text = cellModel.place
-        cell.type.text = cellModel.typeOfClass
-        
-            cell.nameOfProf.textColor = cellModel.textColor
-            cell.nameOfCourse.textColor = cellModel.textColor
-            cell.timeStartLabel.textColor = cellModel.textColor
-            cell.timeEndLabel.textColor = cellModel.textColor
-            cell.place.textColor = cellModel.textColor
-            cell.type.textColor = cellModel.textColor
-        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
-        }
-        return cell
-    }
+//    // MARK: - Configure Cell
+//    private func configureCell(cell:CellForSchedule,indexPathRow:Int,allCells:[CellForScheduleModel])->CellForSchedule{
+//        if allCells.count != 0{
+//        let cellModel = allCells[indexPathRow]
+//        let dateformatter = DateFormatter()
+//        dateformatter.setLocalizedDateFormatFromTemplate("HH:mm")
+//        
+//        cell.nameOfProf.text = cellModel.nameOfProf
+//        cell.nameOfCourse.text = cellModel.nameOfCourse
+//            cell.timeStartLabel.text = "\(dateformatter.string(from: cellModel.timeStart))"
+//            cell.timeEndLabel.text = "\(dateformatter.string(from: cellModel.timeEnd))"
+//        cell.place.text = cellModel.place
+//        cell.type.text = cellModel.typeOfClass
+//        
+//            cell.nameOfProf.textColor = cellModel.textColor
+//            cell.nameOfCourse.textColor = cellModel.textColor
+//            cell.timeStartLabel.textColor = cellModel.textColor
+//            cell.timeEndLabel.textColor = cellModel.textColor
+//            cell.place.textColor = cellModel.textColor
+//            cell.type.textColor = cellModel.textColor
+//        cell.backgroundColor = UIColor(named: cellModel.backgroundColor.rawValue)
+//        }
+//        return cell
+//    }
     
 
     // MARK: - configuration TableView
