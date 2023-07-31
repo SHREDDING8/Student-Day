@@ -10,6 +10,13 @@ import Foundation
 
 protocol NewClassViewProtocol:AnyObject{
     func setReminderString(reminderString:String)
+    func setTitleString(title:String)
+    func setTeacherString(teacherString:String)
+    func setTypeString(typeString:String)
+    func setPlaceString(placeString:String)
+    
+    
+    
     func showErrorSave()
     func succsessfullSave()
 }
@@ -22,6 +29,10 @@ protocol NewClassPresenterProtocol:AnyObject{
     func setBackgroundColor(hex:String)
     
     func getReminderString()
+    func getTitleString()
+    func getTeacherString()
+    func getTypeString()
+    func getPlaceString()
     
     func setStartTime(time:Date)
     func setEndTime(time:Date)
@@ -40,12 +51,8 @@ class NewClassPresenter:NewClassPresenterProtocol{
         self.storage = storage
     }
     
+    
     func saveClass(){
-        
-        newClass.title = "test"
-        newClass.teacher = "test"
-        newClass.type = "test"
-        newClass.place = "test"
         
         if !newClass.validateForSave(){
             view?.showErrorSave()
@@ -63,9 +70,33 @@ class NewClassPresenter:NewClassPresenterProtocol{
     }
     
     func getReminderString(){
-        let string = newClass.currentReminder?.getString() ?? NewClassModel.ReminderEnum.none.getString()
+        let string = newClass.currentReminder.getString()
         
         view?.setReminderString(reminderString: string)
+    }
+    
+    func getTitleString(){
+        var string = newClass.title ?? ""
+        string = string.isEmpty == true ? "Не выбрано" : string
+        view?.setTitleString(title: string)
+    }
+    
+    func getTeacherString(){
+        var string = newClass.teacher ?? ""
+        string = string.isEmpty == true ? "Не выбрано" : string
+        view?.setTeacherString(teacherString: string)
+    }
+    
+    func getTypeString(){
+        var string = newClass.type ?? ""
+        string = string.isEmpty == true ? "Не выбрано" : string
+        view?.setTypeString(typeString: string)
+    }
+    
+    func getPlaceString(){
+        var string = newClass.place ?? ""
+        string = string.isEmpty == true ? "Не выбрано" : string
+        view?.setPlaceString(placeString: string)
     }
     
     func setStartTime(time:Date){

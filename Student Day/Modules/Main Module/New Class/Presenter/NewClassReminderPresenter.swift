@@ -44,9 +44,9 @@ class NewClassReminderPresenter:NewClassReminderPresenterProtocol{
         return newClass.currentReminder == guessReminder
     }
     func setReminder(index:Int){
-        if let lastReminderIndex = newClass.currentReminder?.getIndex(){
-            view?.removeCheckmark(index: lastReminderIndex)
-        }
+        let lastReminderIndex = newClass.currentReminder.getIndex()
+        view?.removeCheckmark(index: lastReminderIndex)
+        
         
         newClass.currentReminder = .init(index: index)
         view?.setCheckmark(index:index)

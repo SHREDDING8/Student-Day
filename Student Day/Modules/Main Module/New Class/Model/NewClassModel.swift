@@ -125,7 +125,7 @@ class NewClassModel{
     var startTime:Date?
     var endTime:Date?
     var place:String?
-    var currentReminder:ReminderEnum?
+    var currentReminder:ReminderEnum = .none
     
     var backgroundColor:String?
     
@@ -141,7 +141,7 @@ class NewClassModel{
     ]
     
     func validateForSave()->Bool{
-        if title == nil || startTime == nil || endTime == nil || currentReminder == nil || backgroundColor == nil{
+        if title == nil || startTime == nil || endTime == nil || backgroundColor == nil{
             return false
         }
         
@@ -177,7 +177,7 @@ class NewClassModel{
             place: self.place ?? "",
             backgroundColor: self.backgroundColor ?? "",
             days: daysRealm,
-            reminder: currentReminder?.toRealm() ?? .none
+            reminder: currentReminder.toRealm()
         )
         
         return classRealm

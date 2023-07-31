@@ -148,54 +148,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DCD8D855-45B3-4752-95FB-D37CF3AE2E5C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Student Day/Modules/Main Module/New Class/Presenter/NewClassPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "saveClass()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DCD8D855-45B3-4752-95FB-D37CF3AE2E5C - 8ebb5ca83cd27815"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Student_Day.NewClassPresenter.saveClass() -&gt; ()"
-                  moduleName = "Student Day"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shredding/ALL%20MY/Programming/Swift/Student%20Day/Student%20Day/Modules/Main%20Module/New%20Class/Presenter/NewClassPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "964">
-               </Location>
-               <Location
-                  uuid = "DCD8D855-45B3-4752-95FB-D37CF3AE2E5C - 8ebb5ca83cd27815"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Student_Day.NewClassPresenter.saveClass() -&gt; ()"
-                  moduleName = "Student Day"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shredding/ALL%20MY/Programming/Swift/Student%20Day/Student%20Day/Modules/Main%20Module/New%20Class/Presenter/NewClassPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "920">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "700FD831-C165-493D-A943-FF39AACA354B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -206,6 +158,38 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "getAllComponents()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25F57FD6-00ED-47E0-A751-83BD51EF1BC6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Student Day/Modules/Main Module/New Class/View/NewClassController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
+            landmarkName = "setPlaceString(placeString:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DDEF5DD-EE2C-4EA9-81CA-2606C2B5D3A8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Student Day/Modules/Main Module/New Class/Presenter/NewClassPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "saveClass()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

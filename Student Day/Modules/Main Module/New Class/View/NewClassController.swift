@@ -22,11 +22,16 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setConfigurationTableView()
         configurationColorPicker()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter?.getReminderString()
+        presenter?.getTitleString()
+        presenter?.getTeacherString()
+        presenter?.getTypeString()
+        presenter?.getPlaceString()
     }
     
     
@@ -90,6 +95,7 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
                 cell.time.addAction(UIAction(handler: { _ in
                     self.presenter?.setStartTime(time: cell.time.date)
                 }), for: .valueChanged)
+                presenter?.setStartTime(time: cell.time.date)
                 
                 return cell
             case 1:
@@ -99,6 +105,8 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
                 cell.time.addAction(UIAction(handler: { _ in
                     self.presenter?.setEndTime(time: cell.time.date)
                 }), for: .valueChanged)
+                
+                self.presenter?.setEndTime(time: cell.time.date)
                 
                 return cell
             case 2:
@@ -118,6 +126,9 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassDefaultTableViewCell", for: indexPath) as! NewClassDefaultTableViewCell
                 cell.title.text = "Цвет"
+                
+                presenter?.setBackgroundColor(hex: cell.backgroundColor?.toHex() ?? UIColor.gray.toHex())
+                
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassDefaultTableViewCell", for: indexPath) as! NewClassDefaultTableViewCell
@@ -226,6 +237,30 @@ extension NewClassController:NewClassViewProtocol{
     func setReminderString(reminderString: String) {
         let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as! NewClassDefaultTableViewCell
         cell.title.text = reminderString
+    }
+    
+    func setTitleString(title:String){
+        print("title")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = title
+    }
+    
+    func setTeacherString(teacherString:String){
+        print("teacherString")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = teacherString
+    }
+    
+    func setTypeString(typeString:String){
+        print("typeString")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = typeString
+    }
+    
+    func setPlaceString(placeString:String){
+        print("placeString")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = placeString
     }
     
     func showErrorSave() {
