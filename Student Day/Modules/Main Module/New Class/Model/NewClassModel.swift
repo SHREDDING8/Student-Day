@@ -94,6 +94,29 @@ class NewClassModel{
                 return 8
             }
         }
+        
+        func toRealm()->ClassReminderRealm{
+            switch self {
+            case .none:
+                return .none
+            case .minute5:
+                return .minute5
+            case .minute15:
+                return .minute15
+            case .minute30:
+                return .minute30
+            case .hour1:
+                return .hour1
+            case .hour2:
+                return .hour2
+            case .day1:
+                return .day1
+            case .day2:
+                return .day2
+            case .week1:
+                return .week1
+            }
+        }
     }
     
     var title:String?
@@ -116,5 +139,48 @@ class NewClassModel{
         Day(title: "Суббота", isSelected: false),
         Day(title: "Воскресенье", isSelected: false)
     ]
+    
+    func validateForSave()->Bool{
+        if title == nil || startTime == nil || endTime == nil || currentReminder == nil || backgroundColor == nil{
+            return false
+        }
+        
+        for day in days{
+            if day.isSelected == true{
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func toRealmModel()->ClassRealm{
+        
+        let daysRealm = ClassDaysRealm(
+            monday: days[0].isSelected,
+            tuesday: days[1].isSelected,
+            wednesday: days[2].isSelected,
+            thursday: days[3].isSelected,
+            friday: days[4].isSelected,
+            saturday: days[5].isSelected,
+            sunday: days[6].isSelected
+        )
+        
+        
+        
+        let classRealm = ClassRealm(
+            title: self.title ?? "",
+            teacher: self.teacher ?? "",
+            type: self.type ?? "",
+            startTime: self.startTime ?? Date.now,
+            endTime: self.endTime ?? Date.now,
+            place: self.place ?? "",
+            backgroundColor: self.backgroundColor ?? "",
+            days: daysRealm,
+            reminder: currentReminder?.toRealm() ?? .none
+        )
+        
+        return classRealm
+    }
     
 }
