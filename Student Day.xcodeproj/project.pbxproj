@@ -35,6 +35,8 @@
 		EE59285B2A7837CB00B9D193 /* NewClassTeacherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59285A2A7837CB00B9D193 /* NewClassTeacherPresenter.swift */; };
 		EE59285D2A783B0C00B9D193 /* NewClassTypePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59285C2A783B0C00B9D193 /* NewClassTypePresenter.swift */; };
 		EE59285F2A783BFD00B9D193 /* NewClassPlacePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59285E2A783BFD00B9D193 /* NewClassPlacePresenter.swift */; };
+		EE5928652A78764300B9D193 /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE5928642A78764300B9D193 /* AlertKit */; };
+		EE5928692A78771B00B9D193 /* UIColor Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = EE5928682A78771B00B9D193 /* UIColor Extensions */; };
 		EE5B56472A74280A00F5C262 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B56452A74280A00F5C262 /* SettingsTableViewCell.swift */; };
 		EE5B56482A74280A00F5C262 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5B56462A74280A00F5C262 /* SettingsTableViewCell.xib */; };
 		EE5B564A2A74291D00F5C262 /* SettingsFirstPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5B56492A74291D00F5C262 /* SettingsFirstPagePresenter.swift */; };
@@ -47,8 +49,6 @@
 		EE8110B228E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE8110B028E8E628003E0CF8 /* ChoosingTypeOfClassCell.xib */; };
 		EE8DDBAF29DD85C6006A8209 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8DDBAE29DD85C6006A8209 /* LoginViewController.swift */; };
 		EE8DDBB129DD85E0006A8209 /* passwordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8DDBB029DD85E0006A8209 /* passwordViewController.swift */; };
-		EE92EDCA2A76F49A009CAADA /* UIColor Extensions in Frameworks */ = {isa = PBXBuildFile; productRef = EE92EDC92A76F49A009CAADA /* UIColor Extensions */; };
-		EE92EDCD2A771024009CAADA /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE92EDCC2A771024009CAADA /* AlertKit */; };
 		EE92EDCF2A7723C7009CAADA /* NewClassAddComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92EDCE2A7723C7009CAADA /* NewClassAddComponentViewController.swift */; };
 		EE92EDD12A772675009CAADA /* NewClassAddTitlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92EDD02A772675009CAADA /* NewClassAddTitlePresenter.swift */; };
 		EE92EDD42A772F46009CAADA /* Classes Components Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE92EDD32A772F46009CAADA /* Classes Components Models.swift */; };
@@ -173,9 +173,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE5928692A78771B00B9D193 /* UIColor Extensions in Frameworks */,
 				7CF0C777B7D041BEFABDD14C /* Pods_Student_Day.framework in Frameworks */,
-				EE92EDCA2A76F49A009CAADA /* UIColor Extensions in Frameworks */,
-				EE92EDCD2A771024009CAADA /* AlertKit in Frameworks */,
+				EE5928652A78764300B9D193 /* AlertKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,8 +758,8 @@
 			);
 			name = "Student Day";
 			packageProductDependencies = (
-				EE92EDC92A76F49A009CAADA /* UIColor Extensions */,
-				EE92EDCC2A771024009CAADA /* AlertKit */,
+				EE5928642A78764300B9D193 /* AlertKit */,
+				EE5928682A78771B00B9D193 /* UIColor Extensions */,
 			);
 			productName = "Student Day";
 			productReference = EED70C2A28E1AA3C009B976C /* Student Day.app */;
@@ -790,8 +790,8 @@
 			);
 			mainGroup = EED70C2128E1AA3C009B976C;
 			packageReferences = (
-				EE92EDC82A76F49A009CAADA /* XCRemoteSwiftPackageReference "UIColor-Extensions" */,
-				EE92EDCB2A771024009CAADA /* XCRemoteSwiftPackageReference "AlertKit" */,
+				EE5928632A78764300B9D193 /* XCRemoteSwiftPackageReference "AlertKit" */,
+				EE5928672A78771B00B9D193 /* XCRemoteSwiftPackageReference "UIColor-Extensions" */,
 			);
 			productRefGroup = EED70C2B28E1AA3C009B976C /* Products */;
 			projectDirPath = "";
@@ -1162,15 +1162,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EE92EDC82A76F49A009CAADA /* XCRemoteSwiftPackageReference "UIColor-Extensions" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SHREDDING8/UIColor-Extensions.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		EE92EDCB2A771024009CAADA /* XCRemoteSwiftPackageReference "AlertKit" */ = {
+		EE5928632A78764300B9D193 /* XCRemoteSwiftPackageReference "AlertKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparrowcode/AlertKit";
 			requirement = {
@@ -1178,18 +1170,26 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		EE5928672A78771B00B9D193 /* XCRemoteSwiftPackageReference "UIColor-Extensions" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SHREDDING8/UIColor-Extensions.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EE92EDC92A76F49A009CAADA /* UIColor Extensions */ = {
+		EE5928642A78764300B9D193 /* AlertKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EE92EDC82A76F49A009CAADA /* XCRemoteSwiftPackageReference "UIColor-Extensions" */;
-			productName = "UIColor Extensions";
-		};
-		EE92EDCC2A771024009CAADA /* AlertKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EE92EDCB2A771024009CAADA /* XCRemoteSwiftPackageReference "AlertKit" */;
+			package = EE5928632A78764300B9D193 /* XCRemoteSwiftPackageReference "AlertKit" */;
 			productName = AlertKit;
+		};
+		EE5928682A78771B00B9D193 /* UIColor Extensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EE5928672A78771B00B9D193 /* XCRemoteSwiftPackageReference "UIColor-Extensions" */;
+			productName = "UIColor Extensions";
 		};
 /* End XCSwiftPackageProductDependency section */
 
