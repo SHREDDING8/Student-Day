@@ -77,10 +77,7 @@ class MainModuleBuilder:MainModuleBuilderProtocol{
     }
     
     static func createNewClassViewController()->UIViewController{
-        let view = NewClassController(style: .insetGrouped)
-        let presenter = NewClassPresenter(view: view)
-        view.presenter = presenter
-        return view
+        return NewClassBuilder.createNewClassViewController()
     }
     
 }

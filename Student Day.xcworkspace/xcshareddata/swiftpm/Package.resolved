@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "alertkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sparrowcode/AlertKit",
+      "state" : {
+        "revision" : "1da133b6f630f4e11d141ce5c05d09b68200278e",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "uicolor-extensions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SHREDDING8/UIColor-Extensions.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "738d8df401ec9f7232b29be53f9670fc0871d63b"
+      }
+    }
+  ],
+  "version" : 2
+}

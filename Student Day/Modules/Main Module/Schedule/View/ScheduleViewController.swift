@@ -515,15 +515,6 @@ extension ScheduleViewController:UITableViewDelegate,UITableViewDataSource,UIScr
         
         let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! NewClassController
         
-        controllerEdit.nameOfProf = (arrayOfCurrentClasses?[indexPath.row].nameOfProf)!
-        controllerEdit.nameOfCourse = (arrayOfCurrentClasses?[indexPath.row].nameOfCourse)!
-        controllerEdit.timeStart = (arrayOfCurrentClasses?[indexPath.row].timeStart)!
-        controllerEdit.timeEnd = (arrayOfCurrentClasses?[indexPath.row].timeEnd)!
-        controllerEdit.place = (arrayOfCurrentClasses?[indexPath.row].place)!
-        controllerEdit.typeOfClass = (arrayOfCurrentClasses?[indexPath.row].typeOfClass)!
-        controllerEdit.backgroundColor = (arrayOfCurrentClasses?[indexPath.row].backgroundColor)!
-        controllerEdit.userNotification = notificationTimeBefore(rawValue: (arrayOfCurrentClasses?[indexPath.row].userNotification)!)!
-        controllerEdit.daysDict = (arrayOfCurrentClasses?[indexPath.row].days)!
         
 //        controllerEdit.doAfterAdd = {[self]
 //            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in

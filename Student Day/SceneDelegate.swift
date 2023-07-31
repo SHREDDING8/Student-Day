@@ -21,7 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         let classesStorageService = ClassesStorageService()
-        classesStorageService.writeNewClass()
         
         
         

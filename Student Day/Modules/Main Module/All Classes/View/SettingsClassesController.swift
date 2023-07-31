@@ -43,7 +43,7 @@ class SettingsClassesController: UITableViewController {
         
 //        cell = configureCell(cell: cell, indexPathRow: indexPath.row,allCells: allClassesWithoutDays)
         
-        cell.nameOfCourse.text = presenter?.classes[0].className
+        cell.nameOfCourse.text = presenter?.classes[0].title
         
         return cell
     }
@@ -83,17 +83,7 @@ class SettingsClassesController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let controllerEdit = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddingClassController") as! NewClassController
-        
-        controllerEdit.nameOfProf = (allClassesWithoutDays[indexPath.row].nameOfProf)
-        controllerEdit.nameOfCourse = (allClassesWithoutDays[indexPath.row].nameOfCourse)
-        controllerEdit.timeStart = (allClassesWithoutDays[indexPath.row].timeStart)
-        controllerEdit.timeEnd = (allClassesWithoutDays[indexPath.row].timeEnd)
-        controllerEdit.place = (allClassesWithoutDays[indexPath.row].place)
-        controllerEdit.typeOfClass = (allClassesWithoutDays[indexPath.row].typeOfClass)
-        controllerEdit.backgroundColor = (allClassesWithoutDays[indexPath.row].backgroundColor)
-        controllerEdit.userNotification = notificationTimeBefore(rawValue: (allClassesWithoutDays[indexPath.row].userNotification))!
-        controllerEdit.daysDict = (allClassesWithoutDays[indexPath.row].days)
-        
+                
 //        controllerEdit.doAfterAdd = {[self]
 //            nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict in
 //            

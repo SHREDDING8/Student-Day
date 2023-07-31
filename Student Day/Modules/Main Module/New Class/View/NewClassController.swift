@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import UIColor_Extensions
+import AlertKit
 
 class NewClassController: UITableViewController, UITextFieldDelegate {
     
@@ -15,41 +17,21 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
     
     var colorPicker:UIColorPickerViewController!
     
-    
-    // MARK: - My Fields
-    
-    public var nameOfCourse: String = "Не выбран"
-
-    public var nameOfProf: String = "Не выбран"
-
-    public var timeStart: Date = Date()
-    
-    public var timeEnd:Date = Date()
-
-    public var place: String = "Не выбран"
-
-    public var typeOfClass: String = "Не выбран"
-
-    public var backgroundColor: BackroundColorCell = .noColor
-    
-    // enum from Notifications file
-    public var userNotification: notificationTimeBefore = .none
-    
-    public var daysDict:[Int:Bool] = [
-        0:false,
-        1:false,
-        2:false,
-        3:false,
-        4:false,
-        5:false,
-        6:false
-    ]
-        
     // MARK: - VIEW CONTROLLER FUNCTIONS
     override func viewDidLoad() {
         super.viewDidLoad()
         setConfigurationTableView()
         configurationColorPicker()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter?.getReminderString()
+        presenter?.getTitleString()
+        presenter?.getTeacherString()
+        presenter?.getTypeString()
+        presenter?.getPlaceString()
     }
     
     
@@ -110,10 +92,22 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassTimeTableViewCell", for: indexPath) as! NewClassTimeTableViewCell
                 cell.title.text = "Начало"
+                cell.time.addAction(UIAction(handler: { _ in
+                    self.presenter?.setStartTime(time: cell.time.date)
+                }), for: .valueChanged)
+                presenter?.setStartTime(time: cell.time.date)
+                
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassTimeTableViewCell", for: indexPath) as! NewClassTimeTableViewCell
                 cell.title.text = "Конец"
+                
+                cell.time.addAction(UIAction(handler: { _ in
+                    self.presenter?.setEndTime(time: cell.time.date)
+                }), for: .valueChanged)
+                
+                self.presenter?.setEndTime(time: cell.time.date)
+                
                 return cell
             case 2:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassWithSubTitleTableViewCell", for: indexPath) as! NewClassWithSubTitleTableViewCell
@@ -132,6 +126,9 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassDefaultTableViewCell", for: indexPath) as! NewClassDefaultTableViewCell
                 cell.title.text = "Цвет"
+                
+                presenter?.setBackgroundColor(hex: cell.backgroundColor?.toHex() ?? UIColor.gray.toHex())
+                
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NewClassDefaultTableViewCell", for: indexPath) as! NewClassDefaultTableViewCell
@@ -155,11 +152,14 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
         case 0:
             switch indexPath.row {
             case 0:
-                break
+                let titleController = NewClassBuilder.createTitleViewController()
+                self.navigationController?.pushViewController(titleController, animated: true)
             case 1:
-                break
+                let teacherController = NewClassBuilder.createTeacherViewController()
+                self.navigationController?.pushViewController(teacherController, animated: true)
             case 2:
-                break
+                let typeController = NewClassBuilder.createTypeViewController()
+                self.navigationController?.pushViewController(typeController, animated: true)
             default:
                 break
             }
@@ -167,9 +167,11 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
         case 1:
             switch indexPath.row {
             case 2:
-                break
+                let placeController = NewClassBuilder.createPlaceViewController()
+                self.navigationController?.pushViewController(placeController, animated: true)
             case 3:
-                break
+                let daysController = NewClassBuilder.createDaysViewController()
+                self.navigationController?.pushViewController(daysController, animated: true)
             default:
                 break
             }
@@ -178,7 +180,8 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
             case 0:
                 self.navigationController?.pushViewController(self.colorPicker, animated: true)
             case 1:
-                break
+                let reminderController = NewClassBuilder.createReminderViewController()
+                self.navigationController?.pushViewController(reminderController, animated: true)
             default:
                 break
             }
@@ -190,85 +193,6 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
         
         
     }
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueFromTypeClassToChoose"{
-            
-            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
-            
-            controller.cellFrom = .type
-            controller.textField.text = self.typeOfClass == "Не выбран" ? "" : self.typeOfClass
-            
-            controller.doafterClose = {[self]
-                typeClass in
-                self.typeOfClass = typeClass
-            }
-            
-        }else if segue.identifier == "segueFromColorToChoose"{
-            let controller = segue.destination as!ChoosingColorAndTypeController
-            controller.cellFrom = .Color
-            controller.backroundColor = self.backgroundColor
-            controller.doAfterChooseColor = {[self]
-                backroundColor in
-                self.backgroundColor = backroundColor
-                (self.view.viewWithTag(2) as! UITableViewCell).backgroundColor = UIColor(named: backroundColor.rawValue)
-                
-                if backroundColor.rawValue == "settingsCellColor"{
-                }else{
-                }
-                
-            }
-            tableView.reloadData()
-        }else if segue.identifier == "segueFromDaysToChoose"{
-            let controller = segue.destination as!ChoosingColorAndTypeController
-            controller.cellFrom = .days
-            controller.daysDict = self.daysDict
-            controller.doAfterChooseDays = {[self]
-                daysDict in
-                self.daysDict = daysDict
-            }
-            
-        }
-        else if segue.identifier == "reminder"{
-            let controller = segue.destination as!ChoosingColorAndTypeController
-            controller.cellFrom = .reminder
-            controller.reminderChoose = self.userNotification
-            controller.doAfterChooseReminder = {[self]
-                reminder in
-                self.userNotification = reminder
-            }
-        }else if segue.identifier == "subjectSegue"{
-            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
-            
-            controller.cellFrom = .Subject
-            controller.textField.text = self.nameOfCourse == "Не выбран" ? "" : self.nameOfCourse
-            
-            controller.doafterClose = {[self]
-                subject in
-//                self.subjectOutlet.text = subject == "" ? "Не выбран" : subject
-            }
-        }else if segue.identifier == "placeSegue"{
-            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
-            
-            controller.cellFrom = .Place
-            controller.textField.text = self.place == "Не выбран" ? "" : self.place
-            controller.doafterClose = {[self]
-                place in
-//                self.placeOutlet.text = place == "" ? "Не выбран" : place
-            }
-        }else if segue.identifier == "teacherSegue"{
-            let controller = segue.destination as! AddedSubjectTeacherPlaceClassTypeController
-            
-            controller.cellFrom = .Teacher
-            controller.textField.text = self.nameOfProf == "Не выбран" ? "" : self.nameOfProf
-            controller.doafterClose = {[self]
-                teacher in
-//                self.nameOfProfOutlet.text = teacher == "" ? "Не выбран" : teacher
-            }
-        }
-    }
-    
     
     //MARK: - configuration tableView
     
@@ -293,49 +217,9 @@ class NewClassController: UITableViewController, UITextFieldDelegate {
         self.tableView.register(cellWithSubTitleNib, forCellReuseIdentifier: "NewClassWithSubTitleTableViewCell")
     }
     
-    
-    // MARK: - Actions
-    
-    @IBAction func timeStartAction(_ sender: UIDatePicker) {
-        self.timeStart = sender.date
-//        self.timeEndOtutlet.setDate(sender.date, animated: true)
-//        self.timeEndOtutlet.minimumDate = sender.date
-    }
-    @IBAction func timeEndActions(_ sender: UIDatePicker) {
-        self.timeEnd = sender.date
-    }
-    
+        
     @objc func saveClass(){
-//        if validationBeforeSave(){
-//            
-//            timeStart = timeStartOutlet.date
-//            timeEnd = timeEndOtutlet.date
-//            doAfterAdd?(nameOfCourse,nameOfProf,timeStart,timeEnd,place,typeOfClass,backgroundColor,userNotification,daysDict)
-//            self.navigationController?.popViewController(animated: true)
-//        }else{
-//            let alert = UIAlertController(title: "Ошибка сохранения", message: "Заполните все поля", preferredStyle: .alert)
-//            let actionOk = UIAlertAction(title: "OK", style: .default)
-//            alert.addAction(actionOk)
-//            self.present(alert, animated: true)
-//        }
-        
-    }
-    
-    // MARK: - Text field Delegate
-    
-    private func validationBeforeSave()->Bool{
-        if (self.nameOfProf == "" || self.nameOfCourse == "" || self.place == ""){
-            return false
-        }
-        
-        var daysBool = false
-        
-        for i in daysDict.values{
-            if i == true{
-                daysBool = true
-            }
-        }
-        return daysBool
+        presenter?.saveClass()
     }
     
 }
@@ -344,10 +228,56 @@ extension NewClassController:UIColorPickerViewControllerDelegate{
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         let colorIndexPath = IndexPath(row: 0, section: 2)
         let colorCell = self.tableView.cellForRow(at: colorIndexPath)
+        presenter?.setBackgroundColor(hex: viewController.selectedColor.toHex())
         colorCell?.backgroundColor = viewController.selectedColor
     }
 }
 
 extension NewClassController:NewClassViewProtocol{
+    func setReminderString(reminderString: String) {
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 2)) as! NewClassDefaultTableViewCell
+        cell.title.text = reminderString
+    }
+    
+    func setTitleString(title:String){
+        print("title")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = title
+    }
+    
+    func setTeacherString(teacherString:String){
+        print("teacherString")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = teacherString
+    }
+    
+    func setTypeString(typeString:String){
+        print("typeString")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = typeString
+    }
+    
+    func setPlaceString(placeString:String){
+        print("placeString")
+        let cell = self.tableView.cellForRow(at: IndexPath(row: 2, section: 1)) as! NewClassWithSubTitleTableViewCell
+        cell.subTitle.text = placeString
+    }
+    
+    func showErrorSave() {
+        // MARK: - TODO передалать в alert Services
+        let alert = UIAlertController(title: "Ошибка сохранения", message: "Заполните все необходимые поля\nНазвание\nДни", preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(actionOk)
+        self.present(alert, animated: true)
+    }
+    
+    func succsessfullSave() {
+        AlertKitAPI.present(
+            title: "Успешно сохранено",
+            icon: .done,
+            style: .iOS17AppleMusic
+        )
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
